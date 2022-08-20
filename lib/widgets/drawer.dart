@@ -87,15 +87,15 @@ class MaterialDrawer extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
             children: [
-              DrawerTile(
-                  icon: Icons.home,
-                  onTap: () {
-                    if (currentPage != "Home")
-                      Navigator.pushReplacementNamed(context, '/home');
-                  },
-                  iconColor: Colors.white,
-                  title: "Ana Sayfa",
-                  isSelected: currentPage == "Home" ? true : false),
+              // DrawerTile(
+              //     icon: Icons.home,
+              //     onTap: () {
+              //       if (currentPage != "Home")
+              //         Navigator.pushReplacementNamed(context, '/home');
+              //     },
+              //     iconColor: Colors.white,
+              //     title: "Ana Sayfa",
+              //     isSelected: currentPage == "Home" ? true : false),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 margin: EdgeInsets.all(3),

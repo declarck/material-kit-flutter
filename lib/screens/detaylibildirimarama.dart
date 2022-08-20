@@ -10,37 +10,31 @@ final Map<String, Map<String, String>> homeCards = {
   "Bildirimler": {
     "title": "BİLDİRİMLER\narasında arama yapabileceğinizi biliyor muydunuz?",
     "image": "https://i.im.ge/2022/08/18/OsLMWG.bildirimler2.jpg",
-    "price": "180"
   },
   "Raporlar": {
     "title":
         "RAPORLARINIZI\nExcel, Word, Pdf dosyasına aktarmak ister misiniz?",
     "image": "https://i.im.ge/2022/08/18/OsIny0.rapor3.jpg",
-    "price": "180"
   },
   "Baslamamis": {
     "title": "Takibi başlamamış bildirimler.",
     "image": "https://i.im.ge/2022/08/18/OsIemL.baslamamis3.jpg",
-    "price": "40"
   },
   "DevamEden": {
     "title": "Takibi devam eden bildirimler.",
     "image": "https://i.im.ge/2022/08/18/OsIGOc.devameden3.jpg",
-    "price": "40"
   },
   "Tamamlanan": {
     "title": "Takibi tamamlanan bildirimler.",
     "image": "https://i.im.ge/2022/08/18/OsI4HT.tamamlanan3.jpg",
-    "price": "40"
   },
   "GunlukBildirim": {
     "title": "28 adet bildirim bugün kaydedilmiştir.",
-    "image": "https://i.im.ge/2022/08/18/OsagsT.rapor.jpg",
-    "price": "40"
+    "image": null,
   },
 };
 
-class Home extends StatelessWidget {
+class DetayliBildirimArama extends StatelessWidget {
   // final GlobalKey _scaffoldKey = new GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -50,19 +44,19 @@ class Home extends StatelessWidget {
           // searchBar: true,
           // categoryOne: "Categories",
           // categoryTwo: "Best Deals",
-          title: "Doğançay Nakliyat Çağrı Merkezi",
+          title: "Detaylı Bildirim Arama",
           transparent: true,
         ),
         backgroundColor: MaterialColors.blueSoftDarkest,
         // key: _scaffoldKey,
-        drawer: MaterialDrawer(currentPage: "Home"),
+        drawer: MaterialDrawer(currentPage: "DetayliBildirimArama"),
         body: Container(
-          padding: EdgeInsets.only(left: 16.0, right: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
+                  padding: const EdgeInsets.all(0),
                   child: CardHorizontal(
                       cta: "Arama yapmak için tıklayınız.",
                       title: homeCards["Bildirimler"]['title'],
@@ -71,9 +65,9 @@ class Home extends StatelessWidget {
                         Navigator.pushReplacementNamed(context, '/pro');
                       }),
                 ),
-                SizedBox(height: 8.0),
+                SizedBox(height: 5),
                 Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
+                  padding: const EdgeInsets.all(0),
                   child: CardHorizontal(
                       cta: "Aktarma yapmak için tıklayınız.",
                       title: homeCards["Raporlar"]['title'],
@@ -82,7 +76,7 @@ class Home extends StatelessWidget {
                         Navigator.pushReplacementNamed(context, '/pro');
                       }),
                 ),
-                SizedBox(height: 8.0),
+                SizedBox(height: 5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -109,17 +103,17 @@ class Home extends StatelessWidget {
                         })
                   ],
                 ),
-                SizedBox(height: 8.0),
+                //SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 32.0),
+                  padding: const EdgeInsets.all(0),
                   child: CardRectangle(
                       cta: "View article",
                       title: homeCards["GunlukBildirim"]['title'],
                       img: homeCards["GunlukBildirim"]['image'],
                       tap: () {
-                        Navigator.pushReplacementNamed(context, '/pro');
+                        Navigator.pushNamed(context, '/datatable');
                       }),
-                )
+                ),
               ],
             ),
           ),

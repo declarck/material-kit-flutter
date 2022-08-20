@@ -1,6 +1,6 @@
 import 'dart:ui';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
 
 class Onboarding extends StatelessWidget {
@@ -29,17 +29,17 @@ class Onboarding extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 48.0),
                       child: Text.rich(TextSpan(
-                        text: "Material Kit",
-                        style: TextStyle(color: Colors.white, fontSize: 58),
+                        text: "CallCenterTR",
+                        style: TextStyle(color: Colors.white, fontSize: 50),
                       )),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 24.0),
-                      child: Text("Fully coded Flutter widgets and screens.",
+                      child: Text("© Bir AlbinaSoft Projesidir.",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
-                              fontWeight: FontWeight.w200)),
+                              fontWeight: FontWeight.w300)),
                     ),
                   ],
                 ),
@@ -59,7 +59,8 @@ class Onboarding extends StatelessWidget {
                       textColor: Colors.white,
                       color: MaterialColors.info,
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/home');
+                        Navigator.pushReplacementNamed(
+                            context, '/detaylibildirimarama');
                       },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4.0),
@@ -67,7 +68,7 @@ class Onboarding extends StatelessWidget {
                       child: Padding(
                           padding: EdgeInsets.only(
                               left: 16.0, right: 16.0, top: 12, bottom: 12),
-                          child: Text("GET STARTED",
+                          child: Text("GİRİŞ YAP",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16.0))),
