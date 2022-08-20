@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:material_kit_flutter/constants/Theme.dart';
 
 class DrawerTile extends StatelessWidget {
@@ -22,22 +21,32 @@ class DrawerTile extends StatelessWidget {
         onTap: onTap,
         child: Container(
             height: 45,
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            margin: EdgeInsets.only(bottom: 6),
+            //padding: EdgeInsets.only(left: 12),
+            margin: EdgeInsets.all(3),
             decoration: BoxDecoration(
-                color: isSelected ? MaterialColors.active : Colors.transparent,
-                borderRadius: BorderRadius.all(Radius.circular(4))),
+              color: isSelected
+                  ? MaterialColors.blueSoft
+                  : MaterialColors.blueSoftDarker,
+              borderRadius: BorderRadius.all(Radius.circular(6)),
+            ),
             child: Row(
+              //mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 24.0),
-                  child: Icon(icon,
-                      size: 20, color: isSelected ? Colors.white : iconColor),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Icon(
+                    icon,
+                    size: 22,
+                    color: isSelected ? Colors.white : Colors.white70,
+                    //color: Colors.white,
+                  ),
                 ),
                 Text(title,
                     style: TextStyle(
-                        fontSize: 15,
-                        color: isSelected ? Colors.white : Colors.black))
+                      fontSize: 15,
+                      color: isSelected ? Colors.white : Colors.white70,
+                      //color: Colors.white,
+                    ))
               ],
             )));
   }

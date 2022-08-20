@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 import 'package:material_kit_flutter/constants/Theme.dart';
-
 import 'package:material_kit_flutter/widgets/drawer-tile.dart';
 
 class MaterialDrawer extends StatelessWidget {
@@ -16,21 +15,20 @@ class MaterialDrawer extends StatelessWidget {
       child: Container(
           child: Column(children: [
         DrawerHeader(
-            decoration: BoxDecoration(color: MaterialColors.drawerHeader),
-            child: Container(
-                // padding: EdgeInsets.symmetric(horizontal: 28.0),
-                child: Column(
+            margin: EdgeInsets.all(0),
+            decoration: BoxDecoration(color: MaterialColors.blueSoftDark),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
                   backgroundImage: NetworkImage(
-                      "https://images.unsplash.com/photo-1512529920731-e8abaea917a5?fit=crop&w=840&q=80"),
+                      "https://giris.albinasoft.com//App_Themes/AnaTema/Resimler/AdminPage/GhostImage.png"),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0, top: 16.0),
-                  child: Text("Rachel Brown",
-                      style: TextStyle(color: Colors.white, fontSize: 21)),
+                  padding: const EdgeInsets.only(bottom: 8.0, top: 12.0),
+                  child: Text("Ahmet İstemihan Öztürk",
+                      style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
@@ -39,133 +37,461 @@ class MaterialDrawer extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 6),
+                            //padding: EdgeInsets.symmetric(horizontal: 6),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: MaterialColors.label),
-                            child: Text("Pro",
+                              borderRadius: BorderRadius.circular(4),
+                              //color: MaterialColors.label,
+                            ),
+                            child: Text("Doğançay Nakliyat",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 16))),
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ))),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: Text("Seller",
-                            style: TextStyle(
-                                color: MaterialColors.muted, fontSize: 16)),
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: Text("4.8",
-                                style: TextStyle(
-                                    color: MaterialColors.warning,
-                                    fontSize: 16)),
-                          ),
-                          Icon(Icons.star_border,
-                              color: MaterialColors.warning, size: 20)
-                        ],
-                      )
+                      // Padding(
+                      //   padding: const EdgeInsets.only(right: 8.0),
+                      //   child: Container(
+                      //       padding: EdgeInsets.symmetric(horizontal: 6),
+                      //       decoration: BoxDecoration(
+                      //         borderRadius: BorderRadius.circular(4),
+                      //         color: MaterialColors.label,
+                      //       ),
+                      //       child: Text("Satış Sorumlusu",
+                      //           style: TextStyle(
+                      //             color: Colors.white,
+                      //             fontSize: 12,
+                      //           ))),
+                      // ),
+                      //
+                      // Row(
+                      //   children: [
+                      //     Padding(
+                      //       padding: const EdgeInsets.only(right: 8.0),
+                      //       child: Text("4.8",
+                      //           style: TextStyle(
+                      //               color: MaterialColors.warning,
+                      //               fontSize: 16)),
+                      //     ),
+                      //     Icon(Icons.star_border,
+                      //         color: MaterialColors.warning, size: 20)
+                      //   ],
+                      // )
                     ],
                   ),
                 )
               ],
-            ))),
+            )),
         Expanded(
-            child: ListView(
-          padding: EdgeInsets.only(top: 8, left: 8, right: 8),
-          children: [
-            DrawerTile(
-                icon: Icons.home,
-                onTap: () {
-                  if (currentPage != "Home")
-                    Navigator.pushReplacementNamed(context, '/home');
-                },
-                iconColor: Colors.black,
-                title: "Home",
-                isSelected: currentPage == "Home" ? true : false),
-            DrawerTile(
-                icon: Icons.face,
-                onTap: () {
-                  if (currentPage != "Woman")
-                    Navigator.pushReplacementNamed(context, '/woman');
-                },
-                iconColor: Colors.black,
-                title: "Woman",
-                isSelected: currentPage == "Woman" ? true : false),
-            DrawerTile(
-                icon: Icons.tag_faces,
-                onTap: () {
-                  if (currentPage != "Man")
-                    Navigator.pushReplacementNamed(context, '/man');
-                },
-                iconColor: Colors.black,
-                title: "Man",
-                isSelected: currentPage == "Man" ? true : false),
-            DrawerTile(
-                icon: Icons.child_friendly,
-                onTap: () {
-                  if (currentPage != "Kids")
-                    Navigator.pushReplacementNamed(context, '/kids');
-                },
-                iconColor: Colors.black,
-                title: "Kids",
-                isSelected: currentPage == "Kids" ? true : false),
-            DrawerTile(
-                icon: Icons.grain,
-                onTap: () {
-                  if (currentPage != "New Collection")
-                    Navigator.pushReplacementNamed(context, '/newcollection');
-                },
-                iconColor: Colors.black,
-                title: "New Collection",
-                isSelected: currentPage == "New Collection" ? true : false),
-            DrawerTile(
-                icon: Icons.settings_input_component,
-                onTap: () {
-                  if (currentPage != "Components")
-                    Navigator.pushReplacementNamed(context, '/components');
-                },
-                iconColor: Colors.black,
-                title: "Components",
-                isSelected: currentPage == "Components" ? true : false),
-            DrawerTile(
-                icon: Icons.account_circle,
-                onTap: () {
-                  if (currentPage != "Profile")
-                    Navigator.pushReplacementNamed(context, '/profile');
-                },
-                iconColor: Colors.black,
-                title: "Profile",
-                isSelected: currentPage == "Profile" ? true : false),
-            DrawerTile(
-                icon: Icons.settings,
-                onTap: () {
-                  if (currentPage != "Settings")
-                    Navigator.pushReplacementNamed(context, '/settings');
-                },
-                iconColor: Colors.black,
-                title: "Settings",
-                isSelected: currentPage == "Settings" ? true : false),
-            DrawerTile(
-                icon: Icons.exit_to_app,
-                onTap: () {
-                  if (currentPage != "Sign In")
-                    Navigator.pushReplacementNamed(context, '/signin');
-                },
-                iconColor: Colors.black,
-                title: "Sign In",
-                isSelected: currentPage == "Sign In" ? true : false),
-            DrawerTile(
-                icon: Icons.open_in_browser,
-                onTap: () {
-                  if (currentPage != "Sign Up")
-                    Navigator.pushReplacementNamed(context, '/signup');
-                },
-                iconColor: Colors.black,
-                title: "Sign Up",
-                isSelected: currentPage == "Sign Up" ? true : false),
-          ],
+            child: Container(
+          color: MaterialColors.blueSoftDarkest,
+          child: ListView(
+            padding: EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 8),
+            children: [
+              DrawerTile(
+                  icon: Icons.home,
+                  onTap: () {
+                    if (currentPage != "Home")
+                      Navigator.pushReplacementNamed(context, '/home');
+                  },
+                  iconColor: Colors.white,
+                  title: "Ana Sayfa",
+                  isSelected: currentPage == "Home" ? true : false),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                margin: EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  color: currentPage == 'YeniBildirimGirisi'
+                      ? MaterialColors.blueSoftDark
+                      : currentPage == 'DetayliBildirimArama'
+                          ? MaterialColors.blueSoftDark
+                          : currentPage == 'DevamEdenSureclerim'
+                              ? MaterialColors.blueSoftDark
+                              : currentPage == 'DisAramaDinleme'
+                                  ? MaterialColors.blueSoftDark
+                                  : currentPage == 'GeriDonusRaporlama'
+                                      ? MaterialColors.blueSoftDark
+                                      : MaterialColors.blueSoftDarker,
+                ),
+                child: ExpansionTile(
+                  leading: Icon(
+                    Icons.compare_arrows,
+                    color: currentPage == 'YeniBildirimGirisi'
+                        ? Colors.white
+                        : currentPage == 'DetayliBildirimArama'
+                            ? Colors.white
+                            : currentPage == 'DevamEdenSureclerim'
+                                ? Colors.white
+                                : currentPage == 'DisAramaDinleme'
+                                    ? Colors.white
+                                    : currentPage == 'GeriDonusRaporlama'
+                                        ? Colors.white
+                                        : Colors.white70,
+                  ),
+                  title: Text('Bildirim İşlemleri',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: currentPage == 'YeniBildirimGirisi'
+                            ? Colors.white
+                            : currentPage == 'DetayliBildirimArama'
+                                ? Colors.white
+                                : currentPage == 'DevamEdenSureclerim'
+                                    ? Colors.white
+                                    : currentPage == 'DisAramaDinleme'
+                                        ? Colors.white
+                                        : currentPage == 'GeriDonusRaporlama'
+                                            ? Colors.white
+                                            : Colors.white70,
+                      )),
+                  trailing: Icon(null),
+                  children: [
+                    DrawerTile(
+                        //icon: Icons.edit,
+                        onTap: () {
+                          if (currentPage != "YeniBildirimGiris")
+                            Navigator.pushReplacementNamed(
+                                context, '/yenibildirimgirisi');
+                        },
+                        title: "Yeni Bildirim Giriş",
+                        isSelected:
+                            currentPage == "YeniBildirimGiris" ? true : false),
+                    DrawerTile(
+                        //icon: Icons.search,
+                        onTap: () {
+                          if (currentPage != "DetayliBildirimArama")
+                            Navigator.pushReplacementNamed(
+                                context, '/detaylibildirimarama');
+                        },
+                        title: "Detaylı Bildirim Arama",
+                        isSelected: currentPage == "DetayliBildirimArama"
+                            ? true
+                            : false),
+                    DrawerTile(
+                        //icon: Icons.double_arrow,
+                        onTap: () {
+                          if (currentPage != "DevamEdenSureclerim")
+                            Navigator.pushReplacementNamed(
+                                context, '/devamedensureclerim');
+                        },
+                        title: "Devam Eden Süreçlerim",
+                        isSelected: currentPage == "DevamEdenSureclerim"
+                            ? true
+                            : false),
+                    DrawerTile(
+                        //icon: Icons.call,
+                        onTap: () {
+                          if (currentPage != "DisAramaDinleme")
+                            Navigator.pushReplacementNamed(
+                                context, '/disaramadinleme');
+                        },
+                        title: "Dış Arama Dinleme",
+                        isSelected:
+                            currentPage == "DisAramaDinleme" ? true : false),
+                    DrawerTile(
+                        //icon: Icons.file_copy,
+                        onTap: () {
+                          if (currentPage != "GeriDonusRaporlama")
+                            Navigator.pushReplacementNamed(
+                                context, '/geridonusraporlama');
+                        },
+                        title: "Geri Dönüş Raporlama",
+                        isSelected:
+                            currentPage == "GeriDonusRaporlama" ? true : false),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                margin: EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  color: currentPage == 'SifremiGuncelle'
+                      ? MaterialColors.blueSoftDark
+                      : currentPage == 'ProfilResmimiGuncelle'
+                          ? MaterialColors.blueSoftDark
+                          : currentPage == 'YeniTanim'
+                              ? MaterialColors.blueSoftDark
+                              : currentPage == 'KurumTanimlamalari'
+                                  ? MaterialColors.blueSoftDark
+                                  : currentPage == 'KurumIciKategorizasyon'
+                                      ? MaterialColors.blueSoftDark
+                                      : currentPage == 'KullaniciEkle'
+                                          ? MaterialColors.blueSoftDark
+                                          : currentPage == 'KullaniciListesi'
+                                              ? MaterialColors.blueSoftDark
+                                              : MaterialColors.blueSoftDarker,
+                ),
+                child: ExpansionTile(
+                  leading: Icon(
+                    Icons.settings,
+                    color: currentPage == 'SifremiGuncelle'
+                        ? Colors.white
+                        : currentPage == 'ProfilResmimiGuncelle'
+                            ? Colors.white
+                            : currentPage == 'YeniTanim'
+                                ? Colors.white
+                                : currentPage == 'KurumTanimlamalari'
+                                    ? Colors.white
+                                    : currentPage == 'KurumIciKategorizasyon'
+                                        ? Colors.white
+                                        : currentPage == 'KullaniciEkle'
+                                            ? Colors.white
+                                            : currentPage == 'KullaniciListesi'
+                                                ? Colors.white
+                                                : Colors.white70,
+                  ),
+                  title: Text('Ayarlar',
+                      style: TextStyle(
+                        fontSize: 15,
+                        //color: Colors.white,
+                        color: currentPage == 'SifremiGuncelle'
+                            ? Colors.white
+                            : currentPage == 'ProfilResmimiGuncelle'
+                                ? Colors.white
+                                : currentPage == 'YeniTanim'
+                                    ? Colors.white
+                                    : currentPage == 'KurumTanimlamalari'
+                                        ? Colors.white
+                                        : currentPage ==
+                                                'KurumIciKategorizasyon'
+                                            ? Colors.white
+                                            : currentPage == 'KullaniciEkle'
+                                                ? Colors.white
+                                                : currentPage ==
+                                                        'KullaniciListesi'
+                                                    ? Colors.white
+                                                    : Colors.white70,
+                      )),
+                  trailing: Icon(
+                    null,
+                  ),
+                  children: [
+                    DrawerTile(
+                        //icon: Icons.settings,
+                        onTap: () {
+                          if (currentPage != "SifremiGuncelle")
+                            Navigator.pushReplacementNamed(
+                                context, '/sifremiguncelle');
+                        },
+                        title: "Şifremi Güncelle",
+                        isSelected:
+                            currentPage == "SifremiGuncelle" ? true : false),
+                    DrawerTile(
+                        //icon: Icons.settings,
+                        onTap: () {
+                          if (currentPage != "ProfilResmimiGuncelle")
+                            Navigator.pushReplacementNamed(
+                                context, '/profilresmimiguncelle');
+                        },
+                        title: "Profil Resmimi Güncelle",
+                        isSelected: currentPage == "ProfilResmimiGuncelle"
+                            ? true
+                            : false),
+                    DrawerTile(
+                        //icon: Icons.settings,
+                        onTap: () {
+                          if (currentPage != "YeniTanim")
+                            Navigator.pushReplacementNamed(
+                                context, '/yenitanim');
+                        },
+                        title: "Yeni Tanım",
+                        isSelected: currentPage == "YeniTanim" ? true : false),
+                    DrawerTile(
+                        //icon: Icons.settings,
+                        onTap: () {
+                          if (currentPage != "KurumTanimlamalari")
+                            Navigator.pushReplacementNamed(
+                                context, '/kurumtanimlamalari');
+                        },
+                        title: "Kurum Tanımlamaları",
+                        isSelected:
+                            currentPage == "KurumTanimlamalari" ? true : false),
+                    DrawerTile(
+                        //icon: Icons.settings,
+                        onTap: () {
+                          if (currentPage != "KurumIciKategorizasyon")
+                            Navigator.pushReplacementNamed(
+                                context, '/kurumicikategorizasyon');
+                        },
+                        title: "Kurum İçi Kategorizasyon",
+                        isSelected: currentPage == "KurumIciKategorizasyon"
+                            ? true
+                            : false),
+                    DrawerTile(
+                        //icon: Icons.settings,
+                        onTap: () {
+                          if (currentPage != "KullaniciEkle")
+                            Navigator.pushReplacementNamed(
+                                context, '/kullaniciekle');
+                        },
+                        title: "Kullanıcı Ekle",
+                        isSelected:
+                            currentPage == "KullaniciEkle" ? true : false),
+                    DrawerTile(
+                        //icon: Icons.settings,
+                        onTap: () {
+                          if (currentPage != "KullaniciListesi")
+                            Navigator.pushReplacementNamed(
+                                context, '/kullanicilistesi');
+                        },
+                        title: "Kullanıcı Listesi",
+                        isSelected:
+                            currentPage == "KullaniciListesi" ? true : false),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                margin: EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  color: currentPage == 'YeniDestekTalebi'
+                      ? MaterialColors.blueSoftDark
+                      : currentPage == 'DevamEdenOturumlar'
+                          ? MaterialColors.blueSoftDark
+                          : currentPage == 'OturumSorgulama'
+                              ? MaterialColors.blueSoftDark
+                              : MaterialColors.blueSoftDarker,
+                ),
+                child: ExpansionTile(
+                  leading: Icon(
+                    Icons.menu_book,
+                    color: currentPage == 'YeniDestekTalebi'
+                        ? Colors.white
+                        : currentPage == 'DevamEdenOturumlar'
+                            ? Colors.white
+                            : currentPage == 'OturumSorgulama'
+                                ? Colors.white
+                                : Colors.white70,
+                  ),
+                  title: Text('Talep / Şikayet',
+                      style: TextStyle(
+                        fontSize: 15,
+                        //color: Colors.white,
+                        color: currentPage == 'YeniDestekTalebi'
+                            ? Colors.white
+                            : currentPage == 'DevamEdenOturumlar'
+                                ? Colors.white
+                                : currentPage == 'OturumSorgulama'
+                                    ? Colors.white
+                                    : Colors.white70,
+                      )),
+                  trailing: Icon(
+                    null,
+                  ),
+                  children: [
+                    DrawerTile(
+                        //icon: Icons.menu_book,
+                        onTap: () {
+                          if (currentPage != "YeniDestekTalebi")
+                            Navigator.pushReplacementNamed(
+                                context, '/yenidestektalebi');
+                        },
+                        title: "Yeni Destek Talebi",
+                        isSelected:
+                            currentPage == "YeniDestekTalebi" ? true : false),
+                    DrawerTile(
+                        //icon: Icons.menu_book,
+                        onTap: () {
+                          if (currentPage != "DevamEdenOturumlar")
+                            Navigator.pushReplacementNamed(
+                                context, '/devamedenoturumlar');
+                        },
+                        title: "Devam Eden Oturumlar",
+                        isSelected:
+                            currentPage == "DevamEdenOturumlar" ? true : false),
+                    DrawerTile(
+                        //icon: Icons.menu_book,
+                        onTap: () {
+                          if (currentPage != "OturumSorgulama")
+                            Navigator.pushReplacementNamed(
+                                context, '/oturumsorgulama');
+                        },
+                        title: "Oturum Sorgulama",
+                        isSelected:
+                            currentPage == "OturumSorgulama" ? true : false),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                margin: EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  color: currentPage == 'Components'
+                      ? MaterialColors.blueSoftDark
+                      : currentPage == 'Profile'
+                          ? MaterialColors.blueSoftDark
+                          : currentPage == 'Settings'
+                              ? MaterialColors.blueSoftDark
+                              : MaterialColors.blueSoftDarker,
+                ),
+                child: ExpansionTile(
+                  leading: Icon(
+                    Icons.developer_board,
+                    color: currentPage == 'Components'
+                        ? Colors.white
+                        : currentPage == 'Profile'
+                            ? Colors.white
+                            : currentPage == 'Settings'
+                                ? Colors.white
+                                : Colors.white70,
+                  ),
+                  title: Text('Developer Tools',
+                      style: TextStyle(
+                        fontSize: 15,
+                        //color: Colors.white,
+                        color: currentPage == 'Components'
+                            ? Colors.white
+                            : currentPage == 'Profile'
+                                ? Colors.white
+                                : currentPage == 'Settings'
+                                    ? Colors.white
+                                    : Colors.white70,
+                      )),
+                  trailing: Icon(
+                    null,
+                  ),
+                  children: [
+                    DrawerTile(
+                        //icon: developer_board,
+                        onTap: () {
+                          if (currentPage != "Components")
+                            Navigator.pushReplacementNamed(
+                                context, '/components');
+                        },
+                        title: "Components",
+                        isSelected: currentPage == "Components" ? true : false),
+                    DrawerTile(
+                        //icon: developer_board,
+                        onTap: () {
+                          if (currentPage != "Profile")
+                            Navigator.pushReplacementNamed(context, '/profile');
+                        },
+                        title: "Profile",
+                        isSelected: currentPage == "Profile" ? true : false),
+                    DrawerTile(
+                        //icon: developer_board,
+                        onTap: () {
+                          if (currentPage != "Settings")
+                            Navigator.pushReplacementNamed(
+                                context, '/settings');
+                        },
+                        title: "Settings",
+                        isSelected: currentPage == "Settings" ? true : false),
+                  ],
+                ),
+              ),
+              DrawerTile(
+                  icon: Icons.exit_to_app,
+                  onTap: () {
+                    if (currentPage != "Cikis")
+                      Navigator.pushReplacementNamed(context, '/onboarding');
+                  },
+                  title: "Çıkış",
+                  isSelected: currentPage == "Cikis" ? true : false),
+            ],
+          ),
         ))
       ])),
     );

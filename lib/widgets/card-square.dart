@@ -26,9 +26,10 @@ class CardSquare extends StatelessWidget {
         child: GestureDetector(
             onTap: tap,
             child: Stack(
-              overflow: Overflow.clip,
+              clipBehavior: Clip.none,
               children: [
                 Card(
+                    color: MaterialColors.blueSoftDark,
                     elevation: 0.7,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8.0))),
@@ -48,11 +49,11 @@ class CardSquare extends StatelessWidget {
                                 children: [
                                   Text(title,
                                       style: TextStyle(
-                                          color: MaterialColors.caption,
-                                          fontSize: 13)),
+                                          color: Colors.white, fontSize: 13)),
                                   Text(cta,
                                       style: TextStyle(
-                                          color: MaterialColors.muted,
+                                          color:
+                                              MaterialColors.blueSoftLightest,
                                           fontSize: 11,
                                           fontWeight: FontWeight.w600))
                                 ],

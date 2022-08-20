@@ -25,4 +25,12 @@ class MaterialColors {
   static const Color socialFacebook = Color.fromRGBO(59, 89, 152, 1.0);
   static const Color socialTwitter = Color.fromRGBO(91, 192, 222, 1.0);
   static const Color socialDribbble = Color.fromRGBO(234, 76, 137, 1.0);
+
+  static const Color blueSoftLightest = Color.fromRGBO(94, 141, 238, 1.0);
+  static const Color blueSoftLighter = Color.fromRGBO(83, 125, 211, 1.0);
+  static const Color blueSoftLight = Color.fromRGBO(70, 105, 178, 1.0);
+  static const Color blueSoft = Color.fromRGBO(59, 89, 152, 1.0);
+  static const Color blueSoftDark = Color.fromRGBO(40, 60, 100, 1.0);
+  static const Color blueSoftDarker = Color.fromRGBO(24, 36, 61, 1.0);
+  static const Color blueSoftDarkest = Color.fromRGBO(14, 22, 37, 1.0);
 }

@@ -24,8 +24,9 @@ class CardHorizontal extends StatelessWidget {
         margin: EdgeInsets.only(top: 10),
         child: GestureDetector(
           onTap: tap,
-          child: Stack(overflow: Overflow.clip, children: [
+          child: Stack(clipBehavior: Clip.none, children: [
             Card(
+              color: MaterialColors.blueSoftDark,
               elevation: 0.7,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(6.0))),
@@ -42,11 +43,10 @@ class CardHorizontal extends StatelessWidget {
                           children: [
                             Text(title,
                                 style: TextStyle(
-                                    color: MaterialColors.caption,
-                                    fontSize: 13)),
+                                    color: Colors.white, fontSize: 13)),
                             Text(cta,
                                 style: TextStyle(
-                                    color: MaterialColors.muted,
+                                    color: MaterialColors.blueSoftLightest,
                                     fontSize: 11,
                                     fontWeight: FontWeight.w600))
                           ],

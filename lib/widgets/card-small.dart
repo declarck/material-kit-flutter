@@ -21,19 +21,20 @@ class CardSmall extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
         child: Container(
-      height: 235,
+      height: 150,
       margin: EdgeInsets.only(top: 10),
       child: GestureDetector(
           onTap: tap,
-          child: Stack(overflow: Overflow.clip, children: [
+          child: Stack(clipBehavior: Clip.none, children: [
             Card(
+                color: MaterialColors.blueSoftDark,
                 elevation: 0.7,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8.0))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Flexible(flex: 2, child: Container()),
+                    Flexible(child: Container()),
                     Flexible(
                         flex: 1,
                         child: Padding(
@@ -45,13 +46,12 @@ class CardSmall extends StatelessWidget {
                             children: [
                               Text(title,
                                   style: TextStyle(
-                                      color: MaterialColors.caption,
-                                      fontSize: 13)),
+                                      color: Colors.white, fontSize: 13)),
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: Text(cta,
                                     style: TextStyle(
-                                        color: MaterialColors.muted,
+                                        color: MaterialColors.blueSoftLightest,
                                         fontSize: 11,
                                         fontWeight: FontWeight.w600)),
                               )
@@ -65,8 +65,8 @@ class CardSmall extends StatelessWidget {
                 child: Align(
                     alignment: Alignment.topCenter,
                     child: Container(
-                        height: MediaQuery.of(context).size.height * 0.185,
-                        width: MediaQuery.of(context).size.width / 2.5,
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: MediaQuery.of(context).size.width / 3.5,
                         padding: EdgeInsets.all(16.0),
                         decoration: BoxDecoration(
                             boxShadow: [

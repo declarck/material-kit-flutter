@@ -1,45 +1,44 @@
 import 'package:flutter/material.dart';
-
 import 'package:material_kit_flutter/constants/Theme.dart';
-
+import 'package:material_kit_flutter/widgets/card-horizontal.dart';
+import 'package:material_kit_flutter/widgets/card-rectangle.dart';
+import 'package:material_kit_flutter/widgets/card-small.dart';
+import 'package:material_kit_flutter/widgets/drawer.dart';
 //widgets
 import 'package:material_kit_flutter/widgets/navbar.dart';
-import 'package:material_kit_flutter/widgets/card-horizontal.dart';
-import 'package:material_kit_flutter/widgets/card-small.dart';
-import 'package:material_kit_flutter/widgets/card-square.dart';
-import 'package:material_kit_flutter/widgets/drawer.dart';
 
 final Map<String, Map<String, String>> homeCards = {
-  "Ice Cream": {
-    "title": "Hardly Anything Takes More Coura...",
-    "image":
-        "https://images.unsplash.com/photo-1539314171919-908b0cd96f03?crop=entropy&w=840&h=840&fit=crop",
+  "Bildirimler": {
+    "title": "BİLDİRİMLER\narasında arama yapabileceğinizi biliyor muydunuz?",
+    "image": "https://i.im.ge/2022/08/18/OsLMWG.bildirimler2.jpg",
     "price": "180"
   },
-  "Makeup": {
-    "title": "Find the cheapest deals on our range...",
-    "image":
-        "https://images.unsplash.com/photo-1515709980177-7a7d628c09ba?crop=entropy&w=840&h=840&fit=crop",
-    "price": "220"
+  "Raporlar": {
+    "title":
+        "RAPORLARINIZI\nExcel, Word, Pdf dosyasına aktarmak ister misiniz?",
+    "image": "https://i.im.ge/2022/08/18/OsIny0.rapor3.jpg",
+    "price": "180"
   },
-  "Coffee": {
-    "title": "Looking for Men's watches?",
-    "image":
-        "https://images.unsplash.com/photo-1490367532201-b9bc1dc483f6?crop=entropy&w=840&h=840&fit=crop",
+  "Baslamamis": {
+    "title": "Takibi başlamamış bildirimler.",
+    "image": "https://i.im.ge/2022/08/18/OsIemL.baslamamis3.jpg",
     "price": "40"
   },
-  "Fashion": {
-    "title": "Curious Blossom Skin Care Kit.",
-    "image":
-        "https://images.unsplash.com/photo-1536303006682-2ee36ba49592?crop=entropy&w=840&h=840&fit=crop",
-    "price": "188"
+  "DevamEden": {
+    "title": "Takibi devam eden bildirimler.",
+    "image": "https://i.im.ge/2022/08/18/OsIGOc.devameden3.jpg",
+    "price": "40"
   },
-  "Argon": {
-    "title": "Adjust your watch to your outfit.",
-    "image":
-        "https://images.unsplash.com/photo-1491336477066-31156b5e4f35?crop=entropy&w=840&h=840&fit=crop",
-    "price": "180"
-  }
+  "Tamamlanan": {
+    "title": "Takibi tamamlanan bildirimler.",
+    "image": "https://i.im.ge/2022/08/18/OsI4HT.tamamlanan3.jpg",
+    "price": "40"
+  },
+  "GunlukBildirim": {
+    "title": "28 adet bildirim bugün kaydedilmiştir.",
+    "image": "https://i.im.ge/2022/08/18/OsagsT.rapor.jpg",
+    "price": "40"
+  },
 };
 
 class Home extends StatelessWidget {
@@ -48,12 +47,14 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: Navbar(
-          title: "Home",
-          searchBar: true,
-          categoryOne: "Categories",
-          categoryTwo: "Best Deals",
+          // title: "Home",
+          // searchBar: true,
+          // categoryOne: "Categories",
+          // categoryTwo: "Best Deals",
+          title: "Doğançay Nakliyat Çağrı Merkezi",
+          transparent: true,
         ),
-        backgroundColor: MaterialColors.bgColorScreen,
+        backgroundColor: MaterialColors.blueSoftDarkest,
         // key: _scaffoldKey,
         drawer: MaterialDrawer(currentPage: "Home"),
         body: Container(
@@ -64,9 +65,20 @@ class Home extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 16.0),
                   child: CardHorizontal(
-                      cta: "View article",
-                      title: homeCards["Ice Cream"]['title'],
-                      img: homeCards["Ice Cream"]['image'],
+                      cta: "Arama yapmak için tıklayınız.",
+                      title: homeCards["Bildirimler"]['title'],
+                      img: homeCards["Bildirimler"]['image'],
+                      tap: () {
+                        Navigator.pushReplacementNamed(context, '/pro');
+                      }),
+                ),
+                SizedBox(height: 8.0),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0),
+                  child: CardHorizontal(
+                      cta: "Aktarma yapmak için tıklayınız.",
+                      title: homeCards["Raporlar"]['title'],
+                      img: homeCards["Raporlar"]['image'],
                       tap: () {
                         Navigator.pushReplacementNamed(context, '/pro');
                       }),
@@ -76,36 +88,35 @@ class Home extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CardSmall(
-                        cta: "View article",
-                        title: homeCards["Makeup"]['title'],
-                        img: homeCards["Makeup"]['image'],
+                        cta: "Görüntüle",
+                        title: homeCards["Baslamamis"]['title'],
+                        img: homeCards["Baslamamis"]['image'],
                         tap: () {
                           Navigator.pushReplacementNamed(context, '/pro');
                         }),
                     CardSmall(
-                        cta: "View article",
-                        title: homeCards["Coffee"]['title'],
-                        img: homeCards["Coffee"]['image'],
+                        cta: "Görüntüle",
+                        title: homeCards["DevamEden"]['title'],
+                        img: homeCards["DevamEden"]['image'],
+                        tap: () {
+                          Navigator.pushReplacementNamed(context, '/pro');
+                        }),
+                    CardSmall(
+                        cta: "Görüntüle",
+                        title: homeCards["Tamamlanan"]['title'],
+                        img: homeCards["Tamamlanan"]['image'],
                         tap: () {
                           Navigator.pushReplacementNamed(context, '/pro');
                         })
                   ],
                 ),
                 SizedBox(height: 8.0),
-                CardHorizontal(
-                    cta: "View article",
-                    title: homeCards["Fashion"]['title'],
-                    img: homeCards["Fashion"]['image'],
-                    tap: () {
-                      Navigator.pushReplacementNamed(context, '/pro');
-                    }),
-                SizedBox(height: 8.0),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 32.0),
-                  child: CardSquare(
+                  child: CardRectangle(
                       cta: "View article",
-                      title: homeCards["Argon"]['title'],
-                      img: homeCards["Argon"]['image'],
+                      title: homeCards["GunlukBildirim"]['title'],
+                      img: homeCards["GunlukBildirim"]['image'],
                       tap: () {
                         Navigator.pushReplacementNamed(context, '/pro');
                       }),
