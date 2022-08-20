@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// screens
+// screenss
 import 'package:material_kit_flutter/screens/home.dart';
 import 'package:material_kit_flutter/screens/profile.dart';
 import 'package:material_kit_flutter/screens/settings.dart';
