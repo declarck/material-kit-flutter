@@ -4,7 +4,6 @@ import 'package:material_kit_flutter/widgets/card-horizontal.dart';
 import 'package:material_kit_flutter/widgets/card-rectangle.dart';
 import 'package:material_kit_flutter/widgets/card-small.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
-//widgets
 import 'package:material_kit_flutter/widgets/navbar.dart';
 
 final Map<String, Map<String, String>> homeCards = {
