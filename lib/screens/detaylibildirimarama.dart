@@ -9,24 +9,24 @@ import 'package:material_kit_flutter/widgets/navbar.dart';
 final Map<String, Map<String, String>> homeCards = {
   "Bildirimler": {
     "title": "BİLDİRİMLER\narasında arama yapabileceğinizi biliyor muydunuz?",
-    "image": "https://i.im.ge/2022/08/18/OsLMWG.bildirimler2.jpg",
+    "image": "https://i.im.ge/2022/08/20/OL2GFK.bildirimler.jpg",
   },
   "Raporlar": {
     "title":
         "RAPORLARINIZI\nExcel, Word, Pdf dosyasına aktarmak ister misiniz?",
-    "image": "https://i.im.ge/2022/08/18/OsIny0.rapor3.jpg",
+    "image": "https://i.im.ge/2022/08/20/OL24zF.rapor.jpg",
   },
   "Baslamamis": {
     "title": "Takibi başlamamış bildirimler.",
-    "image": "https://i.im.ge/2022/08/18/OsIemL.baslamamis3.jpg",
+    "image": "https://i.im.ge/2022/08/20/OL2Rkc.baslamamis.jpg",
   },
   "DevamEden": {
     "title": "Takibi devam eden bildirimler.",
-    "image": "https://i.im.ge/2022/08/18/OsIGOc.devameden3.jpg",
+    "image": "https://i.im.ge/2022/08/20/OL2gq0.devameden.jpg",
   },
   "Tamamlanan": {
     "title": "Takibi tamamlanan bildirimler.",
-    "image": "https://i.im.ge/2022/08/18/OsI4HT.tamamlanan3.jpg",
+    "image": "https://i.im.ge/2022/08/20/OL28tT.tamamlanan.jpg",
   },
   "GunlukBildirim": {
     "title": "28 adet bildirim bugün kaydedilmiştir.",
@@ -111,7 +111,7 @@ class DetayliBildirimArama extends StatelessWidget {
                       title: homeCards["GunlukBildirim"]['title'],
                       img: homeCards["GunlukBildirim"]['image'],
                       tap: () {
-                        Navigator.pushNamed(context, '/datatable');
+                        Navigator.pushNamed(context, '/datatablescreen');
                       }),
                 ),
               ],

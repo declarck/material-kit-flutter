@@ -1,4 +1,4 @@
-class User {
+class Data {
   final String cagriId;
   final String arayanTalep;
   final String yapilanIslem;
@@ -9,7 +9,7 @@ class User {
   final String kaynak;
   final String detay;
 
-  const User({
+  const Data({
     this.cagriId,
     this.arayanTalep,
     this.yapilanIslem,
@@ -21,7 +21,7 @@ class User {
     this.detay,
   });
 
-  User copy({
+  Data copy({
     String cagriId,
     String arayanTalep,
     String yapilanIslem,
@@ -32,7 +32,7 @@ class User {
     String kaynak,
     String detay,
   }) =>
-      User(
+      Data(
         cagriId: cagriId ?? this.cagriId,
         arayanTalep: arayanTalep ?? this.arayanTalep,
         yapilanIslem: yapilanIslem ?? this.yapilanIslem,
@@ -47,7 +47,7 @@ class User {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is User &&
+      other is Data &&
           runtimeType == other.runtimeType &&
           cagriId == other.cagriId &&
           arayanTalep == other.arayanTalep &&

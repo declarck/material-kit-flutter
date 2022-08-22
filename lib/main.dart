@@ -25,7 +25,8 @@ class MaterialKitPROFlutter extends StatelessWidget {
           "/components": (BuildContext context) => new Components(),
           "/profile": (BuildContext context) => new Profile(),
           "/settings": (BuildContext context) => new Settings(),
-          "/datatable": (BuildContext context) => new MainPage(),
+          "/datatablescreen": (BuildContext context) => new MainPage(),
+          //"/create-pdf": (BuildContext context) => new MyHomePage(),
         });
   }
 }
