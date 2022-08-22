@@ -30,7 +30,7 @@ final Map<String, Map<String, String>> homeCards = {
   },
   "GunlukBildirim": {
     "title": "25 adet bildirim bugün kaydedilmiştir.",
-    "image": null,
+    //"image": null,
   },
 };
 
