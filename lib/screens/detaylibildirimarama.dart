@@ -29,7 +29,7 @@ final Map<String, Map<String, String>> homeCards = {
     "image": "https://i.im.ge/2022/08/18/OsI4HT.tamamlanan3.jpg",
   },
   "GunlukBildirim": {
-    "title": "28 adet bildirim bugün kaydedilmiştir.",
+    "title": "15 adet bildirim bugün kaydedilmiştir.",
     "image": null,
   },
 };
