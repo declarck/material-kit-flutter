@@ -65,7 +65,7 @@ class CardSmall extends StatelessWidget {
                 child: Align(
                     alignment: Alignment.topCenter,
                     child: Container(
-                        height: MediaQuery.of(context).size.height * 0.1,
+                        height: MediaQuery.of(context).size.height * 0.09,
                         width: MediaQuery.of(context).size.width / 3.5,
                         padding: EdgeInsets.all(16.0),
                         decoration: BoxDecoration(

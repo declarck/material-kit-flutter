@@ -4,7 +4,6 @@ import 'package:material_kit_flutter/widgets/card-horizontal.dart';
 import 'package:material_kit_flutter/widgets/card-rectangle.dart';
 import 'package:material_kit_flutter/widgets/card-small.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
-import 'package:material_kit_flutter/widgets/navbar.dart';
 
 final Map<String, Map<String, String>> homeCards = {
   "Bildirimler": {
@@ -19,6 +18,7 @@ final Map<String, Map<String, String>> homeCards = {
   "Baslamamis": {
     "title": "Takibi başlamamış bildirimler.",
     "image": "https://i.im.ge/2022/08/20/OL2Rkc.baslamamis.jpg",
+    //"image": "material_kit_flutter/assets/img/baslamamis.jpg",
   },
   "DevamEden": {
     "title": "Takibi devam eden bildirimler.",
@@ -39,17 +39,13 @@ class DetayliBildirimArama extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: MaterialColors.blueSoftDarkest,
-        appBar: Navbar(
-          // title: "Home",
-          // searchBar: true,
-          // categoryOne: "Categories",
-          // categoryTwo: "Best Deals",
-          title: "Detaylı Bildirim Arama",
-          transparent: true,
+        appBar: AppBar(
+          title: Text('Detaylı Bildirim Arama'),
+          backgroundColor: MaterialColors.blueSoftDarker,
         ),
         drawer: MaterialDrawer(currentPage: "DetayliBildirimArama"),
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -60,7 +56,7 @@ class DetayliBildirimArama extends StatelessWidget {
                       title: homeCards["Bildirimler"]['title'],
                       img: homeCards["Bildirimler"]['image'],
                       tap: () {
-                        Navigator.pushReplacementNamed(context, '/pro');
+                        Navigator.pushReplacementNamed(context, '/onboarding');
                       }),
                 ),
                 SizedBox(height: 5),
@@ -71,7 +67,7 @@ class DetayliBildirimArama extends StatelessWidget {
                       title: homeCards["Raporlar"]['title'],
                       img: homeCards["Raporlar"]['image'],
                       tap: () {
-                        Navigator.pushReplacementNamed(context, '/pro');
+                        Navigator.pushReplacementNamed(context, '/onboarding');
                       }),
                 ),
                 SizedBox(height: 5),
@@ -83,21 +79,24 @@ class DetayliBildirimArama extends StatelessWidget {
                         title: homeCards["Baslamamis"]['title'],
                         img: homeCards["Baslamamis"]['image'],
                         tap: () {
-                          Navigator.pushReplacementNamed(context, '/pro');
+                          Navigator.pushReplacementNamed(
+                              context, '/onboarding');
                         }),
                     CardSmall(
                         cta: "Görüntüle",
                         title: homeCards["DevamEden"]['title'],
                         img: homeCards["DevamEden"]['image'],
                         tap: () {
-                          Navigator.pushReplacementNamed(context, '/pro');
+                          Navigator.pushReplacementNamed(
+                              context, '/onboarding');
                         }),
                     CardSmall(
                         cta: "Görüntüle",
                         title: homeCards["Tamamlanan"]['title'],
                         img: homeCards["Tamamlanan"]['image'],
                         tap: () {
-                          Navigator.pushReplacementNamed(context, '/pro');
+                          Navigator.pushReplacementNamed(
+                              context, '/onboarding');
                         })
                   ],
                 ),
