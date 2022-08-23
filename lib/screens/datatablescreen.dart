@@ -180,8 +180,13 @@ class _DataTableScreenState extends State<DataTableScreen> {
                   ],
                 ),
                 actions: [
-                  TextButton(
+                  OutlinedButton(
                     onPressed: () => Navigator.pop(context),
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6)),
+                      side: BorderSide(width: 2, color: Colors.deepOrange),
+                    ),
                     child: Text(
                       'Vazgeç',
                       style: TextStyle(
@@ -189,15 +194,20 @@ class _DataTableScreenState extends State<DataTableScreen> {
                       ),
                     ),
                   ),
-                  TextButton(
+                  OutlinedButton(
                     onPressed: () => Navigator.pop(context),
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6)),
+                      side: BorderSide(width: 2, color: Colors.lightGreen),
+                    ),
                     child: Text(
                       'Raporla',
                       style: TextStyle(
                         color: Colors.white70,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             );
