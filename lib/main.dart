@@ -7,6 +7,7 @@ import 'package:material_kit_flutter/screens/onboarding.dart';
 import 'package:material_kit_flutter/screens/pro.dart';
 import 'package:material_kit_flutter/screens/profile.dart';
 import 'package:material_kit_flutter/screens/settings.dart';
+import 'package:material_kit_flutter/screens/yenibildirimgirisi.dart';
 
 void main() => runApp(MaterialKitPROFlutter());
 
@@ -20,13 +21,14 @@ class MaterialKitPROFlutter extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           "/onboarding": (BuildContext context) => new Onboarding(),
           "/pro": (BuildContext context) => new Pro(),
+          "/yenibildirimgirisi": (BuildContext context) =>
+              new YeniBildirimGirisi(),
           "/detaylibildirimarama": (BuildContext context) =>
               new DetayliBildirimArama(),
           "/components": (BuildContext context) => new Components(),
           "/profile": (BuildContext context) => new Profile(),
           "/settings": (BuildContext context) => new Settings(),
-          "/datatablescreen": (BuildContext context) => new MainPage(),
-          //"/create-pdf": (BuildContext context) => new MyHomePage(),
+          "/datatablescreen": (BuildContext context) => new DataTableScreen(),
         });
   }
 }

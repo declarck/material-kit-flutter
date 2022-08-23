@@ -148,12 +148,12 @@ class MaterialDrawer extends StatelessWidget {
                       DrawerTile(
                           //icon: Icons.edit,
                           onTap: () {
-                            if (currentPage != "YeniBildirimGiris")
+                            if (currentPage != "YeniBildirimGirisi")
                               Navigator.pushReplacementNamed(
                                   context, '/yenibildirimgirisi');
                           },
                           title: "Yeni Bildirim Giriş",
-                          isSelected: currentPage == "YeniBildirimGiris"
+                          isSelected: currentPage == "YeniBildirimGirisi"
                               ? true
                               : false),
                       DrawerTile(

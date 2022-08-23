@@ -7,55 +7,17 @@ import '../constants/Theme.dart';
 import '../tools/create-pdf.dart';
 import '../widgets/datatable.dart';
 
-// class MainPage extends StatefulWidget {
-//   @override
-//   _MainPageState createState() => _MainPageState();
-// }
-//
-// class _MainPageState extends State<MainPage> {
-//   @override
-//   Widget build(BuildContext context) => TabBarWidget(
-//         title: 'Tablo',
-//         tabs: [
-//           Tab(icon: Icon(Icons.sort_by_alpha), text: 'Sortable'),
-//           // Tab(icon: Icon(Icons.select_all), text: 'Selectable'),
-//           // Tab(icon: Icon(Icons.edit), text: 'Editable'),
-//         ],
-//         children: [
-//           SortablePage(),
-//           // Container(),
-//           // Container(),
-//         ],
-//       );
-// }
-
-class MainPage extends StatefulWidget {
+class DataTableScreen extends StatefulWidget {
   @override
-  _MainPageState createState() => _MainPageState();
+  _DataTableScreenState createState() => _DataTableScreenState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _DataTableScreenState extends State<DataTableScreen> {
   List<Data> datas;
   int sortColumnIndex;
   bool isAscending = false;
-
-  String dropdownValueA = 'Rakamsal Çağrı Dağılım Raporu - Görsel';
-  var dropdownItemsA = [
-    'Rakamsal Çağrı Dağılım Raporu - Görsel',
-    'Rakamsal Çağrı Dağılım Raporu - Sıralı',
-    'Rakamsal Çağrı Dağılım Raporu - Büyük Veri',
-    'Çağrı Detaylı Liste Raporu',
-    'İstatistik',
-    'Kurum Yapısı Bazlı İstatistik Raporu',
-    'Takip Süreci İzleme Raporu',
-    'Kurum İçi Kategorizasyon Raporu',
-  ];
-  String dropdownValueB = 'PDF';
-  var dropdownItemsB = [
-    'PDF',
-    'Word',
-    'Excel',
-  ];
+  String _chosenValueA = 'Rakamsal Çağrı Dağılım Raporu - Görsel';
+  String _chosenValueB = 'PDF';
 
   @override
   void initState() {
@@ -98,12 +60,12 @@ class _MainPageState extends State<MainPage> {
             showDialog(
               barrierDismissible: false,
               context: context,
-              builder: (contedxt) => AlertDialog(
+              builder: (context) => AlertDialog(
                 elevation: 25,
                 backgroundColor: MaterialColors.blueSoft,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
-                scrollable: true,
+                //scrollable: true,
                 title: Text(
                   'Dışa Aktar',
                   style: TextStyle(color: Colors.white70),
@@ -123,37 +85,46 @@ class _MainPageState extends State<MainPage> {
                     ),
                     Row(
                       children: [
-                        DropdownButton(
-                          dropdownColor: MaterialColors.blueSoftDarker,
-                          // Initial Value
-                          value: dropdownValueA,
-
-                          // Down Arrow Icon
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          iconEnabledColor: Colors.white70,
-                          iconDisabledColor: Colors.white70,
-
-                          // Array list of items
-                          items: dropdownItemsA.map((String items) {
-                            return DropdownMenuItem(
-                              value: items,
-                              child: Text(
-                                items,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white70,
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                          // After selecting the desired option,it will
-                          // change button value to selected value
-                          onChanged: (String newValue) {
-                            setState(() {
-                              dropdownValueA = newValue;
-                            });
-                          },
-                        ),
+                        StatefulBuilder(builder:
+                            (BuildContext context, StateSetter dropDownState) {
+                          return Expanded(
+                            child: DropdownButton<String>(
+                              isExpanded: true,
+                              dropdownColor: MaterialColors.blueSoftDarker,
+                              icon: const Icon(Icons.keyboard_arrow_down),
+                              iconEnabledColor: Colors.white70,
+                              iconDisabledColor: Colors.white70,
+                              value: _chosenValueA,
+                              underline: Container(),
+                              items: <String>[
+                                'Rakamsal Çağrı Dağılım Raporu - Görsel',
+                                'Rakamsal Çağrı Dağılım Raporu - Sıralı',
+                                'Rakamsal Çağrı Dağılım Raporu - Büyük Veri',
+                                'Çağrı Detaylı Liste Raporu',
+                                'İstatistik',
+                                'Kurum Yapısı Bazlı İstatistik Raporu',
+                                'Takip Süreci İzleme Raporu',
+                                'Kurum İçi Kategorizasyon Raporu'
+                              ].map((String value) {
+                                return new DropdownMenuItem<String>(
+                                  value: value,
+                                  child: new Text(
+                                    value,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white70,
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: (String value) {
+                                dropDownState(() {
+                                  _chosenValueA = value;
+                                });
+                              },
+                            ),
+                          );
+                        }),
                       ],
                     ),
                     SizedBox(
@@ -172,37 +143,38 @@ class _MainPageState extends State<MainPage> {
                     ),
                     Row(
                       children: [
-                        DropdownButton(
-                          dropdownColor: MaterialColors.blueSoftDarker,
-                          // Initial Value
-                          value: dropdownValueB,
-
-                          // Down Arrow Icon
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          iconEnabledColor: Colors.white70,
-                          iconDisabledColor: Colors.white70,
-
-                          // Array list of items
-                          items: dropdownItemsB.map((String items) {
-                            return DropdownMenuItem(
-                              value: items,
-                              child: Text(
-                                items,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white70,
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                          // After selecting the desired option,it will
-                          // change button value to selected value
-                          onChanged: (String newValue) {
-                            setState(() {
-                              dropdownValueB = newValue;
-                            });
-                          },
-                        ),
+                        StatefulBuilder(builder:
+                            (BuildContext context, StateSetter dropDownState) {
+                          return Expanded(
+                            child: DropdownButton<String>(
+                              isExpanded: true,
+                              dropdownColor: MaterialColors.blueSoftDarker,
+                              icon: const Icon(Icons.keyboard_arrow_down),
+                              iconEnabledColor: Colors.white70,
+                              iconDisabledColor: Colors.white70,
+                              value: _chosenValueB,
+                              underline: Container(),
+                              items: <String>['PDF', 'Word', 'Excel']
+                                  .map((String value) {
+                                return new DropdownMenuItem<String>(
+                                  value: value,
+                                  child: new Text(
+                                    value,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white70,
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: (String value) {
+                                dropDownState(() {
+                                  _chosenValueB = value;
+                                });
+                              },
+                            ),
+                          );
+                        }),
                       ],
                     ),
                   ],

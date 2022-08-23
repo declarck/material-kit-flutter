@@ -35,10 +35,10 @@ final Map<String, Map<String, String>> homeCards = {
 };
 
 class DetayliBildirimArama extends StatelessWidget {
-  // final GlobalKey _scaffoldKey = new GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: MaterialColors.blueSoftDarkest,
         appBar: Navbar(
           // title: "Home",
           // searchBar: true,
@@ -47,8 +47,6 @@ class DetayliBildirimArama extends StatelessWidget {
           title: "Detaylı Bildirim Arama",
           transparent: true,
         ),
-        backgroundColor: MaterialColors.blueSoftDarkest,
-        // key: _scaffoldKey,
         drawer: MaterialDrawer(currentPage: "DetayliBildirimArama"),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 15),
