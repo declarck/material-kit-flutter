@@ -14,7 +14,6 @@ final Map<String, Map<String, String>> homeCards = {
   "Baslamamis": {
     "title": "Takibi başlamamış bildirimler.",
     "image": "https://i.im.ge/2022/08/20/OL2Rkc.baslamamis.jpg",
-    //"image": "material_kit_flutter/assets/img/baslamamis.jpg",
   },
   "DevamEden": {
     "title": "Takibi devam eden bildirimler.",
