@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_kit_flutter/screens/aramaraporlama.dart';
 import 'package:material_kit_flutter/screens/components.dart';
 import 'package:material_kit_flutter/screens/datatablescreen.dart';
 // screens
@@ -9,13 +10,13 @@ import 'package:material_kit_flutter/screens/profile.dart';
 import 'package:material_kit_flutter/screens/settings.dart';
 import 'package:material_kit_flutter/screens/yenibildirimgirisi.dart';
 
-void main() => runApp(MaterialKitPROFlutter());
+void main() => runApp(CallCenterTR());
 
-class MaterialKitPROFlutter extends StatelessWidget {
+class CallCenterTR extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "Material Kit PRO Flutter",
+        title: "Call Center TR",
         debugShowCheckedModeBanner: false,
         initialRoute: "/onboarding",
         routes: <String, WidgetBuilder>{
@@ -25,10 +26,13 @@ class MaterialKitPROFlutter extends StatelessWidget {
               new YeniBildirimGirisi(),
           "/detaylibildirimarama": (BuildContext context) =>
               new DetayliBildirimArama(),
+
           "/components": (BuildContext context) => new Components(),
           "/profile": (BuildContext context) => new Profile(),
           "/settings": (BuildContext context) => new Settings(),
+
           "/datatablescreen": (BuildContext context) => new DataTableScreen(),
+          "/aramaraporlama": (BuildContext context) => new AramaRaporlama(),
         });
   }
 }

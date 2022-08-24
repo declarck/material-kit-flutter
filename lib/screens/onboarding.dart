@@ -57,7 +57,7 @@ class Onboarding extends StatelessWidget {
                     width: double.infinity,
                     child: FlatButton(
                       textColor: Colors.white,
-                      color: MaterialColors.info,
+                      color: MaterialColors.blueSoftLighter,
                       onPressed: () {
                         Navigator.pushReplacementNamed(
                             context, '/detaylibildirimarama');

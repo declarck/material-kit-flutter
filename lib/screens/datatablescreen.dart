@@ -27,9 +27,9 @@ class _DataTableScreenState extends State<DataTableScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        backgroundColor: MaterialColors.blueSoftDarker,
+        backgroundColor: MaterialColors.blueSoftDarkest,
         appBar: AppBar(
-          backgroundColor: MaterialColors.blueSoft,
+          backgroundColor: MaterialColors.blueSoftDarker,
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
@@ -62,9 +62,9 @@ class _DataTableScreenState extends State<DataTableScreen> {
               context: context,
               builder: (context) => AlertDialog(
                 elevation: 25,
-                backgroundColor: MaterialColors.blueSoft,
+                backgroundColor: MaterialColors.blueSoftDarker,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.circular(10)),
                 //scrollable: true,
                 title: Text(
                   'Dışa Aktar',
@@ -76,7 +76,7 @@ class _DataTableScreenState extends State<DataTableScreen> {
                     Row(
                       children: [
                         Text(
-                          'Rapor Tipi:',
+                          'Rapor Tipi',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white70),
@@ -133,7 +133,7 @@ class _DataTableScreenState extends State<DataTableScreen> {
                     Row(
                       children: [
                         Text(
-                          'Dosya Tipi:',
+                          'Dosya Tipi',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white70,

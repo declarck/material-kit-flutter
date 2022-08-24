@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:material_kit_flutter/widgets/drawer.dart';
-
 
 final Map<String, Map<String, String>> homeCards = {
   "Bildirimler": {
@@ -10,7 +8,7 @@ final Map<String, Map<String, String>> homeCards = {
   },
   "Raporlar": {
     "title":
-    "RAPORLARINIZI\nExcel, Word, Pdf dosyasına aktarmak ister misiniz?",
+        "RAPORLARINIZI\nExcel, Word, Pdf dosyasına aktarmak ister misiniz?",
     "image": "https://i.im.ge/2022/08/20/OL24zF.rapor.jpg",
   },
   "Baslamamis": {
@@ -32,30 +30,30 @@ final Map<String, Map<String, String>> homeCards = {
   },
 };
 
-class YeniBildirimGirisi extends StatelessWidget {
-  String _bildirimKanali = '[Seçiniz]';
+class AramaRaporlama extends StatelessWidget {
   String _agacYapisi = '[Seçiniz]';
   String _il = '[Seçiniz]';
   String _yapi = '[Seçiniz]';
+  String _surecDurumu = '[Seçiniz]';
+  String _geriDonus = '[Seçiniz]';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: MaterialColors.blueSoftDarkest,
         appBar: AppBar(
-          title: Text('Yeni Bildirim Girişi'),
+          title: Text('Arama ve Raporlama'),
           backgroundColor: MaterialColors.blueSoftDarker,
         ),
-        drawer: MaterialDrawer(currentPage: "YeniBildirimGirisi"),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                //Bildirim Kanalı
+                //Çağrı ID
                 Row(
                   children: [
                     Text(
-                      'Bildirim Kanalı',
+                      'Çağrı ID',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white70),
@@ -67,32 +65,14 @@ class YeniBildirimGirisi extends StatelessWidget {
                     StatefulBuilder(builder:
                         (BuildContext context, StateSetter dropDownState) {
                       return Expanded(
-                        child: DropdownButton<String>(
-                          isExpanded: true,
-                          dropdownColor: MaterialColors.blueSoftDarker,
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          iconEnabledColor: Colors.white70,
-                          iconDisabledColor: Colors.white70,
-                          value: _bildirimKanali,
-                          underline: Container(),
-                          items: <String>['[Seçiniz]','Seçenek 1', 'Seçenek 2', 'Seçenek 3']
-                              .map((String value) {
-                            return new DropdownMenuItem<String>(
-                              value: value,
-                              child: new Text(
-                                value,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white70,
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String value) {
-                            dropDownState(() {
-                              _bildirimKanali = value;
-                            });
-                          },
+                        child: TextField(
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+                          style: TextStyle(color: Colors.white70),
+                          decoration: InputDecoration(
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: MaterialColors.blueSoft,
+                                  ))),
                         ),
                       );
                     }),
@@ -101,11 +81,11 @@ class YeniBildirimGirisi extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                //Bildirim
+                //Tarih Aralığı
                 Row(
                   children: [
                     Text(
-                      'Bildirim',
+                      'Tarih Aralığı',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white70,
@@ -123,9 +103,9 @@ class YeniBildirimGirisi extends StatelessWidget {
                           maxLines: null,
                           style: TextStyle(color: Colors.white70),
                           decoration: InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: MaterialColors.blueSoft,
-                          ))),
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: MaterialColors.blueSoft,
+                                  ))),
                         ),
                       );
                     }),
@@ -134,62 +114,11 @@ class YeniBildirimGirisi extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                //Kurum Ağaç Yapısı
+                //Anahtar Kelime
                 Row(
                   children: [
                     Text(
-                      'Kurum Ağaç Yapısı',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white70,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    StatefulBuilder(builder:
-                        (BuildContext context, StateSetter dropDownState) {
-                      return Expanded(
-                        child: DropdownButton<String>(
-                          isExpanded: true,
-                          dropdownColor: MaterialColors.blueSoftDarker,
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          iconEnabledColor: Colors.white70,
-                          iconDisabledColor: Colors.white70,
-                          value: _agacYapisi,
-                          underline: Container(),
-                          items: <String>['[Seçiniz]','Seçenek 1', 'Seçenek 2', 'Seçenek 3']
-                              .map((String value) {
-                            return new DropdownMenuItem<String>(
-                              value: value,
-                              child: new Text(
-                                value,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white70,
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String value) {
-                            dropDownState(() {
-                              _agacYapisi = value;
-                            });
-                          },
-                        ),
-                      );
-                    }),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                //İlgili Kişi Adı Soyadı
-                Row(
-                  children: [
-                    Text(
-                      'İlgili Kişi Adı Soyadı',
+                      'Anahtar Kelime',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white70,
@@ -251,11 +180,62 @@ class YeniBildirimGirisi extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                //İlgili Kişi Telefon
+                //Ağaç Yapısı
                 Row(
                   children: [
                     Text(
-                      'İlgili Kişi Telefon',
+                      'Ağaç Yapısı',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    StatefulBuilder(builder:
+                        (BuildContext context, StateSetter dropDownState) {
+                      return Expanded(
+                        child: DropdownButton<String>(
+                          isExpanded: true,
+                          dropdownColor: MaterialColors.blueSoftDarker,
+                          icon: const Icon(Icons.keyboard_arrow_down),
+                          iconEnabledColor: Colors.white70,
+                          iconDisabledColor: Colors.white70,
+                          value: _agacYapisi,
+                          underline: Container(),
+                          items: <String>['[Seçiniz]','Seçenek 1', 'Seçenek 2', 'Seçenek 3']
+                              .map((String value) {
+                            return new DropdownMenuItem<String>(
+                              value: value,
+                              child: new Text(
+                                value,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String value) {
+                            dropDownState(() {
+                              _agacYapisi = value;
+                            });
+                          },
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                //Arayan Adı Soyadı
+                Row(
+                  children: [
+                    Text(
+                      'Arayan Adı Soyadı',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white70,
@@ -284,11 +264,11 @@ class YeniBildirimGirisi extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                //İlgili Kişi E-Posta
+                //Arayan Telefon
                 Row(
                   children: [
                     Text(
-                      'İlgili Kişi E-Posta',
+                      'Arayan Kişi Telefon',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white70,
@@ -428,12 +408,158 @@ class YeniBildirimGirisi extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
+                //Süreç Durumu
+                Row(
+                  children: [
+                    Text(
+                      'Süreç Durumu',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    StatefulBuilder(builder:
+                        (BuildContext context, StateSetter dropDownState) {
+                      return Expanded(
+                        child: DropdownButton<String>(
+                          isExpanded: true,
+                          dropdownColor: MaterialColors.blueSoftDarker,
+                          icon: const Icon(Icons.keyboard_arrow_down),
+                          iconEnabledColor: Colors.white70,
+                          iconDisabledColor: Colors.white70,
+                          value: _surecDurumu,
+                          underline: Container(),
+                          items: <String>[
+                            '[Seçiniz]',
+                            'Yeni',
+                            'Takip Süreci Devam Ediyor',
+                            'Takip Süreci Tamamlandı',
+                            'Takip Süreci Operatör Tarafından Sonlandırıldı'
+                          ]
+                              .map((String value) {
+                            return new DropdownMenuItem<String>(
+                              value: value,
+                              child: new Text(
+                                value,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String value) {
+                            dropDownState(() {
+                              _surecDurumu = value;
+                            });
+                          },
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                //Geri Dönüş?
+                Row(
+                  children: [
+                    Text(
+                      'Arayan Geri Dönüş Bekliyor mu?',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    StatefulBuilder(builder:
+                        (BuildContext context, StateSetter dropDownState) {
+                      return Expanded(
+                        child: DropdownButton<String>(
+                          isExpanded: true,
+                          dropdownColor: MaterialColors.blueSoftDarker,
+                          icon: const Icon(Icons.keyboard_arrow_down),
+                          iconEnabledColor: Colors.white70,
+                          iconDisabledColor: Colors.white70,
+                          value: _geriDonus,
+                          underline: Container(),
+                          items: <String>[
+                            '[Seçiniz]',
+                            'İlgili Kişi Geri Dönüş Beklemiyor',
+                            'İlgili Kişi Geri Dönüş Bekliyor',
+                            'İlgili Kişi Geri Dönüş Bekliyordu - Geri Dönüş Sağlandı'
+                          ]
+                              .map((String value) {
+                            return new DropdownMenuItem<String>(
+                              value: value,
+                              child: new Text(
+                                value,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String value) {
+                            dropDownState(() {
+                              _geriDonus = value;
+                            });
+                          },
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                //Takip Tamamlama Tarih Aralığı
+                Row(
+                  children: [
+                    Text(
+                      'Takip Tamamlama Tarih Aralığı',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    StatefulBuilder(builder:
+                        (BuildContext context, StateSetter dropDownState) {
+                      return Expanded(
+                        child: TextField(
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+                          style: TextStyle(color: Colors.white70),
+                          decoration: InputDecoration(
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: MaterialColors.blueSoft,
+                                  ))),
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 //Butonlar
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     OutlinedButton(
-                      onPressed: () => Navigator.pushReplacementNamed(context, '/detaylibildirimarama'),
+                      onPressed: () => Navigator.pushNamed(context, '/detaylibildirimarama'),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6)),
@@ -450,14 +576,14 @@ class YeniBildirimGirisi extends StatelessWidget {
                       width: 10,
                     ),
                     OutlinedButton(
-                      onPressed: () => Navigator.pushReplacementNamed(context, '/detaylibildirimarama'),
+                      onPressed: () => Navigator.pushNamed(context, '/datatablescreen'),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6)),
                         side: BorderSide(width: 2, color: Colors.lightGreen),
                       ),
                       child: Text(
-                        'Ekle',
+                        'Arama Yap',
                         style: TextStyle(
                           color: Colors.white70,
                         ),

@@ -56,7 +56,7 @@ class DetayliBildirimArama extends StatelessWidget {
                       title: homeCards["Bildirimler"]['title'],
                       img: homeCards["Bildirimler"]['image'],
                       tap: () {
-                        Navigator.pushReplacementNamed(context, '/onboarding');
+                        Navigator.pushNamed(context, '/aramaraporlama');
                       }),
                 ),
                 SizedBox(height: 5),
@@ -67,7 +67,7 @@ class DetayliBildirimArama extends StatelessWidget {
                       title: homeCards["Raporlar"]['title'],
                       img: homeCards["Raporlar"]['image'],
                       tap: () {
-                        Navigator.pushReplacementNamed(context, '/onboarding');
+                        Navigator.pushNamed(context, '/aramaraporlama');
                       }),
                 ),
                 SizedBox(height: 5),
