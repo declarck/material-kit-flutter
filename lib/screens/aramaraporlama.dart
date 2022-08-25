@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:intl/intl.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
+
+
 
 class AramaRaporlama extends StatefulWidget {
   @override
@@ -9,31 +10,29 @@ class AramaRaporlama extends StatefulWidget {
 }
 
 class _AramaRaporlamaState extends State<AramaRaporlama> {
-  String _agacYapisi = '[Seçiniz]';
+  //String _agacYapisi = '[Seçiniz]';
   String _il = '[Seçiniz]';
   String _yapi = '[Seçiniz]';
   String _surecDurumu = '[Seçiniz]';
   String _geriDonus = '[Seçiniz]';
-  //DateTime _tarihAraligi = DateTime.now();
-  // String _range = '';
-  // void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
-  //   setState(() {
-  //     _range = '${DateFormat('dd/MM/yyyy').format(args.value.startDate)} -'
-  //     // ignore: lines_longer_than_80_chars
-  //         ' ${DateFormat('dd/MM/yyyy').format(
-  //         args.value.endDate ?? args.value.startDate)}';
-  //   });
-  // }
   DateTimeRange dateRange = DateTimeRange(
       start: DateTime.now(),
       end: DateTime.now(),
       );
+  DateTimeRange dateRangeFinished = DateTimeRange(
+    start: DateTime.now(),
+    end: DateTime.now(),
+  );
 
   @override
   Widget build(BuildContext context) {
     final start = dateRange.start;
     final end = dateRange.end;
     final difference = dateRange.duration;
+    final startFinished = dateRangeFinished.start;
+    final endFinished = dateRangeFinished.end;
+    final differenceFinished = dateRangeFinished.duration;
+
     return Scaffold(
         backgroundColor: MaterialColors.blueSoftDarkest,
         appBar: AppBar(
@@ -89,54 +88,6 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                   height: 10,
                 ),
                 //Tarih Aralığı
-                // GestureDetector(
-                //   onTap: (){
-                //     var initialDate = DateTime.now();
-                //     showDatePicker(context: context,
-                //       initialDate: initialDate,
-                //       firstDate: DateTime(2000),
-                //       lastDate: initialDate,
-                //     );
-                //   },
-                //   child: Container(
-                //     padding: EdgeInsets.all(10),
-                //     decoration: BoxDecoration(
-                //         borderRadius: BorderRadius.circular(4),
-                //         color: MaterialColors.blueSoftDarker),
-                //     child: Column(
-                //       children: [
-                //         Row(
-                //           children: [
-                //             Text(
-                //               'Tarih Aralığı',
-                //               style: TextStyle(
-                //                 fontWeight: FontWeight.bold,
-                //                 color: Colors.white70,
-                //               ),
-                //             ),
-                //           ],
-                //         ),
-                //         Row(
-                //           children: [
-                //             StatefulBuilder(builder:
-                //                 (BuildContext context, StateSetter dropDownState) {
-                //               return Padding(
-                //                 padding: EdgeInsets.only(top:20),
-                //                 child: Text(
-                //                   DateFormat('d MMMM yyy, EEEE').format(_tarihAraligi),
-                //                   style: TextStyle(
-                //                     //fontWeight: FontWeight.bold,
-                //                     color: Colors.white70,
-                //                   ),
-                //                 ),
-                //               );
-                //             }),
-                //           ],
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
                 Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
@@ -157,59 +108,35 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Expanded(child: ElevatedButton(
-                            child: Text('${start.day}/${start.month}/${start.year}'),
+                            style: ElevatedButton.styleFrom(
+                              primary: MaterialColors.blueSoft
+                            ),
+                            child: Text(
+                              '${start.day}/${start.month}/${start.year}',
+                              style: TextStyle(color: Colors.white70)
+                            ),
                             onPressed: pickDateRange,
                           ),
                           ),
-                          SizedBox(width: 12),
+                         Text(' - ',
+                         style: TextStyle(
+                             color: MaterialColors.blueSoftLight,
+                             fontSize: 40
+                         )
+                         ),
                           Expanded(child: ElevatedButton(
-                            child: Text('${end.day}/${end.month}/${end.year}'),
+                            style: ElevatedButton.styleFrom(
+                                primary: MaterialColors.blueSoft
+                            ),
+                            child: Text(
+                                '${end.day}/${end.month}/${end.year}',
+                                style: TextStyle(color: Colors.white70)
+                            ),
                             onPressed: pickDateRange,
                           ),
                           ),
                         ],
                       )
-                      // Text('$_range',
-                      //   style: TextStyle(
-                      //     color: Colors.white70,
-                      //   )),
-                      // StatefulBuilder(builder:
-                      //     (BuildContext context, StateSetter dropDownState) {
-                      //   return Padding(
-                      //     padding: EdgeInsets.only(top:10),
-                      //     child: SfDateRangePicker(
-                      //       enableMultiView: true,
-                      //       navigationDirection: DateRangePickerNavigationDirection.vertical,
-                      //       viewSpacing: 10,
-                      //       headerStyle: DateRangePickerHeaderStyle(
-                      //         textAlign: TextAlign.center,
-                      //           textStyle: TextStyle(
-                      //               color: Colors.white70),
-                      //       ),
-                      //       rangeTextStyle: TextStyle(color: MaterialColors.blueSoftLightest),
-                      //       monthViewSettings: DateRangePickerMonthViewSettings(
-                      //         viewHeaderStyle: DateRangePickerViewHeaderStyle(
-                      //           textStyle: TextStyle(
-                      //             color: Colors.white70),
-                      //         ),
-                      //       ),
-                      //       monthCellStyle: DateRangePickerMonthCellStyle(
-                      //           textStyle: TextStyle(
-                      //               color: Colors.white70),
-                      //       ),
-                      //       yearCellStyle: DateRangePickerYearCellStyle(
-                      //         textStyle: TextStyle(
-                      //             color: Colors.white70),
-                      //       ),
-                      //       onSelectionChanged: _onSelectionChanged,
-                      //       selectionMode: DateRangePickerSelectionMode.range,
-                      //       initialSelectedRange: PickerDateRange(
-                      //           DateTime.now().subtract(const Duration(days: 4)),
-                      //           DateTime.now().add(const Duration(days: 3)),
-                      //       ),
-                      //     ),
-                      //   );
-                      // }),
                     ],
                   ),
                 ),
@@ -323,38 +250,87 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
-                            return Expanded(
-                              child: DropdownButton<String>(
-                                isExpanded: true,
-                                dropdownColor: MaterialColors.blueSoftDarker,
-                                icon: const Icon(Icons.keyboard_arrow_down),
-                                iconEnabledColor: Colors.white70,
-                                iconDisabledColor: Colors.white70,
-                                value: _agacYapisi,
-                                underline: Container(),
-                                items: <String>['[Seçiniz]','Seçenek 1', 'Seçenek 2', 'Seçenek 3']
-                                    .map((String value) {
-                                  return new DropdownMenuItem<String>(
-                                    value: value,
-                                    child: new Text(
-                                      value,
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.white70,
-                                      ),
-                                    ),
-                                  );
-                                }).toList(),
-                                onChanged: (String value) {
-                                  dropDownState(() {
-                                    _agacYapisi = value;
-                                  });
-                                },
+                          TreeView(
+
+                              treeController: TreeController(
+                                  allNodesExpanded: false
                               ),
-                            );
-                          }),
+                              nodes: [
+                                TreeNode(
+                                    content: Text('TreeNode as Root',style: TextStyle(color: Colors.white70)),
+                                    children: [
+                                      TreeNode(
+                                          content: Text('TreeNode 1'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 1-1')),
+                                            TreeNode(content: Text('TreeNode 1-2')),
+                                            TreeNode(content: Text('TreeNode 1-3')),
+                                          ]),
+                                      TreeNode(
+                                          content: Text('TreeNode 2'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 2-1')),
+                                            TreeNode(content: Text('TreeNode 2-2')),
+                                            TreeNode(content: Text('TreeNode 2-3')),
+                                          ]),
+                                      TreeNode(
+                                          content: Text('TreeNode 3'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 3-1')),
+                                            TreeNode(content: Text('TreeNode 3-2')),
+                                            TreeNode(content: Text('TreeNode 3-3')),
+                                          ]),
+                                      TreeNode(
+                                          content: Text('TreeNode 4'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 4-1')),
+                                            TreeNode(content: Text('TreeNode 4-2')),
+                                            TreeNode(content: Text('TreeNode 4-3')),
+                                          ]),
+                                      TreeNode(
+                                          content: Text('TreeNode 5'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 5-1')),
+                                            TreeNode(content: Text('TreeNode 5-2')),
+                                            TreeNode(content: Text('TreeNode 5-3')),
+                                          ]),
+                                      TreeNode(
+                                          content: Text('TreeNode 6'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 6-1')),
+                                            TreeNode(content: Text('TreeNode 6-2')),
+                                            TreeNode(content: Text('TreeNode 6-3')),
+                                          ]),
+                                      TreeNode(
+                                          content: Text('TreeNode 7'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 7-1')),
+                                            TreeNode(content: Text('TreeNode 7-2')),
+                                            TreeNode(content: Text('TreeNode 7-3')),
+                                          ]),
+                                      TreeNode(
+                                          content: Text('TreeNode 8'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 8-1')),
+                                            TreeNode(content: Text('TreeNode 8-2')),
+                                            TreeNode(content: Text('TreeNode 8-3')),
+                                          ]),
+                                      TreeNode(
+                                          content: Text('TreeNode 9'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 9-1')),
+                                            TreeNode(content: Text('TreeNode 9-2')),
+                                            TreeNode(content: Text('TreeNode 9-3')),
+                                          ]),
+                                      TreeNode(
+                                          content: Text('TreeNode 10'),
+                                          children: [
+                                            TreeNode(content: Text('TreeNode 10-1')),
+                                            TreeNode(content: Text('TreeNode 10-2')),
+                                            TreeNode(content: Text('TreeNode 10-3')),
+                                          ]),
+                                    ]),
+                          ]),
                         ],
                       ),
                     ],
@@ -720,36 +696,49 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       borderRadius: BorderRadius.circular(4),
                       color: MaterialColors.blueSoftDarker),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Text('Takip Tamamlama Tarih Aralığı: ${differenceFinished.inDays} gün',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white70,
+                          )),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'Takip Tamamlama Tarih Aralığı',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white70,
+                          Expanded(child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary: MaterialColors.blueSoft
                             ),
+                            child: Text(
+                                '${startFinished.day}/${startFinished.month}/${startFinished.year}',
+                                style: TextStyle(color: Colors.white70)
+                            ),
+                            onPressed: pickDateRangeFinished,
+                          ),
+                          ),
+                          Text(' - ',
+                              style: TextStyle(
+                                  color: MaterialColors.blueSoftLight,
+                                  fontSize: 40
+                              )
+                          ),
+                          Expanded(child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary: MaterialColors.blueSoft
+                            ),
+                            child: Text(
+                                '${endFinished.day}/${endFinished.month}/${endFinished.year}',
+                                style: TextStyle(color: Colors.white70)
+                            ),
+                            onPressed: pickDateRangeFinished,
+                          ),
                           ),
                         ],
-                      ),
-                      Row(
-                        children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
-                            return Expanded(
-                              child: TextField(
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
-                                style: TextStyle(color: Colors.white70),
-                                decoration: InputDecoration(
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                        ))),
-                              ),
-                            );
-                          }),
-                        ],
-                      ),
+                      )
                     ],
                   ),
                 ),
@@ -801,11 +790,48 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
   
   Future pickDateRange() async{
     DateTimeRange newDateRange = await showDateRangePicker(context: context,
+        builder: (BuildContext context, Widget child) {
+          return Theme(
+            data: ThemeData.dark().copyWith(
+              scaffoldBackgroundColor: MaterialColors.blueSoftDarkest,
+              colorScheme: ColorScheme.dark(
+                primary: MaterialColors.blueSoftLight,
+                onPrimary: Colors.white70,
+                surface: MaterialColors.blueSoftDarker,
+                onSurface: Colors.white70,
+              ),
+            ),
+            child: child,
+          );
+          },
         initialDateRange: dateRange,
         firstDate: DateTime(2000),
         lastDate: DateTime.now()
     );
     if (newDateRange == null) return;
     setState(() => dateRange = newDateRange);
+  }
+  Future pickDateRangeFinished() async{
+    DateTimeRange newDateRange = await showDateRangePicker(context: context,
+        builder: (BuildContext context, Widget child) {
+          return Theme(
+            data: ThemeData.dark().copyWith(
+              scaffoldBackgroundColor: MaterialColors.blueSoftDarkest,
+              colorScheme: ColorScheme.dark(
+                primary: MaterialColors.blueSoftLight,
+                onPrimary: Colors.white70,
+                surface: MaterialColors.blueSoftDarker,
+                onSurface: Colors.white70,
+              ),
+            ),
+            child: child,
+          );
+        },
+        initialDateRange: dateRangeFinished,
+        firstDate: DateTime(2000),
+        lastDate: DateTime.now()
+    );
+    if (newDateRange == null) return;
+    setState(() => dateRangeFinished = newDateRange);
   }
 }
