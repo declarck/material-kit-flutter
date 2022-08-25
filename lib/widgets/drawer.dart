@@ -6,8 +6,18 @@ import 'package:material_kit_flutter/widgets/drawer-tile.dart';
 
 class MaterialDrawer extends StatelessWidget {
   final String currentPage;
+  final String aktifAvatar;
+  final String aktifKullanici;
+  final String aktifKurum;
+  final bool kurumSayisiCokMu;
 
-  MaterialDrawer({this.currentPage});
+  MaterialDrawer({
+    this.currentPage,
+    this.aktifAvatar = 'https://giris.albinasoft.com//App_Themes/AnaTema/Resimler/AdminPage/GhostImage.png',
+    this.aktifKullanici = 'Ahmet İstemihan Öztürk',
+    this.aktifKurum = 'Doğançay Nakliyat',
+    this.kurumSayisiCokMu = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,67 +28,33 @@ class MaterialDrawer extends StatelessWidget {
             margin: EdgeInsets.all(0),
             decoration: BoxDecoration(color: MaterialColors.blueSoftDark),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
                   backgroundImage: NetworkImage(
-                      "https://giris.albinasoft.com//App_Themes/AnaTema/Resimler/AdminPage/GhostImage.png"),
+                      aktifAvatar),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0, top: 12.0),
-                  child: Text("Ahmet İstemihan Öztürk",
+                  child: Text(aktifKullanici,
                       style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: Container(
-                            //padding: EdgeInsets.symmetric(horizontal: 6),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              //color: MaterialColors.label,
-                            ),
-                            child: Text("Doğançay Nakliyat",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                ))),
-                      ),
-                      // Padding(
-                      //   padding: const EdgeInsets.only(right: 8.0),
-                      //   child: Container(
-                      //       padding: EdgeInsets.symmetric(horizontal: 6),
-                      //       decoration: BoxDecoration(
-                      //         borderRadius: BorderRadius.circular(4),
-                      //         color: MaterialColors.label,
-                      //       ),
-                      //       child: Text("Satış Sorumlusu",
-                      //           style: TextStyle(
-                      //             color: Colors.white,
-                      //             fontSize: 12,
-                      //           ))),
-                      // ),
-                      //
-                      // Row(
-                      //   children: [
-                      //     Padding(
-                      //       padding: const EdgeInsets.only(right: 8.0),
-                      //       child: Text("4.8",
-                      //           style: TextStyle(
-                      //               color: MaterialColors.warning,
-                      //               fontSize: 16)),
-                      //     ),
-                      //     Icon(Icons.star_border,
-                      //         color: MaterialColors.warning, size: 20)
-                      //   ],
-                      // )
-                    ],
-                  ),
-                )
+                Container(
+                    //padding: EdgeInsets.symmetric(horizontal: 6),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      //color: MaterialColors.label,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(aktifKurum,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            )),],
+                    )),
               ],
             )),
         Expanded(
@@ -98,11 +74,7 @@ class MaterialDrawer extends StatelessWidget {
                           ? MaterialColors.blueSoftDark
                           : currentPage == 'DevamEdenSureclerim'
                               ? MaterialColors.blueSoftDark
-                              : currentPage == 'DisAramaDinleme'
-                                  ? MaterialColors.blueSoftDark
-                                  : currentPage == 'GeriDonusRaporlama'
-                                      ? MaterialColors.blueSoftDark
-                                      : MaterialColors.blueSoftDarker,
+                              : MaterialColors.blueSoftDarker,
                 ),
                 child: Theme(
                   data: Theme.of(context).copyWith(
@@ -123,11 +95,7 @@ class MaterialDrawer extends StatelessWidget {
                               ? Colors.white
                               : currentPage == 'DevamEdenSureclerim'
                                   ? Colors.white
-                                  : currentPage == 'DisAramaDinleme'
-                                      ? Colors.white
-                                      : currentPage == 'GeriDonusRaporlama'
-                                          ? Colors.white
-                                          : Colors.white70,
+                                  : Colors.white70,
                     ),
                     title: Text('Bildirim İşlemleri',
                         style: TextStyle(
@@ -138,11 +106,7 @@ class MaterialDrawer extends StatelessWidget {
                                   ? Colors.white
                                   : currentPage == 'DevamEdenSureclerim'
                                       ? Colors.white
-                                      : currentPage == 'DisAramaDinleme'
-                                          ? Colors.white
-                                          : currentPage == 'GeriDonusRaporlama'
-                                              ? Colors.white
-                                              : Colors.white70,
+                                      : Colors.white70,
                         )),
                     children: [
                       DrawerTile(
@@ -161,7 +125,7 @@ class MaterialDrawer extends StatelessWidget {
                           onTap: () {
                             if (currentPage != "GelenCagriBildirimleri")
                               Navigator.pushReplacementNamed(
-                                  context, '/gelencagribildirleri');
+                                  context, '/gelencagribildirimleri');
                           },
                           title: "Gelen Çağrı Bildirimleri",
                           isSelected: currentPage == "GelenCagriBildirimleri"
@@ -176,27 +140,6 @@ class MaterialDrawer extends StatelessWidget {
                           },
                           title: "Devam Eden Süreçlerim",
                           isSelected: currentPage == "DevamEdenSureclerim"
-                              ? true
-                              : false),
-                      DrawerTile(
-                          //icon: Icons.call,
-                          onTap: () {
-                            if (currentPage != "DisAramaDinleme")
-                              Navigator.pushReplacementNamed(
-                                  context, '/disaramadinleme');
-                          },
-                          title: "Dış Arama Dinleme",
-                          isSelected:
-                              currentPage == "DisAramaDinleme" ? true : false),
-                      DrawerTile(
-                          //icon: Icons.file_copy,
-                          onTap: () {
-                            if (currentPage != "GeriDonusRaporlama")
-                              Navigator.pushReplacementNamed(
-                                  context, '/geridonusraporlama');
-                          },
-                          title: "Geri Dönüş Raporlama",
-                          isSelected: currentPage == "GeriDonusRaporlama"
                               ? true
                               : false),
                     ],
@@ -216,9 +159,7 @@ class MaterialDrawer extends StatelessWidget {
                               ? MaterialColors.blueSoftDark
                               : currentPage == 'KurumTanimlamalari'
                                   ? MaterialColors.blueSoftDark
-                                  : currentPage == 'KurumIciKategorizasyon'
-                                      ? MaterialColors.blueSoftDark
-                                      : currentPage == 'KullaniciEkle'
+                                  : currentPage == 'KullaniciEkle'
                                           ? MaterialColors.blueSoftDark
                                           : currentPage == 'KullaniciListesi'
                                               ? MaterialColors.blueSoftDark
@@ -245,9 +186,7 @@ class MaterialDrawer extends StatelessWidget {
                                   ? Colors.white
                                   : currentPage == 'KurumTanimlamalari'
                                       ? Colors.white
-                                      : currentPage == 'KurumIciKategorizasyon'
-                                          ? Colors.white
-                                          : currentPage == 'KullaniciEkle'
+                                      : currentPage == 'KullaniciEkle'
                                               ? Colors.white
                                               : currentPage ==
                                                       'KullaniciListesi'
@@ -266,10 +205,7 @@ class MaterialDrawer extends StatelessWidget {
                                       ? Colors.white
                                       : currentPage == 'KurumTanimlamalari'
                                           ? Colors.white
-                                          : currentPage ==
-                                                  'KurumIciKategorizasyon'
-                                              ? Colors.white
-                                              : currentPage == 'KullaniciEkle'
+                                          : currentPage == 'KullaniciEkle'
                                                   ? Colors.white
                                                   : currentPage ==
                                                           'KullaniciListesi'
@@ -322,17 +258,6 @@ class MaterialDrawer extends StatelessWidget {
                       DrawerTile(
                           //icon: Icons.settings,
                           onTap: () {
-                            if (currentPage != "KurumIciKategorizasyon")
-                              Navigator.pushReplacementNamed(
-                                  context, '/kurumicikategorizasyon');
-                          },
-                          title: "Kurum İçi Kategorizasyon",
-                          isSelected: currentPage == "KurumIciKategorizasyon"
-                              ? true
-                              : false),
-                      DrawerTile(
-                          //icon: Icons.settings,
-                          onTap: () {
                             if (currentPage != "KullaniciEkle")
                               Navigator.pushReplacementNamed(
                                   context, '/kullaniciekle');
@@ -354,88 +279,88 @@ class MaterialDrawer extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                margin: EdgeInsets.all(3),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(6)),
-                  color: currentPage == 'YeniDestekTalebi'
-                      ? MaterialColors.blueSoftDark
-                      : currentPage == 'DevamEdenOturumlar'
-                          ? MaterialColors.blueSoftDark
-                          : currentPage == 'OturumSorgulama'
-                              ? MaterialColors.blueSoftDark
-                              : MaterialColors.blueSoftDarker,
-                ),
-                child: Theme(
-                  data: Theme.of(context).copyWith(
-                    unselectedWidgetColor:
-                        Colors.white70, // here for close state
-                    colorScheme: ColorScheme.light(
-                      primary: Colors.white70,
-                    ), // here for open state in replacement of deprecated accentColor
-                    dividerColor:
-                        Colors.transparent, // if you want to remove the border
-                  ),
-                  child: ExpansionTile(
-                    leading: Icon(
-                      Icons.menu_book,
-                      color: currentPage == 'YeniDestekTalebi'
-                          ? Colors.white
-                          : currentPage == 'DevamEdenOturumlar'
-                              ? Colors.white
-                              : currentPage == 'OturumSorgulama'
-                                  ? Colors.white
-                                  : Colors.white70,
-                    ),
-                    title: Text('Talep / Şikayet',
-                        style: TextStyle(
-                          fontSize: 15,
-                          //color: Colors.white,
-                          color: currentPage == 'YeniDestekTalebi'
-                              ? Colors.white
-                              : currentPage == 'DevamEdenOturumlar'
-                                  ? Colors.white
-                                  : currentPage == 'OturumSorgulama'
-                                      ? Colors.white
-                                      : Colors.white70,
-                        )),
-                    children: [
-                      DrawerTile(
-                          //icon: Icons.menu_book,
-                          onTap: () {
-                            if (currentPage != "YeniDestekTalebi")
-                              Navigator.pushReplacementNamed(
-                                  context, '/yenidestektalebi');
-                          },
-                          title: "Yeni Destek Talebi",
-                          isSelected:
-                              currentPage == "YeniDestekTalebi" ? true : false),
-                      DrawerTile(
-                          //icon: Icons.menu_book,
-                          onTap: () {
-                            if (currentPage != "DevamEdenOturumlar")
-                              Navigator.pushReplacementNamed(
-                                  context, '/devamedenoturumlar');
-                          },
-                          title: "Devam Eden Oturumlar",
-                          isSelected: currentPage == "DevamEdenOturumlar"
-                              ? true
-                              : false),
-                      DrawerTile(
-                          //icon: Icons.menu_book,
-                          onTap: () {
-                            if (currentPage != "OturumSorgulama")
-                              Navigator.pushReplacementNamed(
-                                  context, '/oturumsorgulama');
-                          },
-                          title: "Oturum Sorgulama",
-                          isSelected:
-                              currentPage == "OturumSorgulama" ? true : false),
-                    ],
-                  ),
-                ),
-              ),
+              // Container(
+              //   padding: EdgeInsets.symmetric(horizontal: 16),
+              //   margin: EdgeInsets.all(3),
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.all(Radius.circular(6)),
+              //     color: currentPage == 'YeniDestekTalebi'
+              //         ? MaterialColors.blueSoftDark
+              //         : currentPage == 'DevamEdenOturumlar'
+              //             ? MaterialColors.blueSoftDark
+              //             : currentPage == 'OturumSorgulama'
+              //                 ? MaterialColors.blueSoftDark
+              //                 : MaterialColors.blueSoftDarker,
+              //   ),
+              //   child: Theme(
+              //     data: Theme.of(context).copyWith(
+              //       unselectedWidgetColor:
+              //           Colors.white70, // here for close state
+              //       colorScheme: ColorScheme.light(
+              //         primary: Colors.white70,
+              //       ), // here for open state in replacement of deprecated accentColor
+              //       dividerColor:
+              //           Colors.transparent, // if you want to remove the border
+              //     ),
+              //     child: ExpansionTile(
+              //       leading: Icon(
+              //         Icons.menu_book,
+              //         color: currentPage == 'YeniDestekTalebi'
+              //             ? Colors.white
+              //             : currentPage == 'DevamEdenOturumlar'
+              //                 ? Colors.white
+              //                 : currentPage == 'OturumSorgulama'
+              //                     ? Colors.white
+              //                     : Colors.white70,
+              //       ),
+              //       title: Text('Talep / Şikayet',
+              //           style: TextStyle(
+              //             fontSize: 15,
+              //             //color: Colors.white,
+              //             color: currentPage == 'YeniDestekTalebi'
+              //                 ? Colors.white
+              //                 : currentPage == 'DevamEdenOturumlar'
+              //                     ? Colors.white
+              //                     : currentPage == 'OturumSorgulama'
+              //                         ? Colors.white
+              //                         : Colors.white70,
+              //           )),
+              //       children: [
+              //         DrawerTile(
+              //             //icon: Icons.menu_book,
+              //             onTap: () {
+              //               if (currentPage != "YeniDestekTalebi")
+              //                 Navigator.pushReplacementNamed(
+              //                     context, '/yenidestektalebi');
+              //             },
+              //             title: "Yeni Destek Talebi",
+              //             isSelected:
+              //                 currentPage == "YeniDestekTalebi" ? true : false),
+              //         DrawerTile(
+              //             //icon: Icons.menu_book,
+              //             onTap: () {
+              //               if (currentPage != "DevamEdenOturumlar")
+              //                 Navigator.pushReplacementNamed(
+              //                     context, '/devamedenoturumlar');
+              //             },
+              //             title: "Devam Eden Oturumlar",
+              //             isSelected: currentPage == "DevamEdenOturumlar"
+              //                 ? true
+              //                 : false),
+              //         DrawerTile(
+              //             //icon: Icons.menu_book,
+              //             onTap: () {
+              //               if (currentPage != "OturumSorgulama")
+              //                 Navigator.pushReplacementNamed(
+              //                     context, '/oturumsorgulama');
+              //             },
+              //             title: "Oturum Sorgulama",
+              //             isSelected:
+              //                 currentPage == "OturumSorgulama" ? true : false),
+              //       ],
+              //     ),
+              //   ),
+              // ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 margin: EdgeInsets.all(3),
@@ -515,6 +440,15 @@ class MaterialDrawer extends StatelessWidget {
                   ),
                 ),
               ),
+              if (kurumSayisiCokMu == true)
+                DrawerTile(
+                  icon: Icons.cached,
+                  onTap: () {
+                    if (currentPage != "KurumDegistir")
+                      Navigator.pushReplacementNamed(context, '/kurumdegistir');
+                  },
+                  title: "Kurum Değiştir",
+                  isSelected: currentPage == "KurumDegistir" ? true : false),
               DrawerTile(
                   icon: Icons.exit_to_app,
                   onTap: () {
@@ -523,6 +457,7 @@ class MaterialDrawer extends StatelessWidget {
                   },
                   title: "Çıkış",
                   isSelected: currentPage == "Cikis" ? true : false),
+
             ],
           ),
         ))

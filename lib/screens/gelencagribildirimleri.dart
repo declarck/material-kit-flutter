@@ -6,7 +6,7 @@ import 'package:material_kit_flutter/widgets/card-small.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 
 class GelenCagriBildirimleri extends StatelessWidget {
-  int gunlukBildirim = 100;
+  int gunlukBildirim = 9999;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
