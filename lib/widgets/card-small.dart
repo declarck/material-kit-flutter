@@ -3,17 +3,19 @@ import 'package:material_kit_flutter/constants/Theme.dart';
 
 class CardSmall extends StatelessWidget {
   CardSmall(
-      {this.title = "Placeholder Title",
-      this.cta = "",
-      this.img = "https://via.placeholder.com/200",
-      this.tap = defaultFunc,
-      this.textal = TextAlign.center});
+      {
+        this.title = "Placeholder Title",
+        this.cta = "",
+        this.img = "https://via.placeholder.com/200",
+        this.tap = defaultFunc,
+        this.textaligner = TextAlign.center
+      });
 
   final String cta;
   final String img;
   final Function tap;
   final String title;
-  var textal;
+  var textaligner;
 
   static void defaultFunc() {
     print("the function works!");
@@ -49,9 +51,10 @@ class CardSmall extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Text(title,
-                                  textAlign: textal,
+                                  textAlign: textaligner,
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 12)),
+
                               Padding(
                                 padding: const EdgeInsets.only(top: 5.0),
                                 child: OutlinedButton(

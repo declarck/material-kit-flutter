@@ -6,12 +6,14 @@ class CardHorizontal extends StatelessWidget {
       {this.title = "Placeholder Title",
       this.cta = "",
       this.img = "https://via.placeholder.com/200",
-      this.tap = defaultFunc});
+      this.tap = defaultFunc,
+      this.buttonlink = "#"});
 
   final String cta;
   final String img;
   final Function tap;
   final String title;
+  final String buttonlink;
 
   static void defaultFunc() {
     print("the function works!");
@@ -50,7 +52,7 @@ class CardHorizontal extends StatelessWidget {
                               children :[
                                 Expanded(
                                   child: OutlinedButton(
-                                    onPressed: () => Navigator.pushNamed(context, '/bildirimlistesi'),
+                                    onPressed: () => Navigator.pushNamed(context, buttonlink),
                                     style: OutlinedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(6)),

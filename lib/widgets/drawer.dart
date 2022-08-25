@@ -94,7 +94,7 @@ class MaterialDrawer extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(6)),
                   color: currentPage == 'YeniBildirimGirisi'
                       ? MaterialColors.blueSoftDark
-                      : currentPage == 'DetayliBildirimArama'
+                      : currentPage == 'GelenCagriBildirimleri'
                           ? MaterialColors.blueSoftDark
                           : currentPage == 'DevamEdenSureclerim'
                               ? MaterialColors.blueSoftDark
@@ -119,7 +119,7 @@ class MaterialDrawer extends StatelessWidget {
                       Icons.compare_arrows,
                       color: currentPage == 'YeniBildirimGirisi'
                           ? Colors.white
-                          : currentPage == 'DetayliBildirimArama'
+                          : currentPage == 'GelenCagriBildirimleri'
                               ? Colors.white
                               : currentPage == 'DevamEdenSureclerim'
                                   ? Colors.white
@@ -134,7 +134,7 @@ class MaterialDrawer extends StatelessWidget {
                           fontSize: 15,
                           color: currentPage == 'YeniBildirimGirisi'
                               ? Colors.white
-                              : currentPage == 'DetayliBildirimArama'
+                              : currentPage == 'GelenCagriBildirimleri'
                                   ? Colors.white
                                   : currentPage == 'DevamEdenSureclerim'
                                       ? Colors.white
@@ -159,12 +159,12 @@ class MaterialDrawer extends StatelessWidget {
                       DrawerTile(
                           //icon: Icons.search,
                           onTap: () {
-                            if (currentPage != "DetayliBildirimArama")
+                            if (currentPage != "GelenCagriBildirimleri")
                               Navigator.pushReplacementNamed(
-                                  context, '/detaylibildirimarama');
+                                  context, '/gelencagribildirleri');
                           },
-                          title: "Detaylı Bildirim Arama",
-                          isSelected: currentPage == "DetayliBildirimArama"
+                          title: "Gelen Çağrı Bildirimleri",
+                          isSelected: currentPage == "GelenCagriBildirimleri"
                               ? true
                               : false),
                       DrawerTile(

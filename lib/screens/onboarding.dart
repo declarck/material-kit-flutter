@@ -60,7 +60,7 @@ class Onboarding extends StatelessWidget {
                       color: MaterialColors.blueSoftLighter,
                       onPressed: () {
                         Navigator.pushReplacementNamed(
-                            context, '/detaylibildirimarama');
+                            context, '/gelencagribildirimleri');
                       },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4.0),

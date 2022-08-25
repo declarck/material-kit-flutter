@@ -3,7 +3,7 @@ import 'package:material_kit_flutter/screens/aramaraporlama.dart';
 import 'package:material_kit_flutter/screens/components.dart';
 import 'package:material_kit_flutter/screens/bildirimlistesi.dart';
 // screens
-import 'package:material_kit_flutter/screens/detaylibildirimarama.dart';
+import 'package:material_kit_flutter/screens/gelencagribildirimleri.dart';
 import 'package:material_kit_flutter/screens/onboarding.dart';
 import 'package:material_kit_flutter/screens/pro.dart';
 import 'package:material_kit_flutter/screens/profile.dart';
@@ -24,8 +24,8 @@ class CallCenterTR extends StatelessWidget {
           "/pro": (BuildContext context) => new Pro(),
           "/yenibildirimgirisi": (BuildContext context) =>
               new YeniBildirimGirisi(),
-          "/detaylibildirimarama": (BuildContext context) =>
-              new DetayliBildirimArama(),
+          "/gelencagribildirimleri": (BuildContext context) =>
+              new GelenCagriBildirimleri(),
 
           "/components": (BuildContext context) => new Components(),
           "/profile": (BuildContext context) => new Profile(),

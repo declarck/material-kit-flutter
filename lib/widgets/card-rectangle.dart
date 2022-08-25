@@ -3,15 +3,19 @@ import 'package:material_kit_flutter/constants/Theme.dart';
 
 class CardRectangle extends StatelessWidget {
   CardRectangle(
-      {this.title = "Placeholder Title",
-      this.cta = "",
-      this.img = "https://via.placeholder.com/200",
-      this.tap = defaultFunc});
+      {
+        this.title = "Placeholder Title",
+        this.countertitle = "Number",
+        this.cta = "",
+        this.img = "https://via.placeholder.com/200",
+        this.tap = defaultFunc
+      });
 
   final String cta;
   final String img;
   final Function tap;
   final String title;
+  final String countertitle;
 
   static void defaultFunc() {
     print("the function works!");
@@ -34,22 +38,31 @@ class CardRectangle extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8.0))),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Flexible(flex: 1, child: Container()),
-                        Flexible(
-                            flex: 5,
-                            child: Row(
+                        Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 15),
-                                  child: Text(title,
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 13)),
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: Row(
+                                    children: [
+                                      Text(countertitle,
+                                          style: TextStyle(
+                                            color: Colors.amber,
+                                            fontSize: 35,
+                                            fontWeight: FontWeight.bold,)
+                                      ),
+                                      Text(title,
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 12)),
+                                    ],
+                                  ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 15),
+                                  padding: const EdgeInsets.only(right: 5),
                                   child: OutlinedButton(
                                     onPressed: () => Navigator.pushNamed(context, '/bildirimlistesi'),
                                     style: OutlinedButton.styleFrom(
@@ -64,10 +77,9 @@ class CardRectangle extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-
                                 ),
                               ],
-                            ))
+                            ),
                       ],
                     )),
                 // FractionalTranslation(

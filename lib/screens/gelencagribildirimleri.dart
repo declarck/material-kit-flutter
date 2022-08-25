@@ -5,16 +5,17 @@ import 'package:material_kit_flutter/widgets/card-rectangle.dart';
 import 'package:material_kit_flutter/widgets/card-small.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 
-class DetayliBildirimArama extends StatelessWidget {
+class GelenCagriBildirimleri extends StatelessWidget {
+  int gunlukBildirim = 100;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: MaterialColors.blueSoftDarkest,
         appBar: AppBar(
-          title: Text('Gelen Çağrı - Bildirim Arama'),
+          title: Text('Gelen Çağrı Bildirimleri'),
           backgroundColor: MaterialColors.blueSoftDarker,
         ),
-        drawer: MaterialDrawer(currentPage: "DetayliBildirimArama"),
+        drawer: MaterialDrawer(currentPage: "GelenCagriBildirimleri"),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           child: SingleChildScrollView(
@@ -24,11 +25,12 @@ class DetayliBildirimArama extends StatelessWidget {
                   padding: const EdgeInsets.all(0),
                   child: CardHorizontal(
                       cta: "Ara ve Raporla",
-                      title: 'Gelen çağrı ve bildirimler',
+                      title: 'Tüm Gelen Çağrı Bildirimleri',
                       img: 'https://i.im.ge/2022/08/20/OL2GFK.bildirimler.jpg',
                       tap: () {
                         Navigator.pushNamed(context, '/aramaraporlama');
-                      }),
+                      },
+                      buttonlink: '/aramaraporlama'),
                 ),
                 SizedBox(height: 5),
                 Row(
@@ -37,7 +39,7 @@ class DetayliBildirimArama extends StatelessWidget {
                     CardSmall(
                         cta: 'Görüntüle',
                         title: 'Takibi Başlamamış Bildirimler',
-                        textal: TextAlign.left,
+                        textaligner: TextAlign.left,
                         img: 'https://i.im.ge/2022/08/20/OL2Rkc.baslamamis.jpg',
                         tap: () {
                           Navigator.pushNamed(
@@ -46,7 +48,7 @@ class DetayliBildirimArama extends StatelessWidget {
                     CardSmall(
                         cta: 'Görüntüle',
                         title: 'Takibi Devam Eden Bildirimler',
-                        textal: TextAlign.center,
+                        textaligner: TextAlign.center,
                         img: 'https://i.im.ge/2022/08/20/OL2gq0.devameden.jpg',
                         tap: () {
                           Navigator.pushNamed(
@@ -55,7 +57,7 @@ class DetayliBildirimArama extends StatelessWidget {
                     CardSmall(
                         cta: 'Görüntüle',
                         title: 'Takibi Tamamlanan Bildirimler',
-                        textal: TextAlign.right,
+                        textaligner: TextAlign.right,
                         img: 'https://i.im.ge/2022/08/20/OL28tT.tamamlanan.jpg',
                         tap: () {
                           Navigator.pushNamed(
@@ -68,7 +70,8 @@ class DetayliBildirimArama extends StatelessWidget {
                   padding: const EdgeInsets.all(0),
                   child: CardRectangle(
                       cta: "Görüntüle",
-                      title: '100 adet bildirim bugün kaydedilmiştir',
+                      title: '  adet bildirim bugün kaydedildi.',
+                      countertitle: '$gunlukBildirim',
                       img: null,
                       tap: () {
                         Navigator.pushNamed(context, '/bildirimlistesi');
