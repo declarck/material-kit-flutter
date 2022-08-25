@@ -7,12 +7,12 @@ import '../constants/Theme.dart';
 import '../tools/create-pdf.dart';
 import '../widgets/datatable.dart';
 
-class DataTableScreen extends StatefulWidget {
+class BildirimListesi extends StatefulWidget {
   @override
-  _DataTableScreenState createState() => _DataTableScreenState();
+  _BildirimListesiState createState() => _BildirimListesiState();
 }
 
-class _DataTableScreenState extends State<DataTableScreen> {
+class _BildirimListesiState extends State<BildirimListesi> {
   List<Data> datas;
   int sortColumnIndex;
   bool isAscending = false;

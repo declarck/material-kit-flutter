@@ -20,7 +20,7 @@ class CardRectangle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 50,
+        height: 80,
         width: null,
         margin: EdgeInsets.only(top: 10),
         child: GestureDetector(
@@ -39,27 +39,34 @@ class CardRectangle extends StatelessWidget {
                         Flexible(flex: 1, child: Container()),
                         Flexible(
                             flex: 5,
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8.0, bottom: 8.0, left: 8.0),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Center(
-                                    child: Text(title,
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 13)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 15),
+                                  child: Text(title,
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 13)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child: OutlinedButton(
+                                    onPressed: () => Navigator.pushNamed(context, '/bildirimlistesi'),
+                                    style: OutlinedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(6)),
+                                      side: BorderSide(width: 2, color: Colors.lightGreen),
+                                    ),
+                                    child: Text(
+                                      cta,
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                      ),
+                                    ),
                                   ),
-                                  // Text(cta,
-                                  //     style: TextStyle(
-                                  //         color:
-                                  //             MaterialColors.blueSoftLightest,
-                                  //         fontSize: 11,
-                                  //         fontWeight: FontWeight.w600))
-                                ],
-                              ),
+
+                                ),
+                              ],
                             ))
                       ],
                     )),

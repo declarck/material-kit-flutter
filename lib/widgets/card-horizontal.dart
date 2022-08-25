@@ -39,16 +39,33 @@ class CardHorizontal extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          //crossAxisAlignment:  CrossAxisAlignment.end,
                           children: [
                             Text(title,
+                                textAlign: TextAlign.right,
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 13)),
-                            Text(cta,
-                                style: TextStyle(
-                                    color: MaterialColors.blueSoftLightest,
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w600))
+                                    color: Colors.white, fontSize: 20,)),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children :[
+                                Expanded(
+                                  child: OutlinedButton(
+                                    onPressed: () => Navigator.pushNamed(context, '/bildirimlistesi'),
+                                    style: OutlinedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(6)),
+                                      side: BorderSide(width: 2, color: Colors.lightGreen),
+                                    ),
+                                    child: Text(
+                                      cta,
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ))

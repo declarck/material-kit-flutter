@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/screens/aramaraporlama.dart';
 import 'package:material_kit_flutter/screens/components.dart';
-import 'package:material_kit_flutter/screens/datatablescreen.dart';
+import 'package:material_kit_flutter/screens/bildirimlistesi.dart';
 // screens
 import 'package:material_kit_flutter/screens/detaylibildirimarama.dart';
 import 'package:material_kit_flutter/screens/onboarding.dart';
@@ -31,7 +31,7 @@ class CallCenterTR extends StatelessWidget {
           "/profile": (BuildContext context) => new Profile(),
           "/settings": (BuildContext context) => new Settings(),
 
-          "/datatablescreen": (BuildContext context) => new DataTableScreen(),
+          "/bildirimlistesi": (BuildContext context) => new BildirimListesi(),
           "/aramaraporlama": (BuildContext context) => new AramaRaporlama(),
         });
   }

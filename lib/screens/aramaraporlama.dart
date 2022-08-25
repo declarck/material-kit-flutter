@@ -575,7 +575,7 @@ class AramaRaporlama extends StatelessWidget {
                       width: 10,
                     ),
                     OutlinedButton(
-                      onPressed: () => Navigator.pushNamed(context, '/datatablescreen'),
+                      onPressed: () => Navigator.pushNamed(context, '/bildirimlistesi'),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6)),

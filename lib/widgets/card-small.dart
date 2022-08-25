@@ -6,12 +6,14 @@ class CardSmall extends StatelessWidget {
       {this.title = "Placeholder Title",
       this.cta = "",
       this.img = "https://via.placeholder.com/200",
-      this.tap = defaultFunc});
+      this.tap = defaultFunc,
+      this.textal = TextAlign.center});
 
   final String cta;
   final String img;
   final Function tap;
   final String title;
+  var textal;
 
   static void defaultFunc() {
     print("the function works!");
@@ -21,7 +23,7 @@ class CardSmall extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
         child: Container(
-      height: 150,
+      height: 160,
       margin: EdgeInsets.only(top: 10),
       child: GestureDetector(
           onTap: tap,
@@ -34,26 +36,43 @@ class CardSmall extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Flexible(child: Container()),
+                    SizedBox(
+                      height: 60,
+                    ),
                     Flexible(
                         flex: 1,
                         child: Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8.0, bottom: 8.0, left: 8.0),
+                          padding: const EdgeInsets.all(
+                              5),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Text(title,
+                                  textAlign: textal,
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 12)),
                               Padding(
-                                padding: const EdgeInsets.only(top: 8.0),
-                                child: Text(cta,
-                                    style: TextStyle(
-                                        color: MaterialColors.blueSoftLightest,
-                                        fontSize: 11,
-                                        fontWeight: FontWeight.w600)),
+                                padding: const EdgeInsets.only(top: 5.0),
+                                child: OutlinedButton(
+                                  onPressed: () => Navigator.pushNamed(context, '/bildirimlistesi'),
+                                  style: OutlinedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(6)),
+                                    side: BorderSide(width: 2, color: Colors.lightGreen),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Text(
+                                      cta,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               )
                             ],
                           ),
