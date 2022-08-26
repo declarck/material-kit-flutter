@@ -3,13 +3,11 @@ import 'package:material_kit_flutter/constants/Theme.dart';
 
 class CardRectangle extends StatelessWidget {
   CardRectangle(
-      {
-        this.title = "Placeholder Title",
-        this.countertitle = "Number",
-        this.cta = "",
-        this.img = "https://via.placeholder.com/200",
-        this.tap = defaultFunc
-      });
+      {this.title = "Placeholder Title",
+      this.countertitle = "Number",
+      this.cta = "",
+      this.img = "https://via.placeholder.com/200",
+      this.tap = defaultFunc});
 
   final String cta;
   final String img;
@@ -42,44 +40,46 @@ class CardRectangle extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: Row(
-                                    children: [
-                                      Text(countertitle,
-                                          style: TextStyle(
-                                            color: Colors.amber,
-                                            fontSize: 35,
-                                            fontWeight: FontWeight.bold,)
-                                      ),
-                                      Text(title,
-                                          style: TextStyle(
-                                              color: Colors.white70,
-                                              fontSize: 12)),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 5),
-                                  child: OutlinedButton(
-                                    onPressed: () => Navigator.pushNamed(context, '/bildirimlistesi'),
-                                    style: OutlinedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(6)),
-                                      side: BorderSide(width: 2, color: Colors.lightGreen),
-                                    ),
-                                    child: Text(
-                                      cta,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: Row(
+                                children: [
+                                  Text(countertitle,
                                       style: TextStyle(
-                                        color: Colors.white70,
-                                      ),
-                                    ),
+                                        color: Colors.amber,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold,
+                                      )),
+                                  Text(title,
+                                      style: TextStyle(
+                                          color: Colors.white70, fontSize: 12)),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 5),
+                              child: OutlinedButton(
+                                onPressed: () => Navigator.pushNamed(
+                                    context, '/bildirimlistesi'),
+                                style: OutlinedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(6)),
+                                  side: BorderSide(
+                                      width: 2, color: Colors.lightGreen),
+                                ),
+                                child: Text(
+                                  cta,
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 12,
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
+                          ],
+                        ),
                       ],
                     )),
                 // FractionalTranslation(

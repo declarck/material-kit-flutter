@@ -26,7 +26,7 @@ class GelenCagriBildirimleri extends StatelessWidget {
                   child: CardHorizontal(
                       cta: "Ara ve Raporla",
                       title: 'Tüm Gelen Çağrı Bildirimleri',
-                      img: 'https://i.im.ge/2022/08/20/OL2GFK.bildirimler.jpg',
+                      img: 'assets/img/bildirim.jpg',
                       tap: () {
                         Navigator.pushNamed(context, '/aramaraporlama');
                       },
@@ -38,30 +38,27 @@ class GelenCagriBildirimleri extends StatelessWidget {
                   children: [
                     CardSmall(
                         cta: 'Görüntüle',
-                        title: 'Takibi Başlamamış Bildirimler',
+                        title: 'Takibi\nBaşlamamış\nBildirimler',
                         textaligner: TextAlign.left,
-                        img: 'https://i.im.ge/2022/08/20/OL2Rkc.baslamamis.jpg',
+                        img: 'assets/img/baslamamis.jpg',
                         tap: () {
-                          Navigator.pushNamed(
-                              context, '/bildirimlistesi');
+                          Navigator.pushNamed(context, '/bildirimlistesi');
                         }),
                     CardSmall(
                         cta: 'Görüntüle',
-                        title: 'Takibi Devam Eden Bildirimler',
+                        title: 'Takibi\nDevam Eden\nBildirimler',
                         textaligner: TextAlign.center,
-                        img: 'https://i.im.ge/2022/08/20/OL2gq0.devameden.jpg',
+                        img: 'assets/img/devameden.jpg',
                         tap: () {
-                          Navigator.pushNamed(
-                              context, '/bildirimlistesi');
+                          Navigator.pushNamed(context, '/bildirimlistesi');
                         }),
                     CardSmall(
                         cta: 'Görüntüle',
-                        title: 'Takibi Tamamlanan Bildirimler',
+                        title: 'Takibi\nTamamlanan\nBildirimler',
                         textaligner: TextAlign.right,
-                        img: 'https://i.im.ge/2022/08/20/OL28tT.tamamlanan.jpg',
+                        img: 'assets/img/tamamlanan.jpg',
                         tap: () {
-                          Navigator.pushNamed(
-                              context, '/bildirimlistesi');
+                          Navigator.pushNamed(context, '/bildirimlistesi');
                         })
                   ],
                 ),

@@ -5,7 +5,7 @@ class CardSmall extends StatelessWidget {
   CardSmall(
       {this.title = "Placeholder Title",
       this.cta = "",
-      this.img = "https://via.placeholder.com/200",
+      this.img = "assets/img/bildirim.jpg",
       this.tap = defaultFunc,
       this.textaligner = TextAlign.center});
 
@@ -23,7 +23,7 @@ class CardSmall extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
         child: Container(
-      height: 170,
+      height: 180,
       margin: EdgeInsets.only(top: 10),
       child: GestureDetector(
           onTap: tap,
@@ -34,50 +34,49 @@ class CardSmall extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8.0))),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  //crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 70,
-                    ),
-                    Flexible(
-                        flex: 1,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Text(title,
-                                  textAlign: textaligner,
+                    Padding(
+                      padding: const EdgeInsets.all(5),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Text(title,
+                                textAlign: textaligner,
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12)),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: OutlinedButton(
+                              onPressed: () => Navigator.pushNamed(
+                                  context, '/bildirimlistesi'),
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(6)),
+                                side: BorderSide(
+                                    width: 2, color: Colors.lightGreen),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: Text(
+                                  cta,
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 12)),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 5.0),
-                                child: OutlinedButton(
-                                  onPressed: () => Navigator.pushNamed(
-                                      context, '/bildirimlistesi'),
-                                  style: OutlinedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(6)),
-                                    side: BorderSide(
-                                        width: 2, color: Colors.lightGreen),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Text(
-                                      cta,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
+                                    color: Colors.white70,
+                                    fontSize: 12,
                                   ),
                                 ),
-                              )
-                            ],
-                          ),
-                        ))
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 )),
             FractionalTranslation(
@@ -97,9 +96,9 @@ class CardSmall extends StatelessWidget {
                                   offset: Offset(0, 0))
                             ],
                             borderRadius:
-                                BorderRadius.all(Radius.circular(4.0)),
+                                BorderRadius.all(Radius.circular(6.0)),
                             image: DecorationImage(
-                              image: NetworkImage(img),
+                              image: AssetImage(img),
                               fit: BoxFit.cover,
                             )))))
           ])),

@@ -5,7 +5,7 @@ class CardHorizontal extends StatelessWidget {
   CardHorizontal(
       {this.title = "Placeholder Title",
       this.cta = "",
-      this.img = "https://via.placeholder.com/200",
+      this.img = "assets/img/bildirim.jpg",
       this.tap = defaultFunc,
       this.buttonlink = "#"});
 
@@ -46,22 +46,28 @@ class CardHorizontal extends StatelessWidget {
                             Text(title,
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 20,)),
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                )),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
-                              children :[
+                              children: [
                                 Expanded(
                                   child: OutlinedButton(
-                                    onPressed: () => Navigator.pushNamed(context, buttonlink),
+                                    onPressed: () => Navigator.pushNamed(
+                                        context, buttonlink),
                                     style: OutlinedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(6)),
-                                      side: BorderSide(width: 2, color: Colors.lightGreen),
+                                          borderRadius:
+                                              BorderRadius.circular(6)),
+                                      side: BorderSide(
+                                          width: 2, color: Colors.lightGreen),
                                     ),
                                     child: Text(
                                       cta,
                                       style: TextStyle(
                                         color: Colors.white70,
+                                        fontSize: 12,
                                       ),
                                     ),
                                   ),
@@ -92,7 +98,7 @@ class CardHorizontal extends StatelessWidget {
                         ],
                         borderRadius: BorderRadius.all(Radius.circular(4.0)),
                         image: DecorationImage(
-                            image: NetworkImage(img), fit: BoxFit.cover))),
+                            image: AssetImage(img), fit: BoxFit.cover))),
               ),
             ),
           ]),

@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-
-import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-//widgets
-import 'package:material_kit_flutter/widgets/navbar.dart';
-import 'package:material_kit_flutter/widgets/drawer.dart';
-import 'package:material_kit_flutter/widgets/input.dart';
-import 'package:material_kit_flutter/widgets/card-horizontal.dart';
+import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:material_kit_flutter/widgets/card-category.dart';
+import 'package:material_kit_flutter/widgets/card-horizontal.dart';
 import 'package:material_kit_flutter/widgets/card-small.dart';
 import 'package:material_kit_flutter/widgets/card-square.dart';
-import 'package:material_kit_flutter/widgets/slider-product.dart';
+import 'package:material_kit_flutter/widgets/drawer.dart';
+import 'package:material_kit_flutter/widgets/input.dart';
+//widgets
+import 'package:material_kit_flutter/widgets/navbar.dart';
 import 'package:material_kit_flutter/widgets/photo-album.dart';
-
+import 'package:material_kit_flutter/widgets/slider-product.dart';
 import 'package:material_kit_flutter/widgets/table-cell.dart';
 
 final Map<String, Map<String, String>> homeCards = {
