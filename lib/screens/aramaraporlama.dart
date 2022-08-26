@@ -10,7 +10,6 @@ class AramaRaporlama extends StatefulWidget {
 }
 
 class _AramaRaporlamaState extends State<AramaRaporlama> {
-  //String _agacYapisi = '[Seçiniz]';
   String _il = '[Seçiniz]';
   String _yapi = '[Seçiniz]';
   String _surecDurumu = '[Seçiniz]';
@@ -794,6 +793,7 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
           return Theme(
             data: ThemeData.dark().copyWith(
               scaffoldBackgroundColor: MaterialColors.blueSoftDarkest,
+              dialogBackgroundColor: MaterialColors.blueSoftDarkest,
               colorScheme: ColorScheme.dark(
                 primary: MaterialColors.blueSoftLight,
                 onPrimary: Colors.white70,
