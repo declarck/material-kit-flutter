@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
-
-
+import 'package:material_kit_flutter/constants/Theme.dart';
 
 class AramaRaporlama extends StatefulWidget {
   @override
@@ -15,9 +13,9 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
   String _surecDurumu = '[Seçiniz]';
   String _geriDonus = '[Seçiniz]';
   DateTimeRange dateRange = DateTimeRange(
-      start: DateTime.now(),
-      end: DateTime.now(),
-      );
+    start: DateTime.now(),
+    end: DateTime.now(),
+  );
   DateTimeRange dateRangeFinished = DateTimeRange(
     start: DateTime.now(),
     end: DateTime.now(),
@@ -64,17 +62,16 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
+                          StatefulBuilder(builder: (BuildContext context,
+                              StateSetter dropDownState) {
                             return Expanded(
                               child: TextField(
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
                                 style: TextStyle(color: Colors.white70),
                                 decoration: InputDecoration(
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                        ))),
+                                        borderSide: BorderSide(
+                                  color: MaterialColors.blueSoft,
+                                ))),
                               ),
                             );
                           }),
@@ -96,43 +93,38 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Tarih Aralığı: ${difference.inDays} gün',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white70,
-                        )),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white70,
+                          )),
                       SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Expanded(child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: MaterialColors.blueSoft
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: MaterialColors.blueSoft),
+                              child: Text(
+                                  '${start.day}/${start.month}/${start.year}',
+                                  style: TextStyle(color: Colors.white70)),
+                              onPressed: pickDateRange,
                             ),
-                            child: Text(
-                              '${start.day}/${start.month}/${start.year}',
-                              style: TextStyle(color: Colors.white70)
-                            ),
-                            onPressed: pickDateRange,
                           ),
-                          ),
-                         Text(' - ',
-                         style: TextStyle(
-                             color: MaterialColors.blueSoftLight,
-                             fontSize: 40
-                         )
-                         ),
-                          Expanded(child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                primary: MaterialColors.blueSoft
+                          Text(' - ',
+                              style: TextStyle(
+                                  color: MaterialColors.blueSoftLight,
+                                  fontSize: 40)),
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: MaterialColors.blueSoft),
+                              child: Text('${end.day}/${end.month}/${end.year}',
+                                  style: TextStyle(color: Colors.white70)),
+                              onPressed: pickDateRange,
                             ),
-                            child: Text(
-                                '${end.day}/${end.month}/${end.year}',
-                                style: TextStyle(color: Colors.white70)
-                            ),
-                            onPressed: pickDateRange,
-                          ),
                           ),
                         ],
                       )
@@ -163,8 +155,8 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
+                          StatefulBuilder(builder: (BuildContext context,
+                              StateSetter dropDownState) {
                             return Expanded(
                               child: TextField(
                                 keyboardType: TextInputType.multiline,
@@ -172,8 +164,9 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                 style: TextStyle(color: Colors.white70),
                                 decoration: InputDecoration(
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                        ))),
+                                        borderSide: BorderSide(
+                                  color: MaterialColors.blueSoft,
+                                ))),
                               ),
                             );
                           }),
@@ -206,8 +199,8 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
+                          StatefulBuilder(builder: (BuildContext context,
+                              StateSetter dropDownState) {
                             return Expanded(
                               child: TextField(
                                 keyboardType: TextInputType.multiline,
@@ -215,8 +208,9 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                 style: TextStyle(color: Colors.white70),
                                 decoration: InputDecoration(
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                        ))),
+                                        borderSide: BorderSide(
+                                  color: MaterialColors.blueSoft,
+                                ))),
                               ),
                             );
                           }),
@@ -250,86 +244,116 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       Row(
                         children: [
                           TreeView(
-
-                              treeController: TreeController(
-                                  allNodesExpanded: false
-                              ),
+                              treeController:
+                                  TreeController(allNodesExpanded: false),
                               nodes: [
                                 TreeNode(
-                                    content: Text('TreeNode as Root',style: TextStyle(color: Colors.white70)),
+                                    content: Text('TreeNode as Root',
+                                        style:
+                                            TextStyle(color: Colors.white70)),
                                     children: [
                                       TreeNode(
                                           content: Text('TreeNode 1'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 1-1')),
-                                            TreeNode(content: Text('TreeNode 1-2')),
-                                            TreeNode(content: Text('TreeNode 1-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 1-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 1-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 1-3')),
                                           ]),
                                       TreeNode(
                                           content: Text('TreeNode 2'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 2-1')),
-                                            TreeNode(content: Text('TreeNode 2-2')),
-                                            TreeNode(content: Text('TreeNode 2-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 2-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 2-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 2-3')),
                                           ]),
                                       TreeNode(
                                           content: Text('TreeNode 3'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 3-1')),
-                                            TreeNode(content: Text('TreeNode 3-2')),
-                                            TreeNode(content: Text('TreeNode 3-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 3-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 3-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 3-3')),
                                           ]),
                                       TreeNode(
                                           content: Text('TreeNode 4'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 4-1')),
-                                            TreeNode(content: Text('TreeNode 4-2')),
-                                            TreeNode(content: Text('TreeNode 4-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 4-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 4-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 4-3')),
                                           ]),
                                       TreeNode(
                                           content: Text('TreeNode 5'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 5-1')),
-                                            TreeNode(content: Text('TreeNode 5-2')),
-                                            TreeNode(content: Text('TreeNode 5-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 5-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 5-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 5-3')),
                                           ]),
                                       TreeNode(
                                           content: Text('TreeNode 6'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 6-1')),
-                                            TreeNode(content: Text('TreeNode 6-2')),
-                                            TreeNode(content: Text('TreeNode 6-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 6-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 6-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 6-3')),
                                           ]),
                                       TreeNode(
                                           content: Text('TreeNode 7'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 7-1')),
-                                            TreeNode(content: Text('TreeNode 7-2')),
-                                            TreeNode(content: Text('TreeNode 7-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 7-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 7-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 7-3')),
                                           ]),
                                       TreeNode(
                                           content: Text('TreeNode 8'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 8-1')),
-                                            TreeNode(content: Text('TreeNode 8-2')),
-                                            TreeNode(content: Text('TreeNode 8-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 8-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 8-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 8-3')),
                                           ]),
                                       TreeNode(
                                           content: Text('TreeNode 9'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 9-1')),
-                                            TreeNode(content: Text('TreeNode 9-2')),
-                                            TreeNode(content: Text('TreeNode 9-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 9-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 9-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 9-3')),
                                           ]),
                                       TreeNode(
                                           content: Text('TreeNode 10'),
                                           children: [
-                                            TreeNode(content: Text('TreeNode 10-1')),
-                                            TreeNode(content: Text('TreeNode 10-2')),
-                                            TreeNode(content: Text('TreeNode 10-3')),
+                                            TreeNode(
+                                                content: Text('TreeNode 10-1')),
+                                            TreeNode(
+                                                content: Text('TreeNode 10-2')),
+                                            TreeNode(
+                                                content: Text('TreeNode 10-3')),
                                           ]),
                                     ]),
-                          ]),
+                              ]),
                         ],
                       ),
                     ],
@@ -359,17 +383,16 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
+                          StatefulBuilder(builder: (BuildContext context,
+                              StateSetter dropDownState) {
                             return Expanded(
                               child: TextField(
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
                                 style: TextStyle(color: Colors.white70),
                                 decoration: InputDecoration(
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                        ))),
+                                        borderSide: BorderSide(
+                                  color: MaterialColors.blueSoft,
+                                ))),
                               ),
                             );
                           }),
@@ -402,15 +425,16 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
+                          StatefulBuilder(builder: (BuildContext context,
+                              StateSetter dropDownState) {
                             return Expanded(
                               child: TextField(
                                 style: TextStyle(color: Colors.white70),
                                 decoration: InputDecoration(
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                        ))),
+                                        borderSide: BorderSide(
+                                  color: MaterialColors.blueSoft,
+                                ))),
                               ),
                             );
                           }),
@@ -443,8 +467,8 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
+                          StatefulBuilder(builder: (BuildContext context,
+                              StateSetter dropDownState) {
                             return Expanded(
                               child: DropdownButton<String>(
                                 isExpanded: true,
@@ -456,17 +480,88 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                 underline: Container(),
                                 items: <String>[
                                   '[Seçiniz]',
-                                  'Adana','Adıyaman', 'Afyon', 'Ağrı', 'Amasya', 'Ankara', 'Antalya', 'Artvin',
-                                  'Aydın', 'Balıkesir','Bilecik', 'Bingöl', 'Bitlis', 'Bolu', 'Burdur', 'Bursa', 'Çanakkale',
-                                  'Çankırı', 'Çorum','Denizli','Diyarbakır', 'Edirne', 'Elazığ', 'Erzincan', 'Erzurum ', 'Eskişehir',
-                                  'Gaziantep', 'Giresun','Gümüşhane', 'Hakkari', 'Hatay', 'Isparta', 'Mersin', 'İstanbul', 'İzmir',
-                                  'Kars', 'Kastamonu', 'Kayseri','Kırklareli', 'Kırşehir', 'Kocaeli', 'Konya', 'Kütahya ', 'Malatya',
-                                  'Manisa', 'Kahramanmaraş', 'Mardin', 'Muğla', 'Muş', 'Nevşehir', 'Niğde', 'Ordu', 'Rize', 'Sakarya',
-                                  'Samsun', 'Siirt', 'Sinop', 'Sivas', 'Tekirdağ', 'Tokat', 'Trabzon  ', 'Tunceli', 'Şanlıurfa', 'Uşak',
-                                  'Van', 'Yozgat', 'Zonguldak', 'Aksaray', 'Bayburt ', 'Karaman', 'Kırıkkale', 'Batman', 'Şırnak',
-                                  'Bartın', 'Ardahan', 'Iğdır', 'Yalova', 'Karabük ', 'Kilis', 'Osmaniye ', 'Düzce'
-                                ]
-                                    .map((String value) {
+                                  'Adana',
+                                  'Adıyaman',
+                                  'Afyon',
+                                  'Ağrı',
+                                  'Amasya',
+                                  'Ankara',
+                                  'Antalya',
+                                  'Artvin',
+                                  'Aydın',
+                                  'Balıkesir',
+                                  'Bilecik',
+                                  'Bingöl',
+                                  'Bitlis',
+                                  'Bolu',
+                                  'Burdur',
+                                  'Bursa',
+                                  'Çanakkale',
+                                  'Çankırı',
+                                  'Çorum',
+                                  'Denizli',
+                                  'Diyarbakır',
+                                  'Edirne',
+                                  'Elazığ',
+                                  'Erzincan',
+                                  'Erzurum ',
+                                  'Eskişehir',
+                                  'Gaziantep',
+                                  'Giresun',
+                                  'Gümüşhane',
+                                  'Hakkari',
+                                  'Hatay',
+                                  'Isparta',
+                                  'Mersin',
+                                  'İstanbul',
+                                  'İzmir',
+                                  'Kars',
+                                  'Kastamonu',
+                                  'Kayseri',
+                                  'Kırklareli',
+                                  'Kırşehir',
+                                  'Kocaeli',
+                                  'Konya',
+                                  'Kütahya ',
+                                  'Malatya',
+                                  'Manisa',
+                                  'Kahramanmaraş',
+                                  'Mardin',
+                                  'Muğla',
+                                  'Muş',
+                                  'Nevşehir',
+                                  'Niğde',
+                                  'Ordu',
+                                  'Rize',
+                                  'Sakarya',
+                                  'Samsun',
+                                  'Siirt',
+                                  'Sinop',
+                                  'Sivas',
+                                  'Tekirdağ',
+                                  'Tokat',
+                                  'Trabzon  ',
+                                  'Tunceli',
+                                  'Şanlıurfa',
+                                  'Uşak',
+                                  'Van',
+                                  'Yozgat',
+                                  'Zonguldak',
+                                  'Aksaray',
+                                  'Bayburt ',
+                                  'Karaman',
+                                  'Kırıkkale',
+                                  'Batman',
+                                  'Şırnak',
+                                  'Bartın',
+                                  'Ardahan',
+                                  'Iğdır',
+                                  'Yalova',
+                                  'Karabük ',
+                                  'Kilis',
+                                  'Osmaniye ',
+                                  'Düzce'
+                                ].map((String value) {
                                   return new DropdownMenuItem<String>(
                                     value: value,
                                     child: new Text(
@@ -515,8 +610,8 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
+                          StatefulBuilder(builder: (BuildContext context,
+                              StateSetter dropDownState) {
                             return Expanded(
                               child: DropdownButton<String>(
                                 isExpanded: true,
@@ -526,8 +621,12 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                 iconDisabledColor: Colors.white70,
                                 value: _yapi,
                                 underline: Container(),
-                                items: <String>['[Seçiniz]','Seçenek 1', 'Seçenek 2', 'Seçenek 3']
-                                    .map((String value) {
+                                items: <String>[
+                                  '[Seçiniz]',
+                                  'Seçenek 1',
+                                  'Seçenek 2',
+                                  'Seçenek 3'
+                                ].map((String value) {
                                   return new DropdownMenuItem<String>(
                                     value: value,
                                     child: new Text(
@@ -576,8 +675,8 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
+                          StatefulBuilder(builder: (BuildContext context,
+                              StateSetter dropDownState) {
                             return Expanded(
                               child: DropdownButton<String>(
                                 isExpanded: true,
@@ -593,8 +692,7 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                   'Takip Süreci Devam Ediyor',
                                   'Takip Süreci Tamamlandı',
                                   'Takip Süreci Operatör Tarafından Sonlandırıldı'
-                                ]
-                                    .map((String value) {
+                                ].map((String value) {
                                   return new DropdownMenuItem<String>(
                                     value: value,
                                     child: new Text(
@@ -643,8 +741,8 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       ),
                       Row(
                         children: [
-                          StatefulBuilder(builder:
-                              (BuildContext context, StateSetter dropDownState) {
+                          StatefulBuilder(builder: (BuildContext context,
+                              StateSetter dropDownState) {
                             return Expanded(
                               child: DropdownButton<String>(
                                 isExpanded: true,
@@ -659,8 +757,7 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                   'İlgili Kişi Geri Dönüş Beklemiyor',
                                   'İlgili Kişi Geri Dönüş Bekliyor',
                                   'İlgili Kişi Geri Dönüş Bekliyordu - Geri Dönüş Sağlandı'
-                                ]
-                                    .map((String value) {
+                                ].map((String value) {
                                   return new DropdownMenuItem<String>(
                                     value: value,
                                     child: new Text(
@@ -697,7 +794,8 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Takip Tamamlama Tarih Aralığı: ${differenceFinished.inDays} gün',
+                      Text(
+                          'Takip Tamamlama Tarih Aralığı: ${differenceFinished.inDays} gün',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white70,
@@ -708,33 +806,29 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Expanded(child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                primary: MaterialColors.blueSoft
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: MaterialColors.blueSoft),
+                              child: Text(
+                                  '${startFinished.day}/${startFinished.month}/${startFinished.year}',
+                                  style: TextStyle(color: Colors.white70)),
+                              onPressed: pickDateRangeFinished,
                             ),
-                            child: Text(
-                                '${startFinished.day}/${startFinished.month}/${startFinished.year}',
-                                style: TextStyle(color: Colors.white70)
-                            ),
-                            onPressed: pickDateRangeFinished,
-                          ),
                           ),
                           Text(' - ',
                               style: TextStyle(
                                   color: MaterialColors.blueSoftLight,
-                                  fontSize: 40
-                              )
-                          ),
-                          Expanded(child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                primary: MaterialColors.blueSoft
+                                  fontSize: 40)),
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: MaterialColors.blueSoft),
+                              child: Text(
+                                  '${endFinished.day}/${endFinished.month}/${endFinished.year}',
+                                  style: TextStyle(color: Colors.white70)),
+                              onPressed: pickDateRangeFinished,
                             ),
-                            child: Text(
-                                '${endFinished.day}/${endFinished.month}/${endFinished.year}',
-                                style: TextStyle(color: Colors.white70)
-                            ),
-                            onPressed: pickDateRangeFinished,
-                          ),
                           ),
                         ],
                       )
@@ -749,7 +843,8 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     OutlinedButton(
-                      onPressed: () => Navigator.pushNamed(context, '/detaylibildirimarama'),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, '/detaylibildirimarama'),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6)),
@@ -766,7 +861,8 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                       width: 10,
                     ),
                     OutlinedButton(
-                      onPressed: () => Navigator.pushNamed(context, '/bildirimlistesi'),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, '/bildirimlistesi'),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6)),
@@ -786,9 +882,10 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
           ),
         ));
   }
-  
-  Future pickDateRange() async{
-    DateTimeRange newDateRange = await showDateRangePicker(context: context,
+
+  Future pickDateRange() async {
+    DateTimeRange newDateRange = await showDateRangePicker(
+        context: context,
         builder: (BuildContext context, Widget child) {
           return Theme(
             data: ThemeData.dark().copyWith(
@@ -803,16 +900,17 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
             ),
             child: child,
           );
-          },
+        },
         initialDateRange: dateRange,
         firstDate: DateTime(2000),
-        lastDate: DateTime.now()
-    );
+        lastDate: DateTime.now());
     if (newDateRange == null) return;
     setState(() => dateRange = newDateRange);
   }
-  Future pickDateRangeFinished() async{
-    DateTimeRange newDateRange = await showDateRangePicker(context: context,
+
+  Future pickDateRangeFinished() async {
+    DateTimeRange newDateRange = await showDateRangePicker(
+        context: context,
         builder: (BuildContext context, Widget child) {
           return Theme(
             data: ThemeData.dark().copyWith(
@@ -829,8 +927,7 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
         },
         initialDateRange: dateRangeFinished,
         firstDate: DateTime(2000),
-        lastDate: DateTime.now()
-    );
+        lastDate: DateTime.now());
     if (newDateRange == null) return;
     setState(() => dateRangeFinished = newDateRange);
   }

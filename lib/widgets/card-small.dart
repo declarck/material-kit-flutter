@@ -3,13 +3,11 @@ import 'package:material_kit_flutter/constants/Theme.dart';
 
 class CardSmall extends StatelessWidget {
   CardSmall(
-      {
-        this.title = "Placeholder Title",
-        this.cta = "",
-        this.img = "https://via.placeholder.com/200",
-        this.tap = defaultFunc,
-        this.textaligner = TextAlign.center
-      });
+      {this.title = "Placeholder Title",
+      this.cta = "",
+      this.img = "https://via.placeholder.com/200",
+      this.tap = defaultFunc,
+      this.textaligner = TextAlign.center});
 
   final String cta;
   final String img;
@@ -25,7 +23,7 @@ class CardSmall extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
         child: Container(
-      height: 160,
+      height: 170,
       margin: EdgeInsets.only(top: 10),
       child: GestureDetector(
           onTap: tap,
@@ -39,13 +37,12 @@ class CardSmall extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 60,
+                      height: 70,
                     ),
                     Flexible(
                         flex: 1,
                         child: Padding(
-                          padding: const EdgeInsets.all(
-                              5),
+                          padding: const EdgeInsets.all(5),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -54,15 +51,16 @@ class CardSmall extends StatelessWidget {
                                   textAlign: textaligner,
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 12)),
-
                               Padding(
                                 padding: const EdgeInsets.only(top: 5.0),
                                 child: OutlinedButton(
-                                  onPressed: () => Navigator.pushNamed(context, '/bildirimlistesi'),
+                                  onPressed: () => Navigator.pushNamed(
+                                      context, '/bildirimlistesi'),
                                   style: OutlinedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(6)),
-                                    side: BorderSide(width: 2, color: Colors.lightGreen),
+                                    side: BorderSide(
+                                        width: 2, color: Colors.lightGreen),
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(5.0),
