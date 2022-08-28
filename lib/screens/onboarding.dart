@@ -34,7 +34,7 @@ class Onboarding extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 24.0),
-                      child: Text("© Bir AlbinaSoft Projesidir. Test",
+                      child: Text("© Bir AlbinaSoft Projesidir.",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
