@@ -11,7 +11,7 @@ class Pro extends StatelessWidget {
       Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/img/onboard-background.jpg"),
+                  image: AssetImage("assets/img/backgroud-dark.jpg"),
                   fit: BoxFit.cover))),
       Padding(
         padding:
