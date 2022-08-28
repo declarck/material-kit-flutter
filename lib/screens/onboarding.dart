@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
@@ -35,7 +34,7 @@ class Onboarding extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 24.0),
-                      child: Text("© Bir AlbinaSoft Projesidir.",
+                      child: Text("© Bir AlbinaSoft Projesidir. Test",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
