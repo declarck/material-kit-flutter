@@ -91,7 +91,7 @@ class Login extends StatelessWidget {
                             textColor: Colors.white,
                             color: MaterialColors.blueSoft,
                             onPressed: () async {
-                              const url = 'https://www.albinasoft.com/AnaSayfa#contacts';
+                              const url = 'https://giris.albinasoft.com/SifremiUnuttum?rd=https://www.callcentertr.com';
                               if(await canLaunch(url)){
                                 await launch(url);
                               }else {
