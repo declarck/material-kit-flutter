@@ -2,36 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 
-
-final Map<String, Map<String, String>> homeCards = {
-  "Bildirimler": {
-    "title": "BİLDİRİMLER\narasında arama yapabileceğinizi biliyor muydunuz?",
-    "image": "https://i.im.ge/2022/08/20/OL2GFK.bildirimler.jpg",
-  },
-  "Raporlar": {
-    "title":
-    "RAPORLARINIZI\nExcel, Word, Pdf dosyasına aktarmak ister misiniz?",
-    "image": "https://i.im.ge/2022/08/20/OL24zF.rapor.jpg",
-  },
-  "Baslamamis": {
-    "title": "Takibi başlamamış bildirimler.",
-    "image": "https://i.im.ge/2022/08/20/OL2Rkc.baslamamis.jpg",
-    //"image": "material_kit_flutter/assets/img/baslamamis.jpg",
-  },
-  "DevamEden": {
-    "title": "Takibi devam eden bildirimler.",
-    "image": "https://i.im.ge/2022/08/20/OL2gq0.devameden.jpg",
-  },
-  "Tamamlanan": {
-    "title": "Takibi tamamlanan bildirimler.",
-    "image": "https://i.im.ge/2022/08/20/OL28tT.tamamlanan.jpg",
-  },
-  "GunlukBildirim": {
-    "title": "25 adet bildirim bugün kaydedilmiştir.",
-    //"image": null,
-  },
-};
-
 class YeniBildirimGirisi extends StatelessWidget {
   String _bildirimKanali = '[Seçiniz]';
   String _agacYapisi = '[Seçiniz]';

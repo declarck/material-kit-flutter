@@ -11,81 +11,76 @@ class Login extends StatelessWidget {
           Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/img/background-dark.jpg"),
+                      image: AssetImage("assets/img/bg-abstract.jpg"),
                       fit: BoxFit.cover))),
           Padding(
             padding:
-            const EdgeInsets.only(left: 30, right: 30),
+            const EdgeInsets.symmetric(horizontal: 30),
             child: Container(
               child: SafeArea(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 50.0),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Image.asset("assets/img/login-vector.png", scale: 3),
-                              ]),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 50, bottom:50),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  StatefulBuilder(builder: (BuildContext context,
-                                      StateSetter dropDownState) {
-                                    return Expanded(
-                                      child: TextField(
-                                        style: TextStyle(color: Colors.white70),
-                                        decoration: InputDecoration(
-                                            hintText: 'Kullanıcı Adınız',
-                                            hintStyle: TextStyle(color: Colors.white70),
-                                            enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: MaterialColors.blueSoft,
-                                                ))),
-                                      ),
-                                    );
-                                  }),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  StatefulBuilder(builder: (BuildContext context,
-                                      StateSetter dropDownState) {
-                                    return Expanded(
-                                      child: TextField(
-                                        obscureText: true,
-                                        style: TextStyle(color: Colors.white70),
-                                        decoration: InputDecoration(
-                                            hintText: 'Şifreniz',
-                                            hintStyle: TextStyle(color: Colors.white70),
-                                            enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: MaterialColors.blueSoft,
-                                                ))),
-                                      ),
-                                    );
-                                  }),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset("assets/img/login-vector.png", scale: 3),
+                          ]),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 16.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              StatefulBuilder(builder: (BuildContext context,
+                                  StateSetter dropDownState) {
+                                return Expanded(
+                                  child: TextField(
+                                    style: TextStyle(color: Colors.white70),
+                                    decoration: InputDecoration(
+                                        hintText: 'Kullanıcı Adınız',
+                                        hintStyle: TextStyle(color: Colors.white70),
+                                        enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: MaterialColors.blueSoft,
+                                            ))),
+                                  ),
+                                );
+                              }),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              StatefulBuilder(builder: (BuildContext context,
+                                  StateSetter dropDownState) {
+                                return Expanded(
+                                  child: TextField(
+                                    obscureText: true,
+                                    style: TextStyle(color: Colors.white70),
+                                    decoration: InputDecoration(
+                                        hintText: 'Şifreniz',
+                                        hintStyle: TextStyle(color: Colors.white70),
+                                        enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: MaterialColors.blueSoft,
+                                            ))),
+                                  ),
+                                );
+                              }),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           FlatButton(
                             textColor: Colors.white,
@@ -102,12 +97,11 @@ class Login extends StatelessWidget {
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                             child: Padding(
-                                padding: EdgeInsets.only(
-                                    left: 16.0, right: 16.0, top: 12, bottom: 12),
+                                padding: EdgeInsets.all(0),
                                 child: Text("ŞİFREMİ UNUTTUM",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 16.0))),
+                                        fontSize: 12))),
                           ),
                           FlatButton(
                             textColor: Colors.white,
@@ -120,35 +114,13 @@ class Login extends StatelessWidget {
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                             child: Padding(
-                                padding: EdgeInsets.only(
-                                    left: 16.0, right: 16.0, top: 12, bottom: 12),
+                                padding: EdgeInsets.all(0),
                                 child: Text("GİRİŞ YAP",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 16.0))),
+                                        fontSize: 12))),
                           ),
                         ],
-                      ),
-                    ),
-
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: TextButton(
-                          onPressed: () async {
-                            const url = 'https://albinasoft.com/AnaSayfa';
-                            if(await canLaunch(url)){
-                              await launch(url);
-                            }else {
-                              throw 'Could not launch $url';
-                            }
-                          },
-                          child: Text("© Bir AlbinaSoft Projesidir.",
-                              style: TextStyle(
-                                  color: MaterialColors.blueSoft,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500)),
-                        ),
                       ),
                     ),
                   ],
