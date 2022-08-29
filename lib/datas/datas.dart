@@ -2,6 +2,7 @@ import 'data.dart';
 
 final allDatas = <Data>[
   Data(
+    detay: 'DETAY',
     cagriId: 'cagriId',
     arayanTalep: 'arayanTalep',
     yapilanIslem: 'yapilanIslem',
@@ -10,9 +11,9 @@ final allDatas = <Data>[
     takipDurumu: 'takipDurumu',
     geriDonusSureci: 'geriDonusSureci',
     kaynak: 'kaynak',
-    detay: 'detay,',
   ),
   Data(
+    detay: 'DETAY',
     cagriId: 'cagriId',
     arayanTalep: 'arayanTalep',
     yapilanIslem: 'yapilanIslem',
@@ -21,9 +22,9 @@ final allDatas = <Data>[
     takipDurumu: 'takipDurumu',
     geriDonusSureci: 'geriDonusSureci',
     kaynak: 'kaynak',
-    detay: 'detay',
   ),
   Data(
+    detay: 'DETAY',
     cagriId: 'cagriId',
     arayanTalep: 'arayanTalep',
     yapilanIslem: 'yapilanIslem',
@@ -32,6 +33,5 @@ final allDatas = <Data>[
     takipDurumu: 'takipDurumu',
     geriDonusSureci: 'geriDonusSureci',
     kaynak: 'kaynak',
-    detay: 'detay,',
   ),
 ];

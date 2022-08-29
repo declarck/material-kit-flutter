@@ -30,7 +30,7 @@ class Data {
     String takipDurumu,
     String geriDonusSureci,
     String kaynak,
-    String detay,
+    var detay,
   }) =>
       Data(
         cagriId: cagriId ?? this.cagriId,

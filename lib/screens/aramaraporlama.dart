@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_simple_treeview/flutter_simple_treeview.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
 
 class AramaRaporlama extends StatefulWidget {
@@ -241,119 +240,16 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                           ),
                         ],
                       ),
-                      Row(
+                      Column(
                         children: [
-                          TreeView(
-                              treeController:
-                                  TreeController(allNodesExpanded: false),
-                              nodes: [
-                                TreeNode(
-                                    content: Text('TreeNode as Root',
-                                        style:
-                                            TextStyle(color: Colors.white70)),
-                                    children: [
-                                      TreeNode(
-                                          content: Text('TreeNode 1'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 1-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 1-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 1-3')),
-                                          ]),
-                                      TreeNode(
-                                          content: Text('TreeNode 2'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 2-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 2-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 2-3')),
-                                          ]),
-                                      TreeNode(
-                                          content: Text('TreeNode 3'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 3-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 3-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 3-3')),
-                                          ]),
-                                      TreeNode(
-                                          content: Text('TreeNode 4'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 4-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 4-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 4-3')),
-                                          ]),
-                                      TreeNode(
-                                          content: Text('TreeNode 5'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 5-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 5-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 5-3')),
-                                          ]),
-                                      TreeNode(
-                                          content: Text('TreeNode 6'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 6-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 6-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 6-3')),
-                                          ]),
-                                      TreeNode(
-                                          content: Text('TreeNode 7'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 7-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 7-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 7-3')),
-                                          ]),
-                                      TreeNode(
-                                          content: Text('TreeNode 8'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 8-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 8-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 8-3')),
-                                          ]),
-                                      TreeNode(
-                                          content: Text('TreeNode 9'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 9-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 9-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 9-3')),
-                                          ]),
-                                      TreeNode(
-                                          content: Text('TreeNode 10'),
-                                          children: [
-                                            TreeNode(
-                                                content: Text('TreeNode 10-1')),
-                                            TreeNode(
-                                                content: Text('TreeNode 10-2')),
-                                            TreeNode(
-                                                content: Text('TreeNode 10-3')),
-                                          ]),
-                                    ]),
-                              ]),
+                          Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Container(
+                              height: 20,
+                              color: Colors.deepPurple[200],
+                              child: Text('Buraya TreeView Gelecek'),
+                            ),
+                          ),
                         ],
                       ),
                     ],

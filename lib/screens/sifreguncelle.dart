@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 
-class YeniBildirimGirisi extends StatelessWidget {
+class SifreGuncelle extends StatelessWidget {
   String _bildirimKanali = '[Seçiniz]';
   //String _agacYapisi = '[Seçiniz]';
   String _il = '[Seçiniz]';

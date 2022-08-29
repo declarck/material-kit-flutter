@@ -41,6 +41,8 @@ dependencies:
   syncfusion_flutter_datepicker: ^20.2.45
   flutter_simple_treeview: ^3.0.1
   url_launcher: ^6.1.5
+  flutter_fancy_tree_view: ^0.5.3+1
+  flutter_native_splash: ^2.2.8
 
 dev_dependencies:
   flutter_test:
@@ -86,3 +88,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  color: '#283c64'
+  image: assets/img/albinasoft-blue.png

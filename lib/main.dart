@@ -7,6 +7,7 @@ import 'package:material_kit_flutter/screens/login.dart';
 import 'package:material_kit_flutter/screens/onboarding.dart';
 import 'package:material_kit_flutter/screens/profile.dart';
 import 'package:material_kit_flutter/screens/settings.dart';
+import 'package:material_kit_flutter/screens/sifreguncelle.dart';
 import 'package:material_kit_flutter/screens/yenibildirimgirisi.dart';
 
 void main() => runApp(CallCenterTR());
@@ -21,15 +22,20 @@ class CallCenterTR extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           "/onboarding": (BuildContext context) => new Onboarding(),
           "/login": (BuildContext context) => new Login(),
+
           "/components": (BuildContext context) => new Components(),
           "/profile": (BuildContext context) => new Profile(),
           "/settings": (BuildContext context) => new Settings(),
+
+          "/bildirimlistesi": (BuildContext context) => new BildirimListesi(),
+          "/aramaraporlama": (BuildContext context) => new AramaRaporlama(),
+
           "/yenibildirimgirisi": (BuildContext context) =>
               new YeniBildirimGirisi(),
           "/gelencagribildirimleri": (BuildContext context) =>
               new GelenCagriBildirimleri(),
-          "/bildirimlistesi": (BuildContext context) => new BildirimListesi(),
-          "/aramaraporlama": (BuildContext context) => new AramaRaporlama(),
+
+          "/sifreguncelle": (BuildContext context) => new SifreGuncelle(),
         });
   }
 }

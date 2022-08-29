@@ -222,6 +222,7 @@ class _BildirimListesiState extends State<BildirimListesi> {
 
   Widget buildDataTable() {
     final columns = [
+      'Detay',
       'Çağrı Id',
       'Arayan Talep',
       'Yapılan İşlem',
@@ -230,7 +231,6 @@ class _BildirimListesiState extends State<BildirimListesi> {
       'Takip Durumu',
       'Geri Dönüş Süreci',
       'Kaynak',
-      'Detay',
     ];
 
     return DataTable(
@@ -254,6 +254,7 @@ class _BildirimListesiState extends State<BildirimListesi> {
 
   List<DataRow> getRows(List<Data> users) => datas.map((Data data) {
         final cells = [
+          data.detay,
           data.cagriId,
           data.arayanTalep,
           data.yapilanIslem,
@@ -262,7 +263,6 @@ class _BildirimListesiState extends State<BildirimListesi> {
           data.takipDurumu,
           data.geriDonusSureci,
           data.kaynak,
-          data.detay,
         ];
         return DataRow(cells: getCells(cells));
       }).toList();
