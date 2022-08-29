@@ -131,7 +131,7 @@ class _BildirimListesiState extends State<BildirimListesi> {
                 padding: const EdgeInsets.all(8.0),
                 alignment: Alignment.center,
                 child: Text(
-                  'GeriDonusSureci',
+                  'Geri Dönüş Süreci',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(color: Colors.white70),
                 ))),

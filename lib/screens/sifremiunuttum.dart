@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
-class Login extends StatelessWidget {
+
+class SifremiUnuttum extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,27 +42,7 @@ class Login extends StatelessWidget {
                                   child: TextField(
                                     style: TextStyle(color: Colors.white70),
                                     decoration: InputDecoration(
-                                        hintText: 'Kullanıcı Adınız',
-                                        hintStyle: TextStyle(color: Colors.white70),
-                                        enabledBorder: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: MaterialColors.blueSoft,
-                                            ))),
-                                  ),
-                                );
-                              }),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              StatefulBuilder(builder: (BuildContext context,
-                                  StateSetter dropDownState) {
-                                return Expanded(
-                                  child: TextField(
-                                    obscureText: true,
-                                    style: TextStyle(color: Colors.white70),
-                                    decoration: InputDecoration(
-                                        hintText: 'Şifreniz',
+                                        hintText: 'E-Posta adresiniz',
                                         hintStyle: TextStyle(color: Colors.white70),
                                         enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
@@ -82,17 +63,14 @@ class Login extends StatelessWidget {
                         children: [
                           FlatButton(
                             textColor: Colors.white,
-                            color: MaterialColors.blueSoft,
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                  context, '/sifremiunuttum');
-                            },
+                            color: Colors.deepOrangeAccent,
+                            onPressed: () => Navigator.of(context).pop(),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                             child: Padding(
                                 padding: EdgeInsets.all(0),
-                                child: Text("ŞİFREMİ UNUTTUM",
+                                child: Text("VAZGEÇ",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12))),
@@ -101,15 +79,61 @@ class Login extends StatelessWidget {
                             textColor: Colors.white,
                             color: Colors.green,
                             onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, '/gelencagribildirimleri');
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  elevation: 25,
+                                  backgroundColor: MaterialColors.blueSoftDarker,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  //scrollable: true,
+                                  title: Text(
+                                    'Şifre Güncelleme İşlemi Başlamıştır.',
+                                    style: TextStyle(color: Colors.white70),
+                                  ),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Flexible(
+                                            child: Text(
+                                              'Tarafınıza gönderilen e-posta içerisinde şifre güncelleme bilgileri paylaşılmıştır. Lütfen e-posta kutunuzu kontrol ediniz.',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  color: Colors.white70),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  actions: [
+                                    OutlinedButton(
+                                      onPressed: () => Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false),
+                                      style: OutlinedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(6)),
+                                        side: BorderSide(width: 2, color: MaterialColors.blueSoft),
+                                      ),
+                                      child: Text(
+                                        'Tamam',
+                                        style: TextStyle(
+                                          color: Colors.white70,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                             child: Padding(
                                 padding: EdgeInsets.all(0),
-                                child: Text("GİRİŞ YAP",
+                                child: Text("GÖNDER",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12))),
