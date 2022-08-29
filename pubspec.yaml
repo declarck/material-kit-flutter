@@ -18,7 +18,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  #sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.17.6 <3.0.0"
 
 dependencies:
   flutter:
@@ -26,16 +27,10 @@ dependencies:
   scrollable_positioned_list: ^0.3.2
   carousel_slider: ^4.1.1
   font_awesome_flutter: ^10.1.0
-
   path_provider: ^2.0.1
   open_file: ^3.1.0
-  syncfusion_flutter_pdf: ^20.2.44
   universal_html: ^2.0.8
   flutter_picker: ^2.0.5
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
   intl: ^0.17.0
   syncfusion_flutter_datepicker: ^20.2.45
@@ -43,6 +38,7 @@ dependencies:
   url_launcher: ^6.1.5
   flutter_fancy_tree_view: ^0.5.3+1
   flutter_native_splash: ^2.2.8
+  syncfusion_flutter_datagrid: ^20.2.45
 
 dev_dependencies:
   flutter_test:

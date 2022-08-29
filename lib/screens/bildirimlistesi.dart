@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/datas/data.dart';
-import 'package:material_kit_flutter/datas/datas.dart';
-import 'package:syncfusion_flutter_pdf/pdf.dart';
-
 import '../constants/Theme.dart';
-import '../tools/create-pdf.dart';
-import '../widgets/datatable.dart';
+import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 class BildirimListesi extends StatefulWidget {
   @override
@@ -13,375 +8,500 @@ class BildirimListesi extends StatefulWidget {
 }
 
 class _BildirimListesiState extends State<BildirimListesi> {
-  List<Data> datas;
-  int sortColumnIndex;
-  bool isAscending = false;
   String _chosenValueA = 'Rakamsal Çağrı Dağılım Raporu - Görsel';
   String _chosenValueB = 'PDF';
+
+  late List<Bildirim> _bildirimler;
+  late BildirimDataSource _bildirimDataSource;
 
   @override
   void initState() {
     super.initState();
-    this.datas = List.of(allDatas);
+    _bildirimler = getBildirimData();
+    _bildirimDataSource = BildirimDataSource(_bildirimler);
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        backgroundColor: MaterialColors.blueSoftDarkest,
-        appBar: AppBar(
-          backgroundColor: MaterialColors.blueSoftDarker,
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.of(context).pop(),
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              );
+    backgroundColor: MaterialColors.blueSoftDarkest,
+    appBar: AppBar(
+      backgroundColor: MaterialColors.blueSoftDarker,
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.of(context).pop(),
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          );
+        },
+      ),
+      title: const Text('Bildirim Listesi'),
+      actions: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(right: 15),
+          child: GestureDetector(
+            onTap: () {
+              Actions.find(context);
             },
+            child: Icon(Icons.search),
           ),
-          title: const Text('Bildirim Listesi'),
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 15),
-              child: GestureDetector(
-                onTap: () {
-                  Actions.find(context);
-                },
-                child: Icon(Icons.search),
+        ),
+      ],
+    ),
+    body: SfDataGrid(
+      allowSorting: true,
+      selectionMode: SelectionMode.multiple,
+      source: _bildirimDataSource,
+      columns: [
+        GridColumn(
+            columnName: 'detay',
+            label: Container(
+              padding: const EdgeInsets.all(8.0),
+              alignment: Alignment.center,
+              child: Text(
+                'Detay',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: Colors.white70),
               ),
-            ),
-          ],
-        ),
-        body: ScrollableWidget(
-          child: buildDataTable(),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showDialog(
-              barrierDismissible: false,
-              context: context,
-              builder: (context) => AlertDialog(
-                elevation: 25,
-                backgroundColor: MaterialColors.blueSoftDarker,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                //scrollable: true,
-                title: Text(
-                  'Dışa Aktar',
+            )),
+        GridColumn(
+            columnName: 'cagriid',
+            label: Container(
+              padding: const EdgeInsets.all(8.0),
+              alignment: Alignment.center,
+              child: Text(
+                'Çağrı ID',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: Colors.white70),
+              ),
+            )),
+        GridColumn(
+            columnName: 'arayantakip',
+            label: Container(
+                padding: const EdgeInsets.all(8.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Arayan Takip',
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(color: Colors.white70),
-                ),
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
+                ))),
+        GridColumn(
+            columnName: 'yapilanislem',
+            label: Container(
+                padding: const EdgeInsets.all(8.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Yapılan İşlem',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.white70),
+                ))),
+        GridColumn(
+            columnName: 'arayankisi',
+            label: Container(
+                padding: const EdgeInsets.all(8.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Arayan Kişi',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.white70),
+                ))),
+        GridColumn(
+            columnName: 'cagritarihi',
+            label: Container(
+                padding: const EdgeInsets.all(8.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Çağrı Tarihi',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.white70),
+                ))),
+        GridColumn(
+            columnName: 'takipdurumu',
+            label: Container(
+                padding: const EdgeInsets.all(8.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Takip Durumu',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.white70),
+                ))),
+        GridColumn(
+            columnName: 'geridonussureci',
+            label: Container(
+                padding: const EdgeInsets.all(8.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'GeriDonusSureci',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.white70),
+                ))),
+        GridColumn(
+            columnName: 'kaynak',
+            label: Container(
+                padding: const EdgeInsets.all(8.0),
+                alignment: Alignment.center,
+                child: Text(
+                  'Kaynak',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.white70),
+                ))),
+      ],
+    ),
+    floatingActionButton: FloatingActionButton(
+      onPressed: () {
+        showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (context) => AlertDialog(
+            elevation: 25,
+            backgroundColor: MaterialColors.blueSoftDarker,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)),
+            //scrollable: true,
+            title: Text(
+              'Dışa Aktar',
+              style: TextStyle(color: Colors.white70),
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Rapor Tipi',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white70),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        StatefulBuilder(builder:
-                            (BuildContext context, StateSetter dropDownState) {
-                          return Expanded(
-                            child: DropdownButton<String>(
-                              isExpanded: true,
-                              dropdownColor: MaterialColors.blueSoftDarker,
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                              iconEnabledColor: Colors.white70,
-                              iconDisabledColor: Colors.white70,
-                              value: _chosenValueA,
-                              underline: Container(),
-                              items: <String>[
-                                'Rakamsal Çağrı Dağılım Raporu - Görsel',
-                                'Rakamsal Çağrı Dağılım Raporu - Sıralı',
-                                'Rakamsal Çağrı Dağılım Raporu - Büyük Veri',
-                                'Çağrı Detaylı Liste Raporu',
-                                'İstatistik',
-                                'Kurum Yapısı Bazlı İstatistik Raporu',
-                                'Takip Süreci İzleme Raporu',
-                                'Kurum İçi Kategorizasyon Raporu'
-                              ].map((String value) {
-                                return new DropdownMenuItem<String>(
-                                  value: value,
-                                  child: new Text(
-                                    value,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.white70,
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                              onChanged: (String value) {
-                                dropDownState(() {
-                                  _chosenValueA = value;
-                                });
-                              },
-                            ),
-                          );
-                        }),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Dosya Tipi',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white70,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        StatefulBuilder(builder:
-                            (BuildContext context, StateSetter dropDownState) {
-                          return Expanded(
-                            child: DropdownButton<String>(
-                              isExpanded: true,
-                              dropdownColor: MaterialColors.blueSoftDarker,
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                              iconEnabledColor: Colors.white70,
-                              iconDisabledColor: Colors.white70,
-                              value: _chosenValueB,
-                              underline: Container(),
-                              items: <String>['PDF', 'Word', 'Excel']
-                                  .map((String value) {
-                                return new DropdownMenuItem<String>(
-                                  value: value,
-                                  child: new Text(
-                                    value,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.white70,
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                              onChanged: (String value) {
-                                dropDownState(() {
-                                  _chosenValueB = value;
-                                });
-                              },
-                            ),
-                          );
-                        }),
-                      ],
+                    Text(
+                      'Rapor Tipi',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white70),
                     ),
                   ],
                 ),
-                actions: [
-                  OutlinedButton(
-                    onPressed: () => Navigator.pop(context),
-                    style: OutlinedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6)),
-                      side: BorderSide(width: 2, color: Colors.deepOrange),
-                    ),
-                    child: Text(
-                      'Vazgeç',
+                Row(
+                  children: [
+                    StatefulBuilder(builder:
+                        (BuildContext context, StateSetter dropDownState) {
+                      return Expanded(
+                        child: DropdownButton<String>(
+                          isExpanded: true,
+                          dropdownColor: MaterialColors.blueSoftDarker,
+                          icon: const Icon(Icons.keyboard_arrow_down),
+                          iconEnabledColor: Colors.white70,
+                          iconDisabledColor: Colors.white70,
+                          value: _chosenValueA,
+                          underline: Container(),
+                          items: <String>[
+                            'Rakamsal Çağrı Dağılım Raporu - Görsel',
+                            'Rakamsal Çağrı Dağılım Raporu - Sıralı',
+                            'Rakamsal Çağrı Dağılım Raporu - Büyük Veri',
+                            'Çağrı Detaylı Liste Raporu',
+                            'İstatistik',
+                            'Kurum Yapısı Bazlı İstatistik Raporu',
+                            'Takip Süreci İzleme Raporu',
+                            'Kurum İçi Kategorizasyon Raporu'
+                          ].map((String value) {
+                            return new DropdownMenuItem<String>(
+                              value: value,
+                              child: new Text(
+                                value,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String? value) {
+                            dropDownState(() {
+                              _chosenValueA = value!;
+                            });
+                          },
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'Dosya Tipi',
                       style: TextStyle(
+                        fontWeight: FontWeight.bold,
                         color: Colors.white70,
                       ),
                     ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    StatefulBuilder(builder:
+                        (BuildContext context, StateSetter dropDownState) {
+                      return Expanded(
+                        child: DropdownButton<String>(
+                          isExpanded: true,
+                          dropdownColor: MaterialColors.blueSoftDarker,
+                          icon: const Icon(Icons.keyboard_arrow_down),
+                          iconEnabledColor: Colors.white70,
+                          iconDisabledColor: Colors.white70,
+                          value: _chosenValueB,
+                          underline: Container(),
+                          items: <String>['PDF', 'Word', 'Excel']
+                              .map((String value) {
+                            return new DropdownMenuItem<String>(
+                              value: value,
+                              child: new Text(
+                                value,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String? value) {
+                            dropDownState(() {
+                              _chosenValueB = value!;
+                            });
+                          },
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+              ],
+            ),
+            actions: [
+              OutlinedButton(
+                onPressed: () => Navigator.pop(context),
+                style: OutlinedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6)),
+                  side: BorderSide(width: 2, color: Colors.deepOrange),
+                ),
+                child: Text(
+                  'Vazgeç',
+                  style: TextStyle(
+                    color: Colors.white70,
                   ),
-                  OutlinedButton(
-                    onPressed: () => Navigator.pop(context),
-                    style: OutlinedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6)),
-                      side: BorderSide(width: 2, color: Colors.lightGreen),
-                    ),
-                    child: Text(
-                      'Raporla',
-                      style: TextStyle(
-                        color: Colors.white70,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
-            );
-          },
-          backgroundColor: Colors.white70,
-          child: const Icon(
-            Icons.download,
-            color: MaterialColors.blueSoft,
+              OutlinedButton(
+                onPressed: () => Navigator.pop(context),
+                style: OutlinedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6)),
+                  side: BorderSide(width: 2, color: Colors.lightGreen),
+                ),
+                child: Text(
+                  'Raporla',
+                  style: TextStyle(
+                    color: Colors.white70,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
+        );
+      },
+      backgroundColor: Colors.white70,
+      child: const Icon(
+        Icons.download,
+        color: MaterialColors.blueSoft,
+      ),
+    ),
+  );
+
+  List<Bildirim> getBildirimData() {
+    return [
+      Bildirim(
+          'AAAAAAAAAAAAAAAAAAAA',
+          'BBBBBBBBBBBBBBBBBBBB',
+          'CCCCCCCCCCCCCCCCCCCC',
+          'DDDDDDDDDDDDDDDDDDDD',
+          'EEEEEEEEEEEEEEEEEEEE',
+          'FFFFFFFFFFFFFFFFFFFF',
+          'GGGGGGGGGGGGGGGGGGGG',
+          'HHHHHHHHHHHHHHHHHHHH'),
+      Bildirim(
+          'AAAAAAAAAA',
+          'BBBBBBBBBB',
+          'CCCCCCCCCC',
+          'DDDDDDDDDD',
+          'EEEEEEEEEE',
+          'FFFFFFFFFF',
+          'GGGGGGGGGG',
+          'HHHHHHHHHH'),
+      Bildirim(
+          'AAAAAAAAAA',
+          'BBBBBBBBBB',
+          'CCCCCCCCCC',
+          'DDDDDDDDDD',
+          'EEEEEEEEEE',
+          'FFFFFFFFFF',
+          'GGGGGGGGGG',
+          'HHHHHHHHHH'),
+    ];
+  }
+}
+
+class BildirimDataSource extends DataGridSource {
+  BildirimDataSource(List<Bildirim> bildirimler) {
+    dataGridRows = bildirimler
+        .map<DataGridRow>((dataGridRow) => DataGridRow(cells: [
+      const DataGridCell<Widget>(columnName: 'detay', value: null),
+      DataGridCell<String>(columnName: 'cagriid', value: dataGridRow.cagriId),
+      DataGridCell<String>(columnName: 'arayantakip', value: dataGridRow.arayanTakip),
+      DataGridCell<String>(columnName: 'yapilanislem', value: dataGridRow.yapilanIslem),
+      DataGridCell<String>(columnName: 'arayankisi', value: dataGridRow.arayanKisi),
+      DataGridCell<String>(columnName: 'cagritarihi', value: dataGridRow.cagriTarihi),
+      DataGridCell<String>(columnName: 'takipdurumu', value: dataGridRow.takipDurumu),
+      DataGridCell<String>(columnName: 'geridonussureci', value: dataGridRow.geriDonusSureci),
+      DataGridCell<String>(columnName: 'kaynak', value: dataGridRow.kaynak),
+
+    ]))
+        .toList();
+  }
+
+  late List<DataGridRow> dataGridRows;
+  @override
+  List<DataGridRow> get rows => dataGridRows;
+  @override
+  DataGridRowAdapter? buildRow(DataGridRow row) {
+    return DataGridRowAdapter(
+        cells: row.getCells().map<Widget>((dataGridCell) {
+          return Container(
+              alignment: Alignment.center,
+              //padding: EdgeInsets.symmetric(horizontal: 10.0),
+              child: dataGridCell.columnName == 'detay'
+                  ? LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                    return OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6)),
+                    side: BorderSide(width: 2, color: Colors.lightGreen)),
+                        onPressed: () {
+                          showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                  backgroundColor: MaterialColors.blueSoftDarker,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        //mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                              'Çağrı Id:',
+                                              style: TextStyle(color: MaterialColors.blueSoftLighter)),
+                                          Text(
+                                              '${row.getCells()[1].value.toString()}',
+                                              style: TextStyle(color: Colors.white70)),
+                                          Divider(color: MaterialColors.blueSoftLighter, thickness: 1),
+                                          Text(
+                                              'Arayan Talep:',
+                                              style: TextStyle(color: MaterialColors.blueSoftLighter)),
+                                          Text(
+                                              '${row.getCells()[2].value.toString()}',
+                                              style: TextStyle(color: Colors.white70)),
+                                          Divider(color: MaterialColors.blueSoftLighter, thickness: 1),
+                                          Text(
+                                              'Yapılan İşlem:',
+                                              style: TextStyle(color: MaterialColors.blueSoftLighter)),
+                                          Text(
+                                              '${row.getCells()[3].value.toString()}',
+                                              style: TextStyle(color: Colors.white70)),
+                                          Divider(color: MaterialColors.blueSoftLighter, thickness: 1),
+                                          Text(
+                                              'Arayan Kişi:',
+                                              style: TextStyle(color: MaterialColors.blueSoftLighter)),
+                                          Text(
+                                              '${row.getCells()[4].value.toString()}',
+                                              style: TextStyle(color: Colors.white70)),
+                                          Divider(color: MaterialColors.blueSoftLighter, thickness: 1),
+                                          Text(
+                                              'Çağrı Tarihi:',
+                                              style: TextStyle(color: MaterialColors.blueSoftLighter)),
+                                          Text(
+                                              '${row.getCells()[5].value.toString()}',
+                                              style: TextStyle(color: Colors.white70)),
+                                          Divider(color: MaterialColors.blueSoftLighter, thickness: 1),
+                                          Text(
+                                              'Takip Durumu:',
+                                              style: TextStyle(color: MaterialColors.blueSoftLighter)),
+                                          Text(
+                                              '${row.getCells()[6].value.toString()}',
+                                              style: TextStyle(color: Colors.white70)),
+                                          Divider(color: MaterialColors.blueSoftLighter, thickness: 1),
+                                          Text(
+                                              'Geri Dönüş Süreci:',
+                                              style: TextStyle(color: MaterialColors.blueSoftLighter)),
+                                          Text(
+                                              '${row.getCells()[7].value.toString()}',
+                                              style: TextStyle(color: Colors.white70)),
+                                          Divider(color: MaterialColors.blueSoftLighter, thickness: 1),
+                                          Text(
+                                              'Kaynak:',
+                                              style: TextStyle(color: MaterialColors.blueSoftLighter)),
+                                          Text(
+                                              '${row.getCells()[8].value.toString()}',
+                                              style: TextStyle(color: Colors.white70)),
+                                        ],
+                                      ),
+                                actions: [
+                                  OutlinedButton(
+                                    onPressed: () => Navigator.pop(context),
+                                    style: OutlinedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(6)),
+                                      side: BorderSide(width: 2, color: Colors.deepOrange),
+                                    ),
+                                    child: Text(
+                                      'Kapat',
+                                      style: TextStyle(
+                                        color: Colors.white70,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ));
+                        },
+                        child: const Text(
+                          'Detay',
+                          style: TextStyle(
+                              color: Colors.white70),
+                        ),
+                    );
+                  })
+                  : Text(
+                dataGridCell.value.toString(),
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: Colors.white70),
+              ));
+        }).toList());
+  }
+}
+
+class Bildirim {
+  Bildirim(
+      this.cagriId,
+      this.arayanTakip,
+      this.yapilanIslem,
+      this.arayanKisi,
+      this.cagriTarihi,
+      this.takipDurumu,
+      this.geriDonusSureci,
+      this.kaynak
       );
 
-  Widget buildDataTable() {
-    final columns = [
-      'Detay',
-      'Çağrı Id',
-      'Arayan Talep',
-      'Yapılan İşlem',
-      'Arayan Kişi',
-      'Çağrı Tarihi',
-      'Takip Durumu',
-      'Geri Dönüş Süreci',
-      'Kaynak',
-    ];
-
-    return DataTable(
-      sortAscending: isAscending,
-      sortColumnIndex: sortColumnIndex,
-      columns: getColumns(columns),
-      rows: getRows(datas),
-    );
-  }
-
-  List<DataColumn> getColumns(List<String> columns) => columns
-      .map((String column) => DataColumn(
-            label: Text(
-              column,
-              style:
-                  TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
-            ),
-            onSort: onSort,
-          ))
-      .toList();
-
-  List<DataRow> getRows(List<Data> users) => datas.map((Data data) {
-        final cells = [
-          data.detay,
-          data.cagriId,
-          data.arayanTalep,
-          data.yapilanIslem,
-          data.arayanKisi,
-          data.cagriTarihi,
-          data.takipDurumu,
-          data.geriDonusSureci,
-          data.kaynak,
-        ];
-        return DataRow(cells: getCells(cells));
-      }).toList();
-
-  List<DataCell> getCells(List<dynamic> cells) => cells
-      .map((data) => DataCell(Text(
-            '$data',
-            style: TextStyle(color: Colors.white70),
-          )))
-      .toList();
-
-  void onSort(int columnIndex, bool ascending) {
-    if (columnIndex == 0) {
-      datas.sort((user1, user2) =>
-          compareString(ascending, user1.cagriId, user2.cagriId));
-    } else if (columnIndex == 1) {
-      datas.sort((user1, user2) =>
-          compareString(ascending, user1.arayanTalep, user2.arayanTalep));
-    } else if (columnIndex == 2) {
-      datas.sort((user1, user2) =>
-          compareString(ascending, user1.yapilanIslem, user2.yapilanIslem));
-    } else if (columnIndex == 3) {
-      datas.sort((user1, user2) =>
-          compareString(ascending, user1.arayanKisi, user2.arayanKisi));
-    } else if (columnIndex == 4) {
-      datas.sort((user1, user2) =>
-          compareString(ascending, user1.cagriTarihi, user2.cagriTarihi));
-    } else if (columnIndex == 5) {
-      datas.sort((user1, user2) =>
-          compareString(ascending, user1.takipDurumu, user2.takipDurumu));
-    } else if (columnIndex == 6) {
-      datas.sort((user1, user2) => compareString(
-          ascending, user1.geriDonusSureci, user2.geriDonusSureci));
-    } else if (columnIndex == 7) {
-      datas.sort((user1, user2) =>
-          compareString(ascending, user1.kaynak, user2.kaynak));
-    } else if (columnIndex == 8) {
-      datas.sort(
-          (user1, user2) => compareString(ascending, user1.detay, user2.detay));
-    }
-
-    setState(() {
-      this.sortColumnIndex = columnIndex;
-      this.isAscending = ascending;
-    });
-  }
-
-  int compareString(bool ascending, String value1, String value2) =>
-      ascending ? value1.compareTo(value2) : value2.compareTo(value1);
-
-  Future<void> createPDF() async {
-    PdfDocument document = PdfDocument();
-    final page = document.pages.add();
-
-    page.graphics.drawString(
-        'This is the title!', PdfStandardFont(PdfFontFamily.helvetica, 30));
-
-    // page.graphics.drawImage(
-    //     PdfBitmap(await _readImageData('Pdf_Succinctly.jpg')),
-    //     Rect.fromLTWH(0, 100, 440, 550));
-
-    PdfGrid grid = PdfGrid();
-    grid.style = PdfGridStyle(
-        font: PdfStandardFont(PdfFontFamily.helvetica, 30),
-        cellPadding: PdfPaddings(left: 5, right: 2, top: 2, bottom: 2));
-
-    grid.columns.add(count: 9);
-    grid.headers.add(1);
-
-    PdfGridRow header = grid.headers[0];
-    header.cells[0].value = 'Cagri Id';
-    header.cells[1].value = 'Arayan Talep';
-    header.cells[2].value = 'Yapilan Islem';
-    header.cells[3].value = 'Arayan Kisi';
-    header.cells[4].value = 'Cagri Tarihi';
-    header.cells[5].value = 'Takip Durumu';
-    header.cells[6].value = 'Geri Donus Sureci';
-    header.cells[7].value = 'Kaynak';
-    header.cells[8].value = 'Detay';
-
-    PdfGridRow row = grid.rows.add();
-    row.cells[0].value = 'Cagri Id';
-    row.cells[1].value = 'Arayan Talep';
-    row.cells[2].value = 'Yapilan Islem';
-    row.cells[3].value = 'Arayan Kisi';
-    row.cells[4].value = 'Cagri Tarihi';
-    row.cells[5].value = 'Takip Durumu';
-    row.cells[6].value = 'Geri Donus Sureci';
-    row.cells[7].value = 'Kaynak';
-    row.cells[8].value = 'Detay';
-
-    row = grid.rows.add();
-    row.cells[0].value = 'Cagri Id';
-    row.cells[1].value = 'Arayan Talep';
-    row.cells[2].value = 'Yapilan Islem';
-    row.cells[3].value = 'Arayan Kisi';
-    row.cells[4].value = 'Cagri Tarihi';
-    row.cells[5].value = 'Takip Durumu';
-    row.cells[6].value = 'Geri Donus Sureci';
-    row.cells[7].value = 'Kaynak';
-    row.cells[8].value = 'Detay';
-
-    row = grid.rows.add();
-    row.cells[0].value = 'Cagri Id';
-    row.cells[1].value = 'Arayan Talep';
-    row.cells[2].value = 'Yapilan Islem';
-    row.cells[3].value = 'Arayan Kisi';
-    row.cells[4].value = 'Cagri Tarihi';
-    row.cells[5].value = 'Takip Durumu';
-    row.cells[6].value = 'Geri Donus Sureci';
-    row.cells[7].value = 'Kaynak';
-    row.cells[8].value = 'Detay';
-
-    grid.draw(
-        page: document.pages.add(), bounds: const Rect.fromLTWH(0, 0, 0, 0));
-
-    List<int> bytes = await document.save();
-    document.dispose();
-
-    saveAndLaunchFile(bytes, 'Output.pdf');
-  }
+  final String cagriId;
+  final String arayanTakip;
+  final String yapilanIslem;
+  final String arayanKisi;
+  final String cagriTarihi;
+  final String takipDurumu;
+  final String geriDonusSureci;
+  final String kaynak;
 }

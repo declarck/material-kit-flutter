@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
-import 'package:material_kit_flutter/widgets/navbar.dart';
+
 import 'package:material_kit_flutter/widgets/table-cell.dart';
 
 class Settings extends StatefulWidget {
@@ -10,8 +10,8 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  bool switchValueOne;
-  bool switchValueTwo;
+  late bool switchValueOne;
+  late bool switchValueTwo;
 
   void initState() {
     setState(() {
@@ -24,9 +24,9 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Navbar(
-          title: "Settings",
-        ),
+        // appBar: Navbar(
+        //   title: "Settings",
+        // ),
         drawer: MaterialDrawer(currentPage: "Settings"),
         backgroundColor: MaterialColors.bgColorScreen,
         body: Container(
@@ -103,8 +103,8 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(color: MaterialColors.caption)),
                   ),
                 ),
-                TableCellSettings(title: "Manage Payment Options"),
-                TableCellSettings(title: "Manage Gift Cards"),
+                TableCellSettings(title: "Manage Payment Options", onTap: () {  },),
+                TableCellSettings(title: "Manage Gift Cards", onTap: () {  },),
                 SizedBox(
                   height: 36.0,
                 ),

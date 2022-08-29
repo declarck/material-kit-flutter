@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
 
 //widgets
-import 'package:material_kit_flutter/widgets/navbar.dart';
+
 import 'package:material_kit_flutter/widgets/drawer.dart';
 import 'package:material_kit_flutter/widgets/photo-album.dart';
 
@@ -21,10 +21,10 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: Navbar(
-          title: "Profile",
-          transparent: true,
-        ),
+        // appBar: Navbar(
+        //   title: "Profile",
+        //   transparent: true,
+        // ),
         backgroundColor: MaterialColors.bgColorScreen,
         drawer: MaterialDrawer(currentPage: "Profile"),
         body: Stack(

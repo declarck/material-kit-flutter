@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
 
@@ -5,8 +7,8 @@ class Input extends StatelessWidget {
   final String placeholder;
   final Widget suffixIcon;
   final Widget prefixIcon;
-  final Function onTap;
-  final Function onChanged;
+  final VoidCallback onTap;
+  final VoidCallback onChanged;
   final TextEditingController controller;
   final bool autofocus;
   final Color borderColor;
@@ -20,29 +22,30 @@ class Input extends StatelessWidget {
   final Color hintTextColor;
 
   Input(
-      {this.placeholder,
-      this.suffixIcon,
-      this.prefixIcon,
-      this.onTap,
-      this.filled,
-      this.fillColor,
-      this.textColor = Colors.black,
-      this.enabledBorderColor = MaterialColors.muted,
-      this.focusedBorderColor = MaterialColors.primary,
-      this.cursorColor = MaterialColors.muted,
-      this.hintTextColor = MaterialColors.muted,
-      this.onChanged,
-      this.outlineBorder = false,
-      this.autofocus = false,
-      this.borderColor = MaterialColors.border,
-      this.controller});
+      {
+        required this.placeholder,
+        required this.suffixIcon,
+        required this.prefixIcon,
+        required this.onTap,
+        required this.filled,
+        required this.fillColor,
+        this.textColor = Colors.black,
+        this.enabledBorderColor = MaterialColors.muted,
+        this.focusedBorderColor = MaterialColors.primary,
+        this.cursorColor = MaterialColors.muted,
+        this.hintTextColor = MaterialColors.muted,
+        required this.onChanged,
+        this.outlineBorder = false,
+        this.autofocus = false,
+        this.borderColor = MaterialColors.border,
+        required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
         cursorColor: cursorColor,
         onTap: onTap,
-        onChanged: onChanged,
+        //onChanged: onChanged, //Possibly gonna crash
         controller: controller,
         autofocus: autofocus,
         style: TextStyle(

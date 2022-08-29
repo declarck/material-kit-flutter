@@ -469,9 +469,9 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                     ),
                                   );
                                 }).toList(),
-                                onChanged: (String value) {
+                                onChanged: (String? value) {
                                   dropDownState(() {
-                                    _il = value;
+                                    _il = value!;
                                   });
                                 },
                               ),
@@ -534,9 +534,9 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                     ),
                                   );
                                 }).toList(),
-                                onChanged: (String value) {
+                                onChanged: (String? value) {
                                   dropDownState(() {
-                                    _yapi = value;
+                                    _yapi = value!;
                                   });
                                 },
                               ),
@@ -600,9 +600,9 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                     ),
                                   );
                                 }).toList(),
-                                onChanged: (String value) {
+                                onChanged: (String? value) {
                                   dropDownState(() {
-                                    _surecDurumu = value;
+                                    _surecDurumu = value!;
                                   });
                                 },
                               ),
@@ -665,9 +665,9 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                                     ),
                                   );
                                 }).toList(),
-                                onChanged: (String value) {
+                                onChanged: (String? value) {
                                   dropDownState(() {
-                                    _geriDonus = value;
+                                    _geriDonus = value!;
                                   });
                                 },
                               ),
@@ -780,9 +780,9 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
   }
 
   Future pickDateRange() async {
-    DateTimeRange newDateRange = await showDateRangePicker(
+    DateTimeRange? newDateRange = await showDateRangePicker(
         context: context,
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           return Theme(
             data: ThemeData.dark().copyWith(
               scaffoldBackgroundColor: MaterialColors.blueSoftDarkest,
@@ -794,7 +794,7 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                 onSurface: Colors.white70,
               ),
             ),
-            child: child,
+            child: child!,
           );
         },
         initialDateRange: dateRange,
@@ -805,9 +805,9 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
   }
 
   Future pickDateRangeFinished() async {
-    DateTimeRange newDateRange = await showDateRangePicker(
+    DateTimeRange? newDateRange = await showDateRangePicker(
         context: context,
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           return Theme(
             data: ThemeData.dark().copyWith(
               scaffoldBackgroundColor: MaterialColors.blueSoftDarkest,
@@ -818,7 +818,7 @@ class _AramaRaporlamaState extends State<AramaRaporlama> {
                 onSurface: Colors.white70,
               ),
             ),
-            child: child,
+            child: child!,
           );
         },
         initialDateRange: dateRangeFinished,

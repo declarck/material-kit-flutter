@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class Navbar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -23,13 +22,13 @@ class Navbar extends StatefulWidget implements PreferredSizeWidget {
       {this.title = "Home",
       this.categoryOne = "",
       this.categoryTwo = "",
-      this.tags,
+      required this.tags,
       this.transparent = false,
       this.rightOptions = true,
-      this.getCurrentPage,
-      this.searchController,
+      required this.getCurrentPage,
+      required this.searchController,
       this.isOnSearch = false,
-      this.searchOnChanged,
+      required this.searchOnChanged,
       this.searchAutofocus = false,
       this.backButton = false,
       this.noShadow = false,
@@ -46,9 +45,9 @@ class Navbar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-  String activeTag;
+  String? activeTag;
 
-  ItemScrollController _scrollController = ItemScrollController();
+  //ItemScrollController _scrollController = ItemScrollController();
 
   void initState() {
     if (widget.tags != null && widget.tags.length != 0) {

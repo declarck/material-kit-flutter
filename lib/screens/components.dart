@@ -6,9 +6,9 @@ import 'package:material_kit_flutter/widgets/card-horizontal.dart';
 import 'package:material_kit_flutter/widgets/card-small.dart';
 import 'package:material_kit_flutter/widgets/card-square.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
-import 'package:material_kit_flutter/widgets/input.dart';
+
 //widgets
-import 'package:material_kit_flutter/widgets/navbar.dart';
+
 import 'package:material_kit_flutter/widgets/photo-album.dart';
 import 'package:material_kit_flutter/widgets/slider-product.dart';
 import 'package:material_kit_flutter/widgets/table-cell.dart';
@@ -88,8 +88,8 @@ class Components extends StatefulWidget {
 }
 
 class _ComponentsState extends State<Components> {
-  bool switchValueOne;
-  bool switchValueTwo;
+  late bool switchValueOne;
+  late bool switchValueTwo;
 
   void initState() {
     setState(() {
@@ -102,9 +102,9 @@ class _ComponentsState extends State<Components> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Navbar(
-          title: "Elements",
-        ),
+        // appBar: Navbar(
+        //   title: "Elements", tags: ['bla'], searchController: null, searchOnChanged: null, getCurrentPage: null,
+        // ),
         backgroundColor: MaterialColors.bgColorScreen,
         drawer: MaterialDrawer(currentPage: "Components"),
         body: SingleChildScrollView(
@@ -347,90 +347,90 @@ class _ComponentsState extends State<Components> {
                           fontSize: 16)),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 32.0),
-                child: Input(
-                  placeholder: "placeholder",
-                  focusedBorderColor: MaterialColors.muted,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Input(
-                  placeholder: "theme",
-                  focusedBorderColor: MaterialColors.primary,
-                  enabledBorderColor: MaterialColors.primary,
-                  textColor: MaterialColors.primary,
-                  hintTextColor: MaterialColors.primary,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Input(
-                  placeholder: "info",
-                  focusedBorderColor: MaterialColors.info,
-                  enabledBorderColor: MaterialColors.info,
-                  textColor: MaterialColors.info,
-                  hintTextColor: MaterialColors.info,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Input(
-                  placeholder: "success",
-                  focusedBorderColor: MaterialColors.success,
-                  enabledBorderColor: MaterialColors.success,
-                  textColor: MaterialColors.success,
-                  hintTextColor: MaterialColors.success,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Input(
-                  placeholder: "warning",
-                  borderColor: MaterialColors.warning,
-                  focusedBorderColor: MaterialColors.warning,
-                  enabledBorderColor: MaterialColors.warning,
-                  textColor: MaterialColors.warning,
-                  hintTextColor: MaterialColors.warning,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Input(
-                  placeholder: "danger",
-                  borderColor: MaterialColors.error,
-                  focusedBorderColor: MaterialColors.error,
-                  enabledBorderColor: MaterialColors.error,
-                  textColor: MaterialColors.error,
-                  hintTextColor: MaterialColors.error,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Input(
-                  placeholder: "outline border",
-                  outlineBorder: true,
-                  borderColor: MaterialColors.muted,
-                  focusedBorderColor: MaterialColors.muted,
-                  enabledBorderColor: MaterialColors.muted,
-                  textColor: MaterialColors.muted,
-                  hintTextColor: MaterialColors.muted,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Input(
-                  placeholder: "icon right",
-                  outlineBorder: true,
-                  borderColor: MaterialColors.muted,
-                  focusedBorderColor: MaterialColors.muted,
-                  enabledBorderColor: MaterialColors.muted,
-                  textColor: MaterialColors.muted,
-                  hintTextColor: MaterialColors.muted,
-                  suffixIcon: Icon(Icons.camera_enhance),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 32.0),
+              //   child: Input(
+              //     placeholder: "placeholder",
+              //     focusedBorderColor: MaterialColors.muted,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Input(
+              //     placeholder: "theme",
+              //     focusedBorderColor: MaterialColors.primary,
+              //     enabledBorderColor: MaterialColors.primary,
+              //     textColor: MaterialColors.primary,
+              //     hintTextColor: MaterialColors.primary,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Input(
+              //     placeholder: "info",
+              //     focusedBorderColor: MaterialColors.info,
+              //     enabledBorderColor: MaterialColors.info,
+              //     textColor: MaterialColors.info,
+              //     hintTextColor: MaterialColors.info,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Input(
+              //     placeholder: "success",
+              //     focusedBorderColor: MaterialColors.success,
+              //     enabledBorderColor: MaterialColors.success,
+              //     textColor: MaterialColors.success,
+              //     hintTextColor: MaterialColors.success,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Input(
+              //     placeholder: "warning",
+              //     borderColor: MaterialColors.warning,
+              //     focusedBorderColor: MaterialColors.warning,
+              //     enabledBorderColor: MaterialColors.warning,
+              //     textColor: MaterialColors.warning,
+              //     hintTextColor: MaterialColors.warning,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Input(
+              //     placeholder: "danger",
+              //     borderColor: MaterialColors.error,
+              //     focusedBorderColor: MaterialColors.error,
+              //     enabledBorderColor: MaterialColors.error,
+              //     textColor: MaterialColors.error,
+              //     hintTextColor: MaterialColors.error,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Input(
+              //     placeholder: "outline border",
+              //     outlineBorder: true,
+              //     borderColor: MaterialColors.muted,
+              //     focusedBorderColor: MaterialColors.muted,
+              //     enabledBorderColor: MaterialColors.muted,
+              //     textColor: MaterialColors.muted,
+              //     hintTextColor: MaterialColors.muted,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Input(
+              //     placeholder: "icon right",
+              //     outlineBorder: true,
+              //     borderColor: MaterialColors.muted,
+              //     focusedBorderColor: MaterialColors.muted,
+              //     enabledBorderColor: MaterialColors.muted,
+              //     textColor: MaterialColors.muted,
+              //     hintTextColor: MaterialColors.muted,
+              //     suffixIcon: Icon(Icons.camera_enhance),
+              //   ),
+              // ),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, top: 32, bottom: 32),
                 child: Align(
@@ -477,35 +477,35 @@ class _ComponentsState extends State<Components> {
                           fontSize: 16)),
                 ),
               ),
-              Navbar(
-                title: "Regular",
-                backButton: true,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Navbar(
-                    title: "Custom background",
-                    backButton: true,
-                    bgColor: MaterialColors.primary),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Navbar(
-                  title: "Categories",
-                  searchBar: true,
-                  categoryOne: "Incredible",
-                  categoryTwo: "Customization",
-                  backButton: true,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: Navbar(
-                  title: "Search",
-                  searchBar: true,
-                  backButton: true,
-                ),
-              ),
+              // Navbar(
+              //   title: "Regular",
+              //   backButton: true,
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Navbar(
+              //       title: "Custom background",
+              //       backButton: true,
+              //       bgColor: MaterialColors.primary),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Navbar(
+              //     title: "Categories",
+              //     searchBar: true,
+              //     categoryOne: "Incredible",
+              //     categoryTwo: "Customization",
+              //     backButton: true,
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 16.0),
+              //   child: Navbar(
+              //     title: "Search",
+              //     searchBar: true,
+              //     backButton: true,
+              //   ),
+              // ),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, top: 32, bottom: 32),
                 child: Align(
@@ -587,8 +587,8 @@ class _ComponentsState extends State<Components> {
                     padding: const EdgeInsets.only(top: 16.0),
                     child: CardHorizontal(
                         cta: "View article",
-                        title: homeCards["Ice Cream"]['title'],
-                        img: homeCards["Ice Cream"]['image'],
+                        title: homeCards["Ice Cream"]!['title']!,
+                        img: homeCards["Ice Cream"]!['image']!,
                         tap: () {
                           Navigator.pushReplacementNamed(context, '/pro');
                         }),
@@ -599,15 +599,15 @@ class _ComponentsState extends State<Components> {
                     children: [
                       CardSmall(
                           cta: "View article",
-                          title: homeCards["Makeup"]['title'],
-                          img: homeCards["Makeup"]['image'],
+                          title: homeCards["Makeup"]!['title']!,
+                          img: homeCards["Makeup"]!['image']!,
                           tap: () {
                             Navigator.pushReplacementNamed(context, '/pro');
                           }),
                       CardSmall(
                           cta: "View article",
-                          title: homeCards["Coffee"]['title'],
-                          img: homeCards["Coffee"]['image'],
+                          title: homeCards["Coffee"]!['title']!,
+                          img: homeCards["Coffee"]!['image']!,
                           tap: () {
                             Navigator.pushReplacementNamed(context, '/pro');
                           })
@@ -616,8 +616,8 @@ class _ComponentsState extends State<Components> {
                   SizedBox(height: 8.0),
                   CardHorizontal(
                       cta: "View article",
-                      title: homeCards["Fashion"]['title'],
-                      img: homeCards["Fashion"]['image'],
+                      title: homeCards["Fashion"]!['title']!,
+                      img: homeCards["Fashion"]!['image']!,
                       tap: () {
                         Navigator.pushReplacementNamed(context, '/pro');
                       }),
@@ -626,16 +626,16 @@ class _ComponentsState extends State<Components> {
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: CardSquare(
                         cta: "View article",
-                        title: homeCards["Argon"]['title'],
-                        img: homeCards["Argon"]['image'],
+                        title: homeCards["Argon"]!['title']!,
+                        img: homeCards["Argon"]!['image']!,
                         tap: () {
                           Navigator.pushReplacementNamed(context, '/pro');
                         }),
                   ),
                   CardCategory(
                       tap: () {},
-                      title: homeCards["Argon"]['title'],
-                      img: homeCards["Argon"]['image']),
+                      title: homeCards["Argon"]!['title']!,
+                      img: homeCards["Argon"]!['image']!),
                 ],
               ),
               Padding(

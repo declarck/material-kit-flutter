@@ -7,7 +7,7 @@ class CardCategory extends StatelessWidget {
       this.tap = defaultFunc});
 
   final String img;
-  final Function tap;
+  final VoidCallback tap;
   final String title;
 
   static void defaultFunc() {

@@ -58,9 +58,9 @@ class YeniBildirimGirisi extends StatelessWidget {
                               ),
                             );
                           }).toList(),
-                          onChanged: (String value) {
+                          onChanged: (String? value) {
                             dropDownState(() {
-                              _bildirimKanali = value;
+                              _bildirimKanali = value!;
                             });
                           },
                         ),
@@ -306,9 +306,9 @@ class YeniBildirimGirisi extends StatelessWidget {
                               ),
                             );
                           }).toList(),
-                          onChanged: (String value) {
+                          onChanged: (String? value) {
                             dropDownState(() {
-                              _il = value;
+                              _il = value!;
                             });
                           },
                         ),
@@ -357,9 +357,9 @@ class YeniBildirimGirisi extends StatelessWidget {
                               ),
                             );
                           }).toList(),
-                          onChanged: (String value) {
+                          onChanged: (String? value) {
                             dropDownState(() {
-                              _yapi = value;
+                              _yapi = value!;
                             });
                           },
                         ),

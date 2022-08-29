@@ -69,7 +69,7 @@ class GelenCagriBildirimleri extends StatelessWidget {
                       cta: "Görüntüle",
                       title: '  adet bildirim bugün kaydedildi.',
                       countertitle: '$gunlukBildirim',
-                      img: null,
+                      //img: null,
                       tap: () {
                         Navigator.pushNamed(context, '/bildirimlistesi');
                       }),

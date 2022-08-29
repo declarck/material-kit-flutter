@@ -12,7 +12,7 @@ class MaterialDrawer extends StatelessWidget {
   final bool kurumSayisiCokMu;
 
   MaterialDrawer({
-    this.currentPage,
+    required this.currentPage,
     this.aktifAvatar = 'https://giris.albinasoft.com//App_Themes/AnaTema/Resimler/AdminPage/GhostImage.png',
     this.aktifKullanici = 'Ahmet İstemihan Öztürk',
     this.aktifKurum = 'Doğançay Nakliyat',
@@ -110,7 +110,7 @@ class MaterialDrawer extends StatelessWidget {
                         )),
                     children: [
                       DrawerTile(
-                          //icon: Icons.edit,
+                          icon: Icons.edit,
                           onTap: () {
                             if (currentPage != "YeniBildirimGirisi")
                               Navigator.pushReplacementNamed(
@@ -121,7 +121,7 @@ class MaterialDrawer extends StatelessWidget {
                               ? true
                               : false),
                       DrawerTile(
-                          //icon: Icons.search,
+                          icon: Icons.search,
                           onTap: () {
                             if (currentPage != "GelenCagriBildirimleri")
                               Navigator.pushReplacementNamed(
@@ -132,7 +132,7 @@ class MaterialDrawer extends StatelessWidget {
                               ? true
                               : false),
                       DrawerTile(
-                          //icon: Icons.double_arrow,
+                          icon: Icons.double_arrow,
                           onTap: () {
                             if (currentPage != "DevamEdenSureclerim")
                               Navigator.pushReplacementNamed(
@@ -214,7 +214,7 @@ class MaterialDrawer extends StatelessWidget {
                         )),
                     children: [
                       DrawerTile(
-                          //icon: Icons.settings,
+                          icon: Icons.settings,
                           onTap: () {
                             if (currentPage != "SifremiGuncelle")
                               Navigator.pushReplacementNamed(
@@ -224,7 +224,7 @@ class MaterialDrawer extends StatelessWidget {
                           isSelected:
                               currentPage == "SifremiGuncelle" ? true : false),
                       DrawerTile(
-                          //icon: Icons.settings,
+                          icon: Icons.settings,
                           onTap: () {
                             if (currentPage != "ProfilResmimiGuncelle")
                               Navigator.pushReplacementNamed(
@@ -235,7 +235,7 @@ class MaterialDrawer extends StatelessWidget {
                               ? true
                               : false),
                       DrawerTile(
-                          //icon: Icons.settings,
+                          icon: Icons.settings,
                           onTap: () {
                             if (currentPage != "YeniTanim")
                               Navigator.pushReplacementNamed(
@@ -245,7 +245,7 @@ class MaterialDrawer extends StatelessWidget {
                           isSelected:
                               currentPage == "YeniTanim" ? true : false),
                       DrawerTile(
-                          //icon: Icons.settings,
+                          icon: Icons.settings,
                           onTap: () {
                             if (currentPage != "KurumTanimlamalari")
                               Navigator.pushReplacementNamed(
@@ -256,7 +256,7 @@ class MaterialDrawer extends StatelessWidget {
                               ? true
                               : false),
                       DrawerTile(
-                          //icon: Icons.settings,
+                          icon: Icons.settings,
                           onTap: () {
                             if (currentPage != "KullaniciEkle")
                               Navigator.pushReplacementNamed(
@@ -266,7 +266,7 @@ class MaterialDrawer extends StatelessWidget {
                           isSelected:
                               currentPage == "KullaniciEkle" ? true : false),
                       DrawerTile(
-                          //icon: Icons.settings,
+                          icon: Icons.settings,
                           onTap: () {
                             if (currentPage != "KullaniciListesi")
                               Navigator.pushReplacementNamed(
@@ -279,88 +279,6 @@ class MaterialDrawer extends StatelessWidget {
                   ),
                 ),
               ),
-              // Container(
-              //   padding: EdgeInsets.symmetric(horizontal: 16),
-              //   margin: EdgeInsets.all(3),
-              //   decoration: BoxDecoration(
-              //     borderRadius: BorderRadius.all(Radius.circular(6)),
-              //     color: currentPage == 'YeniDestekTalebi'
-              //         ? MaterialColors.blueSoftDark
-              //         : currentPage == 'DevamEdenOturumlar'
-              //             ? MaterialColors.blueSoftDark
-              //             : currentPage == 'OturumSorgulama'
-              //                 ? MaterialColors.blueSoftDark
-              //                 : MaterialColors.blueSoftDarker,
-              //   ),
-              //   child: Theme(
-              //     data: Theme.of(context).copyWith(
-              //       unselectedWidgetColor:
-              //           Colors.white70, // here for close state
-              //       colorScheme: ColorScheme.light(
-              //         primary: Colors.white70,
-              //       ), // here for open state in replacement of deprecated accentColor
-              //       dividerColor:
-              //           Colors.transparent, // if you want to remove the border
-              //     ),
-              //     child: ExpansionTile(
-              //       leading: Icon(
-              //         Icons.menu_book,
-              //         color: currentPage == 'YeniDestekTalebi'
-              //             ? Colors.white
-              //             : currentPage == 'DevamEdenOturumlar'
-              //                 ? Colors.white
-              //                 : currentPage == 'OturumSorgulama'
-              //                     ? Colors.white
-              //                     : Colors.white70,
-              //       ),
-              //       title: Text('Talep / Şikayet',
-              //           style: TextStyle(
-              //             fontSize: 15,
-              //             //color: Colors.white,
-              //             color: currentPage == 'YeniDestekTalebi'
-              //                 ? Colors.white
-              //                 : currentPage == 'DevamEdenOturumlar'
-              //                     ? Colors.white
-              //                     : currentPage == 'OturumSorgulama'
-              //                         ? Colors.white
-              //                         : Colors.white70,
-              //           )),
-              //       children: [
-              //         DrawerTile(
-              //             //icon: Icons.menu_book,
-              //             onTap: () {
-              //               if (currentPage != "YeniDestekTalebi")
-              //                 Navigator.pushReplacementNamed(
-              //                     context, '/yenidestektalebi');
-              //             },
-              //             title: "Yeni Destek Talebi",
-              //             isSelected:
-              //                 currentPage == "YeniDestekTalebi" ? true : false),
-              //         DrawerTile(
-              //             //icon: Icons.menu_book,
-              //             onTap: () {
-              //               if (currentPage != "DevamEdenOturumlar")
-              //                 Navigator.pushReplacementNamed(
-              //                     context, '/devamedenoturumlar');
-              //             },
-              //             title: "Devam Eden Oturumlar",
-              //             isSelected: currentPage == "DevamEdenOturumlar"
-              //                 ? true
-              //                 : false),
-              //         DrawerTile(
-              //             //icon: Icons.menu_book,
-              //             onTap: () {
-              //               if (currentPage != "OturumSorgulama")
-              //                 Navigator.pushReplacementNamed(
-              //                     context, '/oturumsorgulama');
-              //             },
-              //             title: "Oturum Sorgulama",
-              //             isSelected:
-              //                 currentPage == "OturumSorgulama" ? true : false),
-              //       ],
-              //     ),
-              //   ),
-              // ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 margin: EdgeInsets.all(3),
@@ -409,7 +327,7 @@ class MaterialDrawer extends StatelessWidget {
                         )),
                     children: [
                       DrawerTile(
-                          //icon: developer_board,
+                          icon: Icons.developer_board,
                           onTap: () {
                             if (currentPage != "Components")
                               Navigator.pushReplacementNamed(
@@ -419,7 +337,7 @@ class MaterialDrawer extends StatelessWidget {
                           isSelected:
                               currentPage == "Components" ? true : false),
                       DrawerTile(
-                          //icon: developer_board,
+                          icon: Icons.developer_board,
                           onTap: () {
                             if (currentPage != "Profile")
                               Navigator.pushReplacementNamed(
@@ -428,7 +346,7 @@ class MaterialDrawer extends StatelessWidget {
                           title: "Profile",
                           isSelected: currentPage == "Profile" ? true : false),
                       DrawerTile(
-                          //icon: developer_board,
+                          icon: Icons.developer_board,
                           onTap: () {
                             if (currentPage != "Settings")
                               Navigator.pushReplacementNamed(
