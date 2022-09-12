@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-
-import 'package:material_kit_flutter/screens/onboarding.dart';
-import 'package:material_kit_flutter/screens/login.dart';
-import 'package:material_kit_flutter/screens/sifremiunuttum.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:grock/grock.dart';
+import 'package:material_kit_flutter/screens/aramaraporlama.dart';
+import 'package:material_kit_flutter/screens/bildirimlistesi.dart';
 import 'package:material_kit_flutter/screens/components.dart';
+import 'package:material_kit_flutter/screens/gelencagribildirimleri.dart';
+import 'package:material_kit_flutter/screens/login.dart';
+import 'package:material_kit_flutter/screens/onboarding.dart';
 import 'package:material_kit_flutter/screens/profile.dart';
 import 'package:material_kit_flutter/screens/settings.dart';
-
-import 'package:material_kit_flutter/screens/bildirimlistesi.dart';
-import 'package:material_kit_flutter/screens/aramaraporlama.dart';
-
+import 'package:material_kit_flutter/screens/sifremiunuttum.dart';
+import 'package:material_kit_flutter/screens/splash.dart';
 import 'package:material_kit_flutter/screens/yenibildirimgirisi.dart';
-import 'package:material_kit_flutter/screens/gelencagribildirimleri.dart';
 
-void main() => runApp(CallCenterTR());
+void main() async {
+  await GetStorage.init();
+  runApp(ProviderScope(child: CallCenterTR()));
+}
 
 class CallCenterTR extends StatelessWidget {
   @override
@@ -22,19 +25,19 @@ class CallCenterTR extends StatelessWidget {
     return MaterialApp(
         title: "Call Center TR",
         debugShowCheckedModeBanner: false,
-        initialRoute: "/onboarding",
+        navigatorKey: Grock.navigationKey,
+        scaffoldMessengerKey: Grock.scaffoldMessengerKey,
+        initialRoute: "/splash",
         routes: <String, WidgetBuilder>{
+          "/splash": (BuildContext context) => new Splash(),
           "/onboarding": (BuildContext context) => new Onboarding(),
           "/login": (BuildContext context) => new Login(),
           "/sifremiunuttum": (BuildContext context) => new SifremiUnuttum(),
-
           "/components": (BuildContext context) => new Components(),
           "/profile": (BuildContext context) => new Profile(),
           "/settings": (BuildContext context) => new Settings(),
-
           "/bildirimlistesi": (BuildContext context) => new BildirimListesi(),
           "/aramaraporlama": (BuildContext context) => new AramaRaporlama(),
-
           "/yenibildirimgirisi": (BuildContext context) =>
               new YeniBildirimGirisi(),
           "/gelencagribildirimleri": (BuildContext context) =>
