@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
 
 class DrawerTile extends StatelessWidget {
   final String title;
@@ -9,10 +9,9 @@ class DrawerTile extends StatelessWidget {
   final Color iconColor;
 
   DrawerTile(
-      {
-        required this.title,
-        required this.icon,
-        required this.onTap,
+      {required this.title,
+      required this.icon,
+      required this.onTap,
       this.isSelected = false,
       this.iconColor = Colors.black});
 

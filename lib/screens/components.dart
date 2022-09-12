@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:material_kit_flutter/widgets/card-category.dart';
-import 'package:material_kit_flutter/widgets/card-horizontal.dart';
-import 'package:material_kit_flutter/widgets/card-small.dart';
-import 'package:material_kit_flutter/widgets/card-square.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
+import 'package:material_kit_flutter/widgets/card_category.dart';
+import 'package:material_kit_flutter/widgets/card_horizontal.dart';
+import 'package:material_kit_flutter/widgets/card_small.dart';
+import 'package:material_kit_flutter/widgets/card_square.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
-
 //widgets
 
-import 'package:material_kit_flutter/widgets/photo-album.dart';
-import 'package:material_kit_flutter/widgets/slider-product.dart';
-import 'package:material_kit_flutter/widgets/table-cell.dart';
+import 'package:material_kit_flutter/widgets/photo_album.dart';
+import 'package:material_kit_flutter/widgets/slider_product.dart';
+import 'package:material_kit_flutter/widgets/table_cell.dart';
 
 final Map<String, Map<String, String>> homeCards = {
   "Ice Cream": {

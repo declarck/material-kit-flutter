@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
 
 class Navbar extends StatefulWidget implements PreferredSizeWidget {
   final String title;

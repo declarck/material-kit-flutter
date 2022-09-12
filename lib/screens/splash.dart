@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:grock/grock.dart';
-import 'package:material_kit_flutter/screens/gelencagribildirimleri.dart';
+import 'package:material_kit_flutter/screens/gelen_cagri_bildirimleri.dart';
 import 'package:material_kit_flutter/screens/onboarding.dart';
 
 class Splash extends StatefulWidget {

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:url_launcher/url_launcher.dart';
-
-import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:material_kit_flutter/widgets/drawer-tile.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
+import 'package:material_kit_flutter/widgets/drawer_tile.dart';
 
 class MaterialDrawer extends StatelessWidget {
   final String currentPage;
@@ -10,10 +9,12 @@ class MaterialDrawer extends StatelessWidget {
   final String aktifKullanici;
   final String aktifKurum;
   final bool kurumSayisiCokMu;
+  final box = GetStorage();
 
   MaterialDrawer({
     required this.currentPage,
-    this.aktifAvatar = 'https://giris.albinasoft.com//App_Themes/AnaTema/Resimler/AdminPage/GhostImage.png',
+    this.aktifAvatar =
+        'https://giris.albinasoft.com//App_Themes/AnaTema/Resimler/AdminPage/GhostImage.png',
     this.aktifKullanici = 'Ahmet İstemihan Öztürk',
     this.aktifKurum = 'Doğançay Nakliyat',
     this.kurumSayisiCokMu = true,
@@ -32,8 +33,7 @@ class MaterialDrawer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      aktifAvatar),
+                  backgroundImage: NetworkImage(aktifAvatar),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0, top: 12.0),
@@ -53,7 +53,8 @@ class MaterialDrawer extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 14,
-                            )),],
+                            )),
+                      ],
                     )),
               ],
             )),
@@ -160,10 +161,10 @@ class MaterialDrawer extends StatelessWidget {
                               : currentPage == 'KurumTanimlamalari'
                                   ? MaterialColors.blueSoftDark
                                   : currentPage == 'KullaniciEkle'
+                                      ? MaterialColors.blueSoftDark
+                                      : currentPage == 'KullaniciListesi'
                                           ? MaterialColors.blueSoftDark
-                                          : currentPage == 'KullaniciListesi'
-                                              ? MaterialColors.blueSoftDark
-                                              : MaterialColors.blueSoftDarker,
+                                          : MaterialColors.blueSoftDarker,
                 ),
                 child: Theme(
                   data: Theme.of(context).copyWith(
@@ -187,11 +188,10 @@ class MaterialDrawer extends StatelessWidget {
                                   : currentPage == 'KurumTanimlamalari'
                                       ? Colors.white
                                       : currentPage == 'KullaniciEkle'
+                                          ? Colors.white
+                                          : currentPage == 'KullaniciListesi'
                                               ? Colors.white
-                                              : currentPage ==
-                                                      'KullaniciListesi'
-                                                  ? Colors.white
-                                                  : Colors.white70,
+                                              : Colors.white70,
                     ),
                     title: Text('Ayarlar',
                         style: TextStyle(
@@ -206,11 +206,11 @@ class MaterialDrawer extends StatelessWidget {
                                       : currentPage == 'KurumTanimlamalari'
                                           ? Colors.white
                                           : currentPage == 'KullaniciEkle'
+                                              ? Colors.white
+                                              : currentPage ==
+                                                      'KullaniciListesi'
                                                   ? Colors.white
-                                                  : currentPage ==
-                                                          'KullaniciListesi'
-                                                      ? Colors.white
-                                                      : Colors.white70,
+                                                  : Colors.white70,
                         )),
                     children: [
                       DrawerTile(
@@ -360,22 +360,24 @@ class MaterialDrawer extends StatelessWidget {
               ),
               if (kurumSayisiCokMu == true)
                 DrawerTile(
-                  icon: Icons.cached,
-                  onTap: () {
-                    if (currentPage != "KurumDegistir")
-                      Navigator.pushReplacementNamed(context, '/kurumdegistir');
-                  },
-                  title: "Kurum Değiştir",
-                  isSelected: currentPage == "KurumDegistir" ? true : false),
+                    icon: Icons.cached,
+                    onTap: () {
+                      if (currentPage != "KurumDegistir")
+                        Navigator.pushReplacementNamed(
+                            context, '/kurumdegistir');
+                    },
+                    title: "Kurum Değiştir",
+                    isSelected: currentPage == "KurumDegistir" ? true : false),
               DrawerTile(
                   icon: Icons.exit_to_app,
                   onTap: () {
-                    if (currentPage != "Cikis")
+                    if (currentPage != "Cikis") {
                       Navigator.pushReplacementNamed(context, '/onboarding');
+                      box.erase();
+                    }
                   },
                   title: "Çıkış",
                   isSelected: currentPage == "Cikis" ? true : false),
-
             ],
           ),
         ))

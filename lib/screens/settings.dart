@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
-
-import 'package:material_kit_flutter/widgets/table-cell.dart';
+import 'package:material_kit_flutter/widgets/table_cell.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -103,8 +102,14 @@ class _SettingsState extends State<Settings> {
                         style: TextStyle(color: MaterialColors.caption)),
                   ),
                 ),
-                TableCellSettings(title: "Manage Payment Options", onTap: () {  },),
-                TableCellSettings(title: "Manage Gift Cards", onTap: () {  },),
+                TableCellSettings(
+                  title: "Manage Payment Options",
+                  onTap: () {},
+                ),
+                TableCellSettings(
+                  title: "Manage Gift Cards",
+                  onTap: () {},
+                ),
                 SizedBox(
                   height: 36.0,
                 ),

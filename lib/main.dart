@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:grock/grock.dart';
-import 'package:material_kit_flutter/screens/aramaraporlama.dart';
-import 'package:material_kit_flutter/screens/bildirimlistesi.dart';
+import 'package:material_kit_flutter/screens/arama_raporlama.dart';
+import 'package:material_kit_flutter/screens/bildirim_listesi.dart';
 import 'package:material_kit_flutter/screens/components.dart';
-import 'package:material_kit_flutter/screens/gelencagribildirimleri.dart';
+import 'package:material_kit_flutter/screens/gelen_cagri_bildirimleri.dart';
 import 'package:material_kit_flutter/screens/login.dart';
 import 'package:material_kit_flutter/screens/onboarding.dart';
 import 'package:material_kit_flutter/screens/profile.dart';
 import 'package:material_kit_flutter/screens/settings.dart';
-import 'package:material_kit_flutter/screens/sifremiunuttum.dart';
+import 'package:material_kit_flutter/screens/sifremi_unuttum.dart';
 import 'package:material_kit_flutter/screens/splash.dart';
-import 'package:material_kit_flutter/screens/yenibildirimgirisi.dart';
+import 'package:material_kit_flutter/screens/yeni_bildirim_girisi.dart';
 
 void main() async {
   await GetStorage.init();

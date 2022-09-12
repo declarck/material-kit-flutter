@@ -1,11 +1,11 @@
 import 'dart:ui';
-import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
 
+import 'package:flutter/material.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
 //widgets
 
 import 'package:material_kit_flutter/widgets/drawer.dart';
-import 'package:material_kit_flutter/widgets/photo-album.dart';
+import 'package:material_kit_flutter/widgets/photo_album.dart';
 
 List<String> imgArray = [
   "https://images.unsplash.com/photo-1508264443919-15a31e1d9c1a?fit=crop&w=240&q=80",

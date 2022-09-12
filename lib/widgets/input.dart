@@ -1,7 +1,5 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
 
 class Input extends StatelessWidget {
   final String placeholder;
@@ -22,23 +20,22 @@ class Input extends StatelessWidget {
   final Color hintTextColor;
 
   Input(
-      {
-        required this.placeholder,
-        required this.suffixIcon,
-        required this.prefixIcon,
-        required this.onTap,
-        required this.filled,
-        required this.fillColor,
-        this.textColor = Colors.black,
-        this.enabledBorderColor = MaterialColors.muted,
-        this.focusedBorderColor = MaterialColors.primary,
-        this.cursorColor = MaterialColors.muted,
-        this.hintTextColor = MaterialColors.muted,
-        required this.onChanged,
-        this.outlineBorder = false,
-        this.autofocus = false,
-        this.borderColor = MaterialColors.border,
-        required this.controller});
+      {required this.placeholder,
+      required this.suffixIcon,
+      required this.prefixIcon,
+      required this.onTap,
+      required this.filled,
+      required this.fillColor,
+      this.textColor = Colors.black,
+      this.enabledBorderColor = MaterialColors.muted,
+      this.focusedBorderColor = MaterialColors.primary,
+      this.cursorColor = MaterialColors.muted,
+      this.hintTextColor = MaterialColors.muted,
+      required this.onChanged,
+      this.outlineBorder = false,
+      this.autofocus = false,
+      this.borderColor = MaterialColors.border,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {

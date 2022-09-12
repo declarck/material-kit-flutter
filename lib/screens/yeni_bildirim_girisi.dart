@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 
 class YeniBildirimGirisi extends StatelessWidget {
@@ -27,8 +27,7 @@ class YeniBildirimGirisi extends StatelessWidget {
                     Text(
                       'Bildirim Kanalı',
                       style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white70),
+                          fontWeight: FontWeight.bold, color: Colors.white70),
                     ),
                   ],
                 ),
@@ -45,8 +44,12 @@ class YeniBildirimGirisi extends StatelessWidget {
                           iconDisabledColor: Colors.white70,
                           value: _bildirimKanali,
                           underline: Container(),
-                          items: <String>['[Seçiniz]','Seçenek 1', 'Seçenek 2', 'Seçenek 3']
-                              .map((String value) {
+                          items: <String>[
+                            '[Seçiniz]',
+                            'Seçenek 1',
+                            'Seçenek 2',
+                            'Seçenek 3'
+                          ].map((String value) {
                             return new DropdownMenuItem<String>(
                               value: value,
                               child: new Text(
@@ -93,8 +96,9 @@ class YeniBildirimGirisi extends StatelessWidget {
                           maxLines: null,
                           style: TextStyle(color: Colors.white70),
                           decoration: InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: MaterialColors.blueSoft,
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                            color: MaterialColors.blueSoft,
                           ))),
                         ),
                       );
@@ -152,8 +156,9 @@ class YeniBildirimGirisi extends StatelessWidget {
                           style: TextStyle(color: Colors.white70),
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                  ))),
+                                  borderSide: BorderSide(
+                            color: MaterialColors.blueSoft,
+                          ))),
                         ),
                       );
                     }),
@@ -185,8 +190,9 @@ class YeniBildirimGirisi extends StatelessWidget {
                           style: TextStyle(color: Colors.white70),
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                  ))),
+                                  borderSide: BorderSide(
+                            color: MaterialColors.blueSoft,
+                          ))),
                         ),
                       );
                     }),
@@ -216,8 +222,9 @@ class YeniBildirimGirisi extends StatelessWidget {
                           style: TextStyle(color: Colors.white70),
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                  ))),
+                                  borderSide: BorderSide(
+                            color: MaterialColors.blueSoft,
+                          ))),
                         ),
                       );
                     }),
@@ -247,8 +254,9 @@ class YeniBildirimGirisi extends StatelessWidget {
                           style: TextStyle(color: Colors.white70),
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: MaterialColors.blueSoft,
-                                  ))),
+                                  borderSide: BorderSide(
+                            color: MaterialColors.blueSoft,
+                          ))),
                         ),
                       );
                     }),
@@ -284,17 +292,88 @@ class YeniBildirimGirisi extends StatelessWidget {
                           underline: Container(),
                           items: <String>[
                             '[Seçiniz]',
-                            'Adana','Adıyaman', 'Afyon', 'Ağrı', 'Amasya', 'Ankara', 'Antalya', 'Artvin',
-                            'Aydın', 'Balıkesir','Bilecik', 'Bingöl', 'Bitlis', 'Bolu', 'Burdur', 'Bursa', 'Çanakkale',
-                            'Çankırı', 'Çorum','Denizli','Diyarbakır', 'Edirne', 'Elazığ', 'Erzincan', 'Erzurum ', 'Eskişehir',
-                            'Gaziantep', 'Giresun','Gümüşhane', 'Hakkari', 'Hatay', 'Isparta', 'Mersin', 'İstanbul', 'İzmir',
-                            'Kars', 'Kastamonu', 'Kayseri','Kırklareli', 'Kırşehir', 'Kocaeli', 'Konya', 'Kütahya ', 'Malatya',
-                            'Manisa', 'Kahramanmaraş', 'Mardin', 'Muğla', 'Muş', 'Nevşehir', 'Niğde', 'Ordu', 'Rize', 'Sakarya',
-                            'Samsun', 'Siirt', 'Sinop', 'Sivas', 'Tekirdağ', 'Tokat', 'Trabzon  ', 'Tunceli', 'Şanlıurfa', 'Uşak',
-                            'Van', 'Yozgat', 'Zonguldak', 'Aksaray', 'Bayburt ', 'Karaman', 'Kırıkkale', 'Batman', 'Şırnak',
-                            'Bartın', 'Ardahan', 'Iğdır', 'Yalova', 'Karabük ', 'Kilis', 'Osmaniye ', 'Düzce'
-                          ]
-                              .map((String value) {
+                            'Adana',
+                            'Adıyaman',
+                            'Afyon',
+                            'Ağrı',
+                            'Amasya',
+                            'Ankara',
+                            'Antalya',
+                            'Artvin',
+                            'Aydın',
+                            'Balıkesir',
+                            'Bilecik',
+                            'Bingöl',
+                            'Bitlis',
+                            'Bolu',
+                            'Burdur',
+                            'Bursa',
+                            'Çanakkale',
+                            'Çankırı',
+                            'Çorum',
+                            'Denizli',
+                            'Diyarbakır',
+                            'Edirne',
+                            'Elazığ',
+                            'Erzincan',
+                            'Erzurum ',
+                            'Eskişehir',
+                            'Gaziantep',
+                            'Giresun',
+                            'Gümüşhane',
+                            'Hakkari',
+                            'Hatay',
+                            'Isparta',
+                            'Mersin',
+                            'İstanbul',
+                            'İzmir',
+                            'Kars',
+                            'Kastamonu',
+                            'Kayseri',
+                            'Kırklareli',
+                            'Kırşehir',
+                            'Kocaeli',
+                            'Konya',
+                            'Kütahya ',
+                            'Malatya',
+                            'Manisa',
+                            'Kahramanmaraş',
+                            'Mardin',
+                            'Muğla',
+                            'Muş',
+                            'Nevşehir',
+                            'Niğde',
+                            'Ordu',
+                            'Rize',
+                            'Sakarya',
+                            'Samsun',
+                            'Siirt',
+                            'Sinop',
+                            'Sivas',
+                            'Tekirdağ',
+                            'Tokat',
+                            'Trabzon  ',
+                            'Tunceli',
+                            'Şanlıurfa',
+                            'Uşak',
+                            'Van',
+                            'Yozgat',
+                            'Zonguldak',
+                            'Aksaray',
+                            'Bayburt ',
+                            'Karaman',
+                            'Kırıkkale',
+                            'Batman',
+                            'Şırnak',
+                            'Bartın',
+                            'Ardahan',
+                            'Iğdır',
+                            'Yalova',
+                            'Karabük ',
+                            'Kilis',
+                            'Osmaniye ',
+                            'Düzce'
+                          ].map((String value) {
                             return new DropdownMenuItem<String>(
                               value: value,
                               child: new Text(
@@ -344,8 +423,12 @@ class YeniBildirimGirisi extends StatelessWidget {
                           iconDisabledColor: Colors.white70,
                           value: _yapi,
                           underline: Container(),
-                          items: <String>['[Seçiniz]','Seçenek 1', 'Seçenek 2', 'Seçenek 3']
-                              .map((String value) {
+                          items: <String>[
+                            '[Seçiniz]',
+                            'Seçenek 1',
+                            'Seçenek 2',
+                            'Seçenek 3'
+                          ].map((String value) {
                             return new DropdownMenuItem<String>(
                               value: value,
                               child: new Text(
@@ -375,7 +458,8 @@ class YeniBildirimGirisi extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     OutlinedButton(
-                      onPressed: () => Navigator.pushReplacementNamed(context, '/detaylibildirimarama'),
+                      onPressed: () => Navigator.pushReplacementNamed(
+                          context, '/detaylibildirimarama'),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6)),
@@ -392,7 +476,8 @@ class YeniBildirimGirisi extends StatelessWidget {
                       width: 10,
                     ),
                     OutlinedButton(
-                      onPressed: () => Navigator.pushReplacementNamed(context, '/detaylibildirimarama'),
+                      onPressed: () => Navigator.pushReplacementNamed(
+                          context, '/detaylibildirimarama'),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6)),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../widgets/gradient-text.dart';
+
+import '../widgets/gradient_text.dart';
 
 class Onboarding extends StatelessWidget {
   @override

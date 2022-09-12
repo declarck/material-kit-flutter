@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:material_kit_flutter/constants/Theme.dart';
-import 'package:material_kit_flutter/widgets/card-horizontal.dart';
-import 'package:material_kit_flutter/widgets/card-rectangle.dart';
-import 'package:material_kit_flutter/widgets/card-small.dart';
+import 'package:material_kit_flutter/constants/theme.dart';
+import 'package:material_kit_flutter/widgets/card_horizontal.dart';
+import 'package:material_kit_flutter/widgets/card_rectangle.dart';
+import 'package:material_kit_flutter/widgets/card_small.dart';
 import 'package:material_kit_flutter/widgets/drawer.dart';
 
 class GelenCagriBildirimleri extends StatelessWidget {
