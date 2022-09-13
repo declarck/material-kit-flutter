@@ -102,10 +102,6 @@ class _LoginState extends ConsumerState<Login> {
                       FlatButton(
                         textColor: Colors.white,
                         color: Colors.green,
-                        // onPressed: () {
-                        //   Navigator.pushReplacementNamed(
-                        //       context, '/gelencagribildirimleri');
-                        // },
                         onPressed: () => ref.read(loginRiverpod).fetch(),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4.0),

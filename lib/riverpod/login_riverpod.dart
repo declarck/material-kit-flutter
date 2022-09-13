@@ -15,15 +15,18 @@ class LoginRiverpod extends ChangeNotifier {
 
   void fetch() {
     service.loginCall(email: email.text, password: password.text).then((value) {
-      if (value != null && value.Sonuc! == 'Ok') {
-        box.write('token', value.LoginToken);
+      if (value != null && value.sonuc! == 'Ok') {
+        box.write('token', value.loginToken);
         log('Kaydedilen token: ${box.read("token")}');
+        //Grock.back();
         Grock.toRemove(GelenCagriBildirimleri());
-      } else if (value?.Sonuc == 'Hata') {
+      } else if (value?.sonuc == 'Hata') {
+        //Grock.back();
         Grock.snackBar(
-            title: '${value?.MesajBaslik}',
-            description: '${value?.MesajIcerik}');
+            title: '${value?.mesajBaslik}',
+            description: '${value?.mesajIcerik}');
       } else {
+        //Grock.back();
         Grock.snackBar(
             title: 'İşlem', description: 'Lütfen işlemi gerçekleştiriniz.');
       }
