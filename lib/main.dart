@@ -14,7 +14,6 @@ import 'package:material_kit_flutter/screens/sifremi_unuttum.dart';
 import 'package:material_kit_flutter/screens/splash.dart';
 import 'package:material_kit_flutter/screens/yeni_bildirim_girisi.dart';
 
-//Test for committing.
 void main() async {
   await GetStorage.init();
   runApp(ProviderScope(child: CallCenterTR()));
